@@ -217,8 +217,10 @@ export const Land = (): JSX.Element => {
                             Dh
                           </div>
                         </div>
-                        <Button className="h-[50px] px-8 bg-white rounded-[10px] border-0 hover:bg-white/90 text-black [font-family:'Rubik',Helvetica] font-semibold text-lg tracking-[0] leading-[normal]">
-                          Calculate
+                        <Button className="h-[50px] w-[200px] bg-white rounded-[10px] border-0 hover:bg-white/90 flex items-center justify-center">
+                          <span className="[font-family:'Rubik',Helvetica] font-semibold text-black text-lg tracking-[0] leading-[normal]">
+                            Calculate
+                          </span>
                         </Button>
                       </div>
                     </div>
