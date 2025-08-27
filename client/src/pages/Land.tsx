@@ -270,7 +270,7 @@ export const Land = (): JSX.Element => {
           </div>
         </section>
 
-        <section className="absolute w-[1919px] h-[986px] top-[2191px] left-0 bg-[linear-gradient(180deg,rgba(6,20,27,1)_0%,rgba(252,251,252,1)_100%)]">
+        <section className="absolute w-[1919px] h-[986px] top-[2191px] left-0 bg-[#f8f8f8]">
           <div className="absolute top-[117px] left-[738px] [font-family:'Inter',Helvetica] font-bold text-black text-[28px] text-center tracking-[0] leading-[normal]">
             Take Control of Your Energy Bills
           </div>
