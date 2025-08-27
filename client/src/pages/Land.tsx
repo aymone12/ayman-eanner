@@ -328,14 +328,14 @@ export const Land = (): JSX.Element => {
             {processSteps.map((step, index) => (
               <Card
                 key={index}
-                className={`w-[296px] h-[247px] bg-[#132e35] rounded-[20px] ${step.highlighted ? "border-[3px] border-solid border-white" : "border-2 border-solid border-white"}`}
+                className={`w-[296px] h-[247px] bg-[#132e35] rounded-[20px] ${step.highlighted ? "border-[3px] border-solid border-white" : "border-2 border-solid border-white"} relative`}
               >
-                <CardContent className="p-0">
+                <CardContent className="h-full flex flex-col p-0">
+                  <div className="absolute top-[45px] left-[21px] [font-family:'Inter',Helvetica] font-semibold text-white text-xl tracking-[0] leading-[normal]">
+                    {step.title}
+                  </div>
                   <div className="absolute w-[245px] top-[89px] left-[21px] [font-family:'Inter',Helvetica] font-medium text-white text-[15px] tracking-[0] leading-[normal]">
                     {step.description}
-                  </div>
-                  <div className="absolute top-[45px] left-[21px] [font-family:'Inter',Helvetica] font-semibold text-white text-xl text-center tracking-[0] leading-[normal] whitespace-nowrap">
-                    {step.title}
                   </div>
                 </CardContent>
               </Card>
