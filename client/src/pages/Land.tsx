@@ -97,15 +97,15 @@ export const Land = (): JSX.Element => {
           </div>
         </section>
 
-        <Button className="top-[351px] left-[797px] absolute w-[327px] h-[61px] rounded-[30px] border-2 border-solid border-white bg-transparent hover:bg-white/10 h-auto">
+        <Button className="top-[351px] left-[797px] absolute w-[327px] h-[61px] rounded-[30px] border-2 border-solid border-white bg-transparent hover:bg-white/10 h-auto flex items-center justify-between px-[18px]">
+          <span className="[font-family:'Inter',Helvetica] font-bold text-white text-xl tracking-[0] leading-[normal] whitespace-nowrap">
+            Ready To Save Energy?
+          </span>
           <img
-            className="absolute w-[43px] h-[43px] top-[7px] left-[269px]"
+            className="w-[43px] h-[43px]"
             alt="Component"
             src="/figmaAssets/component-1.svg"
           />
-          <div className="absolute top-4 left-[18px] [font-family:'Inter',Helvetica] font-bold text-white text-xl text-center tracking-[0] leading-[normal] whitespace-nowrap">
-            Ready To Save Energy?
-          </div>
         </Button>
 
         <section className="absolute w-[1361px] h-[527px] top-[461px] left-[217px]">
@@ -257,15 +257,15 @@ export const Land = (): JSX.Element => {
               Power Your Home, Save Money
             </div>
 
-            <Button className="absolute w-[327px] h-[61px] top-[188px] left-[200px] rounded-[30px] border-2 border-solid border-white bg-transparent hover:bg-white/10 h-auto">
+            <Button className="absolute w-[327px] h-[61px] top-[188px] left-[200px] rounded-[30px] border-2 border-solid border-white bg-transparent hover:bg-white/10 h-auto flex items-center justify-between px-[18px]">
+              <span className="[font-family:'Inter',Helvetica] font-bold text-white text-xl tracking-[0] leading-[normal] whitespace-nowrap">
+                Ready To Save Energy?
+              </span>
               <img
-                className="absolute w-[43px] h-[43px] top-[7px] left-[269px]"
+                className="w-[43px] h-[43px]"
                 alt="Component"
                 src="/figmaAssets/component-1.svg"
               />
-              <div className="absolute top-4 left-[18px] [font-family:'Inter',Helvetica] font-bold text-white text-xl text-center tracking-[0] leading-[normal] whitespace-nowrap">
-                Ready To Save Energy?
-              </div>
             </Button>
           </div>
         </section>
@@ -296,15 +296,15 @@ export const Land = (): JSX.Element => {
             enjoy long term savings
           </div>
 
-          <Button className="top-[265px] left-[797px] absolute w-[327px] h-[61px] rounded-[30px] border-2 border-solid border-[#06141b] bg-transparent hover:bg-[#06141b]/10 h-auto">
+          <Button className="top-[265px] left-[797px] absolute w-[327px] h-[61px] rounded-[30px] border-2 border-solid border-[#06141b] bg-transparent hover:bg-[#06141b]/10 h-auto flex items-center justify-between px-[18px]">
+            <span className="[font-family:'Inter',Helvetica] font-bold text-[#06141b] text-xl tracking-[0] leading-[normal] whitespace-nowrap">
+              Ready To Save Energy?
+            </span>
             <img
-              className="absolute w-[43px] h-[43px] top-[7px] left-[269px]"
+              className="w-[43px] h-[43px]"
               alt="Component"
               src="/figmaAssets/component-1-2.svg"
             />
-            <div className="absolute top-4 left-[18px] [font-family:'Inter',Helvetica] font-bold text-[#06141b] text-xl text-center tracking-[0] leading-[normal] whitespace-nowrap">
-              Ready To Save Energy?
-            </div>
           </Button>
 
           <div className="absolute top-[917px] left-[717px] [font-family:'Inter',Helvetica] font-semibold text-black text-xl text-center tracking-[0] leading-[normal] whitespace-nowrap">
@@ -343,26 +343,26 @@ export const Land = (): JSX.Element => {
           </div>
         </section>
 
-        <Button className="top-[3944px] left-[815px] absolute w-[327px] h-[61px] rounded-[30px] border-2 border-solid border-white bg-transparent hover:bg-white/10 h-auto">
+        <Button className="top-[3944px] left-[815px] absolute w-[327px] h-[61px] rounded-[30px] border-2 border-solid border-white bg-transparent hover:bg-white/10 h-auto flex items-center justify-between px-[18px]">
+          <span className="[font-family:'Inter',Helvetica] font-bold text-white text-xl tracking-[0] leading-[normal] whitespace-nowrap">
+            Ready To Save Energy?
+          </span>
           <img
-            className="absolute w-[43px] h-[43px] top-[7px] left-[269px]"
+            className="w-[43px] h-[43px]"
             alt="Component"
             src="/figmaAssets/component-1.svg"
           />
-          <div className="absolute top-4 left-[18px] [font-family:'Inter',Helvetica] font-bold text-white text-xl text-center tracking-[0] leading-[normal] whitespace-nowrap">
-            Ready To Save Energy?
-          </div>
         </Button>
 
-        <Button className="top-[5097px] left-[796px] absolute w-[327px] h-[61px] rounded-[30px] border-2 border-solid border-white bg-transparent hover:bg-white/10 h-auto">
+        <Button className="top-[5097px] left-[796px] absolute w-[327px] h-[61px] rounded-[30px] border-2 border-solid border-white bg-transparent hover:bg-white/10 h-auto flex items-center justify-between px-[18px]">
+          <span className="[font-family:'Inter',Helvetica] font-bold text-white text-xl tracking-[0] leading-[normal] whitespace-nowrap">
+            Ready To Save Energy?
+          </span>
           <img
-            className="absolute w-[43px] h-[43px] top-[7px] left-[269px]"
+            className="w-[43px] h-[43px]"
             alt="Component"
             src="/figmaAssets/component-1.svg"
           />
-          <div className="absolute top-4 left-[18px] [font-family:'Inter',Helvetica] font-bold text-white text-xl text-center tracking-[0] leading-[normal] whitespace-nowrap">
-            Ready To Save Energy?
-          </div>
         </Button>
 
         <img
