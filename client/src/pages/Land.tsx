@@ -271,29 +271,12 @@ export const Land = (): JSX.Element => {
         </section>
 
         <section className="absolute w-[1919px] h-[986px] top-[2191px] left-0 bg-[linear-gradient(180deg,rgba(6,20,27,1)_0%,rgba(252,251,252,1)_100%)]">
-          <img
-            className="w-[723px] h-[482px] top-[381px] left-[589px] absolute object-cover"
-            alt="Image"
-            src="/figmaAssets/image-10.png"
-          />
-
           <div className="absolute top-[117px] left-[738px] [font-family:'Inter',Helvetica] font-bold text-black text-[28px] text-center tracking-[0] leading-[normal]">
-            <span className="[font-family:'Inter',Helvetica] font-bold text-black text-[28px] tracking-[0]">
-              Take Control{" "}
-            </span>
-            <span className="[font-family:'Inter',Helvetica] font-bold text-black text-[28px] tracking-[0]">
-              of
-            </span>
-            <span className="[font-family:'Inter',Helvetica] font-bold text-black text-[28px] tracking-[0]">
-              {" "}
-              Your Energy Bills
-            </span>
+            Take Control of Your Energy Bills
           </div>
 
           <div className="absolute w-[820px] top-[189px] left-[550px] [font-family:'Inter',Helvetica] font-semibold text-black text-base text-center tracking-[0] leading-[normal]">
-            Take control of your energy bills by switching to solar power;
-            reduce reliance on expensive electricity, lock in lower rates, and
-            enjoy long term savings
+            Take control of your energy bills by switching to solar power; reduce reliance on expensive electricity, lock in lower rates, and enjoy long term savings
           </div>
 
           <Button className="top-[265px] left-[797px] absolute w-[327px] h-[61px] rounded-[30px] border-2 border-solid border-[#06141b] bg-transparent hover:bg-[#06141b]/10 h-auto flex items-center justify-between px-[18px]">
@@ -306,6 +289,12 @@ export const Land = (): JSX.Element => {
               src="/figmaAssets/component-1-2.svg"
             />
           </Button>
+
+          <img
+            className="w-[723px] h-[482px] top-[381px] left-[589px] absolute object-cover"
+            alt="Image"
+            src="/figmaAssets/image-10.png"
+          />
 
           <div className="absolute top-[917px] left-[717px] [font-family:'Inter',Helvetica] font-semibold text-black text-xl text-center tracking-[0] leading-[normal] whitespace-nowrap">
             It takes just a few steps to make your family happy
