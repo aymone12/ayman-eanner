@@ -387,69 +387,133 @@ export const Land = (): JSX.Element => {
           src="/figmaAssets/image-13.png"
         />
 
-        <footer className="w-[1920px] h-[329px] top-[5997px] left-0 absolute bg-[#0a1b23] border-t-2 border-[#2c4a52]">
-          <div className="relative w-full h-full">
-            {/* Background gradient */}
-            <div className="absolute inset-0 bg-gradient-to-b from-[#132e35] to-[#0a1b23]"></div>
-            
-            {/* Content */}
-            <div className="relative z-10 flex justify-between items-start pt-12 px-20">
-              {/* Left section - Company info */}
-              <div className="flex flex-col">
-                <div className="[font-family:'Inter',Helvetica] font-bold text-white text-2xl mb-4">
-                  eaneer energetics
+        <footer className="w-[1920px] h-[329px] top-[5997px] left-0 absolute bg-[#06141b]">
+          <div className="relative w-full h-full px-[171px] py-[64px]">
+            {/* Top content */}
+            <div className="flex justify-between items-start mb-[89px]">
+              {/* Left section - Company logo and description */}
+              <div className="w-[277px]">
+                <div className="[font-family:'Inter',Helvetica] font-bold text-white text-[24px] mb-4">
+                  ⚡ eaneer
                 </div>
-                <div className="[font-family:'Inter',Helvetica] font-medium text-[#69818d] text-sm mb-2">
-                  Solar Energy Solutions
-                </div>
-                <div className="[font-family:'Inter',Helvetica] font-normal text-[#69818d] text-sm">
-                  Making Morocco a beacon of green energy
+                <div className="[font-family:'Inter',Helvetica] font-normal text-white text-[14px] leading-[20px]">
+                  Contact Eaneer for the Energy Future<br/>
+                  Contact Eaneer for Innovative Energy Solutions.<br/>
+                  Transform your Vision into Reality with Speed,<br/>
+                  Efficiency and Savings.
                 </div>
               </div>
               
-              {/* Center section - Quick links */}
-              <div className="flex flex-col">
-                <div className="[font-family:'Inter',Helvetica] font-semibold text-white text-lg mb-4">
-                  Quick Links
+              {/* Navigation columns */}
+              <div className="flex gap-[120px]">
+                {/* Home column */}
+                <div className="flex flex-col">
+                  <div className="[font-family:'Inter',Helvetica] font-semibold text-white text-[16px] mb-4">
+                    Home
+                  </div>
+                  <div className="flex flex-col space-y-2">
+                    <div className="[font-family:'Inter',Helvetica] font-normal text-white text-[14px] hover:text-[#69818d] cursor-pointer">
+                      About us
+                    </div>
+                    <div className="[font-family:'Inter',Helvetica] font-normal text-white text-[14px] hover:text-[#69818d] cursor-pointer">
+                      Industrial Technology
+                    </div>
+                  </div>
                 </div>
-                <div className="flex flex-col space-y-2">
-                  <div className="[font-family:'Inter',Helvetica] font-normal text-[#69818d] text-sm hover:text-white cursor-pointer">
-                    About Us
+                
+                {/* Industry column */}
+                <div className="flex flex-col">
+                  <div className="[font-family:'Inter',Helvetica] font-semibold text-white text-[16px] mb-4">
+                    Industry
                   </div>
-                  <div className="[font-family:'Inter',Helvetica] font-normal text-[#69818d] text-sm hover:text-white cursor-pointer">
-                    Our Services
-                  </div>
-                  <div className="[font-family:'Inter',Helvetica] font-normal text-[#69818d] text-sm hover:text-white cursor-pointer">
-                    Contact
+                  <div className="flex flex-col space-y-2">
+                    <div className="[font-family:'Inter',Helvetica] font-normal text-white text-[14px] hover:text-[#69818d] cursor-pointer">
+                      Industrial
+                    </div>
+                    <div className="[font-family:'Inter',Helvetica] font-normal text-white text-[14px] hover:text-[#69818d] cursor-pointer">
+                      Agriculture
+                    </div>
+                    <div className="[font-family:'Inter',Helvetica] font-normal text-white text-[14px] hover:text-[#69818d] cursor-pointer">
+                      Building
+                    </div>
+                    <div className="[font-family:'Inter',Helvetica] font-normal text-white text-[14px] hover:text-[#69818d] cursor-pointer">
+                      Security
+                    </div>
+                    <div className="[font-family:'Inter',Helvetica] font-normal text-white text-[14px] hover:text-[#69818d] cursor-pointer">
+                      Energy
+                    </div>
                   </div>
                 </div>
-              </div>
-              
-              {/* Right section - Contact info */}
-              <div className="flex flex-col">
-                <div className="[font-family:'Inter',Helvetica] font-semibold text-white text-lg mb-4">
-                  Get In Touch
+                
+                {/* Investors column */}
+                <div className="flex flex-col">
+                  <div className="[font-family:'Inter',Helvetica] font-semibold text-white text-[16px] mb-4">
+                    Investors
+                  </div>
+                  <div className="flex flex-col space-y-2">
+                    <div className="[font-family:'Inter',Helvetica] font-normal text-white text-[14px] hover:text-[#69818d] cursor-pointer">
+                      Projects
+                    </div>
+                    <div className="[font-family:'Inter',Helvetica] font-normal text-white text-[14px] hover:text-[#69818d] cursor-pointer">
+                      Finance
+                    </div>
+                    <div className="[font-family:'Inter',Helvetica] font-normal text-white text-[14px] hover:text-[#69818d] cursor-pointer">
+                      Statements
+                    </div>
+                    <div className="[font-family:'Inter',Helvetica] font-normal text-white text-[14px] hover:text-[#69818d] cursor-pointer">
+                      Projections
+                    </div>
+                  </div>
                 </div>
-                <div className="flex flex-col space-y-2">
-                  <div className="[font-family:'Inter',Helvetica] font-normal text-[#69818d] text-sm">
-                    info@eaneer.ma
+                
+                {/* Company column */}
+                <div className="flex flex-col">
+                  <div className="[font-family:'Inter',Helvetica] font-semibold text-white text-[16px] mb-4">
+                    Company
                   </div>
-                  <div className="[font-family:'Inter',Helvetica] font-normal text-[#69818d] text-sm">
-                    +212 XXX XXX XXX
-                  </div>
-                  <div className="[font-family:'Inter',Helvetica] font-normal text-[#69818d] text-sm">
-                    Casablanca, Morocco
+                  <div className="flex flex-col space-y-2">
+                    <div className="[font-family:'Inter',Helvetica] font-normal text-white text-[14px] hover:text-[#69818d] cursor-pointer">
+                      Purpose
+                    </div>
+                    <div className="[font-family:'Inter',Helvetica] font-normal text-white text-[14px] hover:text-[#69818d] cursor-pointer">
+                      Innovation
+                    </div>
+                    <div className="[font-family:'Inter',Helvetica] font-normal text-white text-[14px] hover:text-[#69818d] cursor-pointer">
+                      Partners
+                    </div>
+                    <div className="[font-family:'Inter',Helvetica] font-normal text-white text-[14px] hover:text-[#69818d] cursor-pointer">
+                      Career
+                    </div>
+                    <div className="[font-family:'Inter',Helvetica] font-normal text-white text-[14px] hover:text-[#69818d] cursor-pointer">
+                      Affiliate
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
             
-            {/* Bottom copyright */}
-            <div className="absolute bottom-8 left-20 right-20">
-              <div className="border-t border-[#2c4a52] pt-4">
-                <div className="[font-family:'Inter',Helvetica] font-normal text-[#69818d] text-xs text-center">
-                  © 2024 eaneer energetics. All rights reserved. | Together, We Rise Under One Sun.
+            {/* Bottom section */}
+            <div className="flex justify-between items-center">
+              <div className="flex space-x-8">
+                <div className="[font-family:'Inter',Helvetica] font-normal text-white text-[12px] underline hover:text-[#69818d] cursor-pointer">
+                  Privacy Policy
                 </div>
+                <div className="[font-family:'Inter',Helvetica] font-normal text-white text-[12px] underline hover:text-[#69818d] cursor-pointer">
+                  Term of Service
+                </div>
+                <div className="[font-family:'Inter',Helvetica] font-normal text-white text-[12px] underline hover:text-[#69818d] cursor-pointer">
+                  Accessibility
+                </div>
+                <div className="[font-family:'Inter',Helvetica] font-normal text-white text-[12px] underline hover:text-[#69818d] cursor-pointer">
+                  Contact
+                </div>
+                <div className="[font-family:'Inter',Helvetica] font-normal text-white text-[12px] underline hover:text-[#69818d] cursor-pointer">
+                  Legal
+                </div>
+              </div>
+              
+              <div className="[font-family:'Inter',Helvetica] font-normal text-white text-[12px]">
+                2024 eaneer .all right reserved
               </div>
             </div>
           </div>
