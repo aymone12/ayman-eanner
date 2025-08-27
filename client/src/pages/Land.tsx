@@ -387,59 +387,79 @@ export const Land = (): JSX.Element => {
           src="/figmaAssets/image-13.png"
         />
 
-        <footer className="w-[1920px] h-[329px] top-[5997px] left-0 absolute bg-[#06141b]">
-          <div className="relative w-full h-full px-[171px] py-[64px]">
-            {/* Top content */}
-            <div className="flex justify-between items-start mb-[89px]">
-              {/* Left section - Company logo and description */}
-              <div className="w-[277px]">
-                <div className="[font-family:'Inter',Helvetica] font-bold text-white text-[24px] mb-4">
-                  ⚡ eaneer
+        <footer className="w-[1920px] h-[329px] top-[5997px] left-0 absolute bg-[#0a1a1a] border-t border-[#374151]">
+          <div className="max-w-7xl mx-auto px-5 py-5">
+            <div className="flex justify-between items-start">
+              {/* Left section - Logo and Description */}
+              <div className="flex flex-col flex-1 mr-10">
+                {/* Logo */}
+                <div className="flex items-center mb-5">
+                  <div className="w-10 h-10 bg-gradient-to-br from-[#4a9eff] to-[#00d4ff] mr-2.5 relative transform rotate-45 rounded">
+                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -rotate-45 w-0 h-0 border-l-2 border-l-transparent border-r-2 border-r-transparent border-b-3 border-b-white"></div>
+                  </div>
+                  <div>
+                    <div className="[font-family:'Inter',Helvetica] font-bold text-white text-2xl">
+                      eaneer
+                    </div>
+                    <div className="[font-family:'Inter',Helvetica] font-normal text-[#9ca3af] text-xs mt-1">
+                      Powering a Promising Future for Everyone
+                    </div>
+                  </div>
                 </div>
-                <div className="[font-family:'Inter',Helvetica] font-normal text-white text-[14px] leading-[20px]">
-                  Contact Eaneer for the Energy Future<br/>
-                  Contact Eaneer for Innovative Energy Solutions.<br/>
-                  Transform your Vision into Reality with Speed,<br/>
-                  Efficiency and Savings.
+                
+                {/* Contact Info */}
+                <div className="mb-5">
+                  <h2 className="[font-family:'Inter',Helvetica] font-normal text-white text-base mb-2">
+                    Contact Eaneer for the Energy Future
+                  </h2>
+                  <p className="[font-family:'Inter',Helvetica] font-normal text-[#d1d5db] text-sm mb-1">
+                    Contact Eaneer for Innovative Energy Solutions.
+                  </p>
+                  <p className="[font-family:'Inter',Helvetica] font-normal text-[#d1d5db] text-sm mb-1">
+                    Transform Your Vision into Reality with Speed,
+                  </p>
+                  <p className="[font-family:'Inter',Helvetica] font-normal text-[#d1d5db] text-sm">
+                    Efficiency and Savings.
+                  </p>
                 </div>
               </div>
-              
+
               {/* Navigation columns */}
-              <div className="flex gap-[120px]">
+              <div className="flex gap-16">
                 {/* Home column */}
                 <div className="flex flex-col">
-                  <div className="[font-family:'Inter',Helvetica] font-semibold text-white text-[16px] mb-4">
+                  <div className="[font-family:'Inter',Helvetica] font-bold text-white text-base mb-4 cursor-pointer">
                     Home
                   </div>
-                  <div className="flex flex-col space-y-2">
-                    <div className="[font-family:'Inter',Helvetica] font-normal text-white text-[14px] hover:text-[#69818d] cursor-pointer">
+                  <div className="flex flex-col">
+                    <div className="[font-family:'Inter',Helvetica] font-normal text-[#9ca3af] text-sm mb-2 cursor-pointer hover:text-[#60a5fa]">
                       About us
                     </div>
-                    <div className="[font-family:'Inter',Helvetica] font-normal text-white text-[14px] hover:text-[#69818d] cursor-pointer">
-                      Industrial Technology
+                    <div className="[font-family:'Inter',Helvetica] font-normal text-[#9ca3af] text-sm mb-2 cursor-pointer hover:text-[#60a5fa]">
+                      Technologies
                     </div>
                   </div>
                 </div>
                 
                 {/* Industry column */}
                 <div className="flex flex-col">
-                  <div className="[font-family:'Inter',Helvetica] font-semibold text-white text-[16px] mb-4">
+                  <div className="[font-family:'Inter',Helvetica] font-bold text-white text-base mb-4 cursor-pointer">
                     Industry
                   </div>
-                  <div className="flex flex-col space-y-2">
-                    <div className="[font-family:'Inter',Helvetica] font-normal text-white text-[14px] hover:text-[#69818d] cursor-pointer">
+                  <div className="flex flex-col">
+                    <div className="[font-family:'Inter',Helvetica] font-normal text-[#9ca3af] text-sm mb-2 cursor-pointer hover:text-[#60a5fa]">
                       Industrial
                     </div>
-                    <div className="[font-family:'Inter',Helvetica] font-normal text-white text-[14px] hover:text-[#69818d] cursor-pointer">
+                    <div className="[font-family:'Inter',Helvetica] font-normal text-[#9ca3af] text-sm mb-2 cursor-pointer hover:text-[#60a5fa]">
                       Agriculture
                     </div>
-                    <div className="[font-family:'Inter',Helvetica] font-normal text-white text-[14px] hover:text-[#69818d] cursor-pointer">
+                    <div className="[font-family:'Inter',Helvetica] font-normal text-[#9ca3af] text-sm mb-2 cursor-pointer hover:text-[#60a5fa]">
                       Building
                     </div>
-                    <div className="[font-family:'Inter',Helvetica] font-normal text-white text-[14px] hover:text-[#69818d] cursor-pointer">
+                    <div className="[font-family:'Inter',Helvetica] font-normal text-[#9ca3af] text-sm mb-2 cursor-pointer hover:text-[#60a5fa]">
                       Security
                     </div>
-                    <div className="[font-family:'Inter',Helvetica] font-normal text-white text-[14px] hover:text-[#69818d] cursor-pointer">
+                    <div className="[font-family:'Inter',Helvetica] font-normal text-[#9ca3af] text-sm mb-2 cursor-pointer hover:text-[#60a5fa]">
                       Energy
                     </div>
                   </div>
@@ -447,20 +467,20 @@ export const Land = (): JSX.Element => {
                 
                 {/* Investors column */}
                 <div className="flex flex-col">
-                  <div className="[font-family:'Inter',Helvetica] font-semibold text-white text-[16px] mb-4">
+                  <div className="[font-family:'Inter',Helvetica] font-bold text-white text-base mb-4 cursor-pointer">
                     Investors
                   </div>
-                  <div className="flex flex-col space-y-2">
-                    <div className="[font-family:'Inter',Helvetica] font-normal text-white text-[14px] hover:text-[#69818d] cursor-pointer">
+                  <div className="flex flex-col">
+                    <div className="[font-family:'Inter',Helvetica] font-normal text-[#9ca3af] text-sm mb-2 cursor-pointer hover:text-[#60a5fa]">
                       Projects
                     </div>
-                    <div className="[font-family:'Inter',Helvetica] font-normal text-white text-[14px] hover:text-[#69818d] cursor-pointer">
+                    <div className="[font-family:'Inter',Helvetica] font-normal text-[#9ca3af] text-sm mb-2 cursor-pointer hover:text-[#60a5fa]">
                       Finance
                     </div>
-                    <div className="[font-family:'Inter',Helvetica] font-normal text-white text-[14px] hover:text-[#69818d] cursor-pointer">
+                    <div className="[font-family:'Inter',Helvetica] font-normal text-[#9ca3af] text-sm mb-2 cursor-pointer hover:text-[#60a5fa]">
                       Statements
                     </div>
-                    <div className="[font-family:'Inter',Helvetica] font-normal text-white text-[14px] hover:text-[#69818d] cursor-pointer">
+                    <div className="[font-family:'Inter',Helvetica] font-normal text-[#9ca3af] text-sm mb-2 cursor-pointer hover:text-[#60a5fa]">
                       Projections
                     </div>
                   </div>
@@ -468,23 +488,23 @@ export const Land = (): JSX.Element => {
                 
                 {/* Company column */}
                 <div className="flex flex-col">
-                  <div className="[font-family:'Inter',Helvetica] font-semibold text-white text-[16px] mb-4">
+                  <div className="[font-family:'Inter',Helvetica] font-bold text-white text-base mb-4 cursor-pointer">
                     Company
                   </div>
-                  <div className="flex flex-col space-y-2">
-                    <div className="[font-family:'Inter',Helvetica] font-normal text-white text-[14px] hover:text-[#69818d] cursor-pointer">
+                  <div className="flex flex-col">
+                    <div className="[font-family:'Inter',Helvetica] font-normal text-[#9ca3af] text-sm mb-2 cursor-pointer hover:text-[#60a5fa]">
                       Purpose
                     </div>
-                    <div className="[font-family:'Inter',Helvetica] font-normal text-white text-[14px] hover:text-[#69818d] cursor-pointer">
+                    <div className="[font-family:'Inter',Helvetica] font-normal text-[#9ca3af] text-sm mb-2 cursor-pointer hover:text-[#60a5fa]">
                       Innovation
                     </div>
-                    <div className="[font-family:'Inter',Helvetica] font-normal text-white text-[14px] hover:text-[#69818d] cursor-pointer">
+                    <div className="[font-family:'Inter',Helvetica] font-normal text-[#9ca3af] text-sm mb-2 cursor-pointer hover:text-[#60a5fa]">
                       Partners
                     </div>
-                    <div className="[font-family:'Inter',Helvetica] font-normal text-white text-[14px] hover:text-[#69818d] cursor-pointer">
-                      Career
+                    <div className="[font-family:'Inter',Helvetica] font-normal text-[#9ca3af] text-sm mb-2 cursor-pointer hover:text-[#60a5fa]">
+                      Carrier
                     </div>
-                    <div className="[font-family:'Inter',Helvetica] font-normal text-white text-[14px] hover:text-[#69818d] cursor-pointer">
+                    <div className="[font-family:'Inter',Helvetica] font-normal text-[#9ca3af] text-sm mb-2 cursor-pointer hover:text-[#60a5fa]">
                       Affiliate
                     </div>
                   </div>
@@ -492,28 +512,29 @@ export const Land = (): JSX.Element => {
               </div>
             </div>
             
-            {/* Bottom section */}
-            <div className="flex justify-between items-center">
-              <div className="flex space-x-8">
-                <div className="[font-family:'Inter',Helvetica] font-normal text-white text-[12px] underline hover:text-[#69818d] cursor-pointer">
-                  Privacy Policy
+            {/* Bottom section - Footer links */}
+            <div className="border-t border-[#374151] pt-4 mt-12">
+              <div className="flex justify-between items-center">
+                <div className="flex gap-5">
+                  <span className="[font-family:'Inter',Helvetica] font-normal text-[#6b7280] text-xs underline cursor-pointer hover:text-[#60a5fa]">
+                    Privacy policy
+                  </span>
+                  <span className="[font-family:'Inter',Helvetica] font-normal text-[#6b7280] text-xs underline cursor-pointer hover:text-[#60a5fa]">
+                    Term of Service
+                  </span>
+                  <span className="[font-family:'Inter',Helvetica] font-normal text-[#6b7280] text-xs underline cursor-pointer hover:text-[#60a5fa]">
+                    Accessibility
+                  </span>
+                  <span className="[font-family:'Inter',Helvetica] font-normal text-[#6b7280] text-xs underline cursor-pointer hover:text-[#60a5fa]">
+                    Contact
+                  </span>
+                  <span className="[font-family:'Inter',Helvetica] font-normal text-[#6b7280] text-xs underline cursor-pointer hover:text-[#60a5fa]">
+                    Legal
+                  </span>
                 </div>
-                <div className="[font-family:'Inter',Helvetica] font-normal text-white text-[12px] underline hover:text-[#69818d] cursor-pointer">
-                  Term of Service
+                <div className="[font-family:'Inter',Helvetica] font-normal text-[#6b7280] text-xs">
+                  2024 eaneer .all right reserved
                 </div>
-                <div className="[font-family:'Inter',Helvetica] font-normal text-white text-[12px] underline hover:text-[#69818d] cursor-pointer">
-                  Accessibility
-                </div>
-                <div className="[font-family:'Inter',Helvetica] font-normal text-white text-[12px] underline hover:text-[#69818d] cursor-pointer">
-                  Contact
-                </div>
-                <div className="[font-family:'Inter',Helvetica] font-normal text-white text-[12px] underline hover:text-[#69818d] cursor-pointer">
-                  Legal
-                </div>
-              </div>
-              
-              <div className="[font-family:'Inter',Helvetica] font-normal text-white text-[12px]">
-                2024 eaneer .all right reserved
               </div>
             </div>
           </div>
