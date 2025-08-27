@@ -78,163 +78,170 @@ export const Land = (): JSX.Element => {
           />
         </header>
 
-        <section className="absolute w-[882px] h-[129px] top-[168px] left-[522px]">
-          <div className="absolute top-0 left-[287px] [font-family:'Source_Code_Pro',Helvetica] font-semibold text-white text-lg tracking-[0] leading-[normal]">
+        {/* Hero Section */}
+        <section className="absolute w-full top-[120px] flex flex-col items-center text-center px-8">
+          <div className="mb-2">
             <span className="[font-family:'Source_Code_Pro',Helvetica] font-semibold text-white text-lg tracking-[0]">
-              eaneer
-            </span>
-            <span className="[font-family:'Source_Code_Pro',Helvetica] font-semibold text-white text-lg tracking-[0]">
-              {" "}
-              energetics summer 20%
+              eaneer energetics summer 20%
             </span>
           </div>
-          <div className="absolute top-12 left-[167px] [font-family:'Inter',Helvetica] font-semibold text-white text-[28px] tracking-[0] leading-[normal]">
-            Start Saving Up to 80% /mo On average
+          <div className="mb-4">
+            <span className="[font-family:'Inter',Helvetica] font-semibold text-white text-[28px] tracking-[0] leading-[normal]">
+              Start Saving Up to 80% /mo On average
+            </span>
           </div>
-          <div className="absolute top-[107px] left-0 [font-family:'Inter',Helvetica] font-medium text-white text-lg tracking-[0] leading-[normal]">
-            Enter Your Solar Installation Details And Average Electricity Bill
-            To Get A Quote And View Your savings
+          <div className="mb-8 max-w-[800px]">
+            <span className="[font-family:'Inter',Helvetica] font-medium text-white text-lg tracking-[0] leading-[normal]">
+              Enter Your Solar Installation Details And Average Electricity Bill To Get A Quote And View Your savings
+            </span>
+          </div>
+          
+          {/* Search Input */}
+          <div className="flex items-center bg-white rounded-full px-6 py-3 max-w-[600px] w-full">
+            <Input
+              className="flex-1 border-0 bg-transparent text-black placeholder:text-gray-500 focus:outline-none [font-family:'Inter',Helvetica] text-base"
+              placeholder="Enter Location..."
+            />
+            <Button className="ml-4 w-10 h-10 rounded-full bg-black hover:bg-gray-800 flex items-center justify-center p-0">
+              <span className="text-white text-xl">→</span>
+            </Button>
           </div>
         </section>
 
-        <Button className="top-[351px] left-[797px] absolute w-[327px] h-[61px] rounded-[30px] border-2 border-solid border-white bg-transparent hover:bg-white/10 h-auto">
-          <img
-            className="absolute w-[43px] h-[43px] top-[7px] left-[269px]"
-            alt="Component"
-            src="/figmaAssets/component-1.svg"
-          />
-          <div className="absolute top-4 left-[18px] [font-family:'Inter',Helvetica] font-bold text-white text-xl text-center tracking-[0] leading-[normal] whitespace-nowrap">
-            Ready To Save Energy?
-          </div>
-        </Button>
-
-        <section className="absolute w-[1361px] h-[527px] top-[461px] left-[217px]">
-          <div className="absolute w-[1251px] h-[527px] top-0 left-[110px]">
-            <div className="relative w-[1918px] h-[546px] top-[5px] left-[-327px] bg-[#06141b] shadow-[0px_0px_25px_#2c4a52]">
-              <Card className="relative w-[582px] h-[491px] top-[31px] left-[1014px] bg-[#06141b] rounded-[20px] shadow-[0px_0px_20px_5px_#2c4a52] border-0">
-                <CardContent className="p-8">
-                  <div className="space-y-8">
-                    {/* Grid Type Section */}
-                    <div className="space-y-4">
-                      <h3 className="[font-family:'Rubik',Helvetica] font-semibold text-white text-xl tracking-[0] leading-[normal]">
-                        Grid Type
-                      </h3>
-                      <RadioGroup
-                        value={selectedGridType}
-                        onValueChange={setSelectedGridType}
-                        className="flex flex-row gap-3"
-                      >
-                        {gridTypeOptions.map((option) => (
+        {/* Main Content Section with House Image and Calculator */}
+        <section className="absolute w-full top-[400px] px-[100px]">
+          <div className="flex items-center justify-between max-w-[1400px] mx-auto">
+            {/* House Image */}
+            <div className="flex-1 mr-[50px]">
+              <img
+                className="w-[650px] h-[400px] object-cover"
+                alt="Solar House Model"
+                src="/figmaAssets/1-1--1.png"
+              />
+            </div>
+            
+            {/* Calculator Card */}
+            <div className="flex-1 max-w-[600px]">
+              <Card className="w-full bg-[#1a3541] rounded-[20px] shadow-[0px_0px_20px_5px_rgba(44,74,82,0.3)] border-0 p-8">
+                <div className="space-y-6">
+                  {/* Grid Type Section */}
+                  <div className="space-y-4">
+                    <h3 className="[font-family:'Rubik',Helvetica] font-semibold text-white text-xl tracking-[0] leading-[normal]">
+                      Grid Type
+                    </h3>
+                    <RadioGroup
+                      value={selectedGridType}
+                      onValueChange={setSelectedGridType}
+                      className="flex flex-row gap-3"
+                    >
+                      {gridTypeOptions.map((option) => (
+                        <div
+                          key={option.id}
+                          className="flex-1 relative"
+                        >
                           <div
-                            key={option.id}
-                            className="flex-1 relative"
+                            className={`relative w-full h-[80px] rounded-[15px] border-2 p-4 ${
+                              selectedGridType === option.id
+                                ? "border-white bg-[#0f2329]"
+                                : "border-gray-600 bg-[#0f2329]"
+                            }`}
                           >
-                            <div
-                              className={`relative w-full h-[120px] rounded-[15px] border-2 p-4 ${
-                                selectedGridType === option.id
-                                  ? "border-white bg-[#0a1b23]"
-                                  : "border-gray-500 bg-[#0a1b23]"
-                              }`}
-                            >
-                              <div className="absolute top-4 left-4 w-[18px] h-[18px]">
-                                <RadioGroupItem
-                                  value={option.id}
-                                  id={option.id}
-                                  className="h-[18px] w-[18px] rounded-full border-2 border-white data-[state=checked]:bg-white data-[state=checked]:border-white"
-                                />
-                              </div>
-                              <Label
-                                htmlFor={option.id}
-                                className="absolute top-4 left-12 [font-family:'Inter',Helvetica] font-bold text-white text-lg tracking-[0] leading-[normal] cursor-pointer"
-                              >
-                                {option.label}
-                              </Label>
-                              <div className="absolute top-12 left-12 right-4 [font-family:'Inter',Helvetica] font-normal text-white text-base tracking-[0] leading-[normal]">
-                                {option.description}
+                            <div className="flex items-start gap-3">
+                              <RadioGroupItem
+                                value={option.id}
+                                id={option.id}
+                                className="h-[18px] w-[18px] rounded-full border-2 border-white data-[state=checked]:bg-white data-[state=checked]:border-white mt-1"
+                              />
+                              <div>
+                                <Label
+                                  htmlFor={option.id}
+                                  className="[font-family:'Inter',Helvetica] font-bold text-white text-base tracking-[0] leading-[normal] cursor-pointer block"
+                                >
+                                  {option.label}
+                                </Label>
+                                <div className="[font-family:'Inter',Helvetica] font-normal text-white text-sm tracking-[0] leading-[normal] mt-1">
+                                  {option.description}
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        ))}
-                      </RadioGroup>
-                    </div>
-
-                    {/* Installation Type Section */}
-                    <div className="space-y-4">
-                      <h3 className="[font-family:'Rubik',Helvetica] font-semibold text-white text-xl tracking-[0] leading-[normal]">
-                        Installation Type
-                      </h3>
-                      <RadioGroup
-                        value={selectedInstallationType}
-                        onValueChange={setSelectedInstallationType}
-                        className="flex flex-row gap-3"
-                      >
-                        {installationTypeOptions.map((option) => (
-                          <div
-                            key={option.id}
-                            className="flex-1 relative"
-                          >
-                            <div
-                              className={`relative w-full h-[120px] rounded-[15px] border-2 p-4 ${
-                                selectedInstallationType === option.id
-                                  ? "border-white bg-[#0a1b23]"
-                                  : "border-gray-500 bg-[#0a1b23]"
-                              }`}
-                            >
-                              <div className="absolute top-4 left-4 w-[18px] h-[18px]">
-                                <RadioGroupItem
-                                  value={option.id}
-                                  id={option.id}
-                                  className="h-[18px] w-[18px] rounded-full border-2 border-white data-[state=checked]:bg-white data-[state=checked]:border-white"
-                                />
-                              </div>
-                              <Label
-                                htmlFor={option.id}
-                                className="absolute top-4 left-12 [font-family:'Inter',Helvetica] font-bold text-white text-lg tracking-[0] leading-[normal] cursor-pointer"
-                              >
-                                {option.label}
-                              </Label>
-                              <div className="absolute top-12 left-12 right-4 [font-family:'Inter',Helvetica] font-normal text-white text-[15px] tracking-[0] leading-[normal]">
-                                {option.description}
-                              </div>
-                            </div>
-                          </div>
-                        ))}
-                      </RadioGroup>
-                    </div>
-
-                    {/* Electric Bill Section */}
-                    <div className="space-y-4">
-                      <h3 className="[font-family:'Rubik',Helvetica] font-semibold text-white text-xl tracking-[0] leading-[normal]">
-                        Electric Bill
-                      </h3>
-                      <div className="flex gap-4">
-                        <div className="relative flex-1">
-                          <Input
-                            className="w-full h-[50px] rounded-[10px] border-2 border-white bg-transparent text-white text-lg placeholder:text-[#ffffff60] pr-12"
-                            placeholder="0.00"
-                          />
-                          <div className="absolute right-4 top-1/2 transform -translate-y-1/2 [font-family:'Rubik',Helvetica] font-light text-white text-base tracking-[0] leading-[normal] pointer-events-none">
-                            Dh
                           </div>
                         </div>
-                        <Button className="h-[50px] w-[200px] bg-white rounded-[10px] border-0 hover:bg-white/90 flex items-center justify-center">
-                          <span className="[font-family:'Rubik',Helvetica] font-semibold text-black text-lg tracking-[0] leading-[normal]">
-                            Calculate
-                          </span>
-                        </Button>
+                      ))}
+                    </RadioGroup>
+                  </div>
+
+                  {/* Installation Type Section */}
+                  <div className="space-y-4">
+                    <h3 className="[font-family:'Rubik',Helvetica] font-semibold text-white text-xl tracking-[0] leading-[normal]">
+                      Installation Type
+                    </h3>
+                    <RadioGroup
+                      value={selectedInstallationType}
+                      onValueChange={setSelectedInstallationType}
+                      className="flex flex-row gap-3"
+                    >
+                      {installationTypeOptions.map((option) => (
+                        <div
+                          key={option.id}
+                          className="flex-1 relative"
+                        >
+                          <div
+                            className={`relative w-full h-[80px] rounded-[15px] border-2 p-4 ${
+                              selectedInstallationType === option.id
+                                ? "border-white bg-[#0f2329]"
+                                : "border-gray-600 bg-[#0f2329]"
+                            }`}
+                          >
+                            <div className="flex items-start gap-3">
+                              <RadioGroupItem
+                                value={option.id}
+                                id={option.id}
+                                className="h-[18px] w-[18px] rounded-full border-2 border-white data-[state=checked]:bg-white data-[state=checked]:border-white mt-1 flex-shrink-0"
+                              />
+                              <div>
+                                <Label
+                                  htmlFor={option.id}
+                                  className="[font-family:'Inter',Helvetica] font-bold text-white text-base tracking-[0] leading-[normal] cursor-pointer block"
+                                >
+                                  {option.label}
+                                </Label>
+                                <div className="[font-family:'Inter',Helvetica] font-normal text-white text-sm tracking-[0] leading-[normal] mt-1">
+                                  {option.description}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </RadioGroup>
+                  </div>
+
+                  {/* Electric Bill Section */}
+                  <div className="space-y-4">
+                    <h3 className="[font-family:'Rubik',Helvetica] font-semibold text-white text-xl tracking-[0] leading-[normal]">
+                      Electric Bill
+                    </h3>
+                    <div className="flex gap-4">
+                      <div className="relative flex-1">
+                        <Input
+                          className="w-full h-[50px] rounded-[10px] border-2 border-white bg-transparent text-white text-lg placeholder:text-[#ffffff60] pr-12"
+                          placeholder="0.00"
+                        />
+                        <div className="absolute right-4 top-1/2 transform -translate-y-1/2 [font-family:'Rubik',Helvetica] font-light text-white text-base tracking-[0] leading-[normal] pointer-events-none">
+                          Dh
+                        </div>
                       </div>
+                      <Button className="h-[50px] w-[150px] bg-white rounded-[10px] border-0 hover:bg-white/90 flex items-center justify-center">
+                        <span className="[font-family:'Rubik',Helvetica] font-semibold text-black text-lg tracking-[0] leading-[normal]">
+                          Calculate
+                        </span>
+                      </Button>
                     </div>
                   </div>
-                </CardContent>
+                </div>
               </Card>
             </div>
           </div>
-
-          <img
-            className="absolute w-[792px] h-[445px] top-12 left-0 object-cover"
-            alt="Element"
-            src="/figmaAssets/1-1--1.png"
-          />
         </section>
 
         <img
