@@ -190,7 +190,7 @@ export const Land = (): JSX.Element => {
                                 </div>
                                 <Label
                                   htmlFor={option.id}
-                                  className="absolute w-[108px] top-[17px] left-[47px] [font-family:'Inter',Helvetica] font-bold text-white text-lg tracking-[0] leading-[normal] cursor-pointer"
+                                  className="absolute w-[150px] top-[17px] left-[47px] [font-family:'Inter',Helvetica] font-bold text-white text-lg tracking-[0] leading-[normal] cursor-pointer whitespace-nowrap"
                                 >
                                   {option.label}
                                 </Label>
