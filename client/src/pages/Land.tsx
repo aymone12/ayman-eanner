@@ -218,10 +218,10 @@ export const Land = (): JSX.Element => {
                       </div>
                     </div>
 
-                    <Button className="absolute w-[251px] h-[42px] top-px left-[281px] bg-white rounded-[10px] border border-solid hover:bg-white/90 h-auto">
-                      <div className="absolute w-[84px] top-[11px] left-[82px] [font-family:'Rubik',Helvetica] font-semibold text-black text-lg tracking-[0] leading-[normal] whitespace-nowrap">
+                    <Button className="absolute w-[251px] h-[42px] top-px left-[281px] bg-white rounded-[10px] border border-solid hover:bg-white/90 h-auto flex items-center justify-center">
+                      <span className="[font-family:'Rubik',Helvetica] font-semibold text-black text-lg tracking-[0] leading-[normal] whitespace-nowrap">
                         Calculate
-                      </div>
+                      </span>
                     </Button>
                   </div>
 
