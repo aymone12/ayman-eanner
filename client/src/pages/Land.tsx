@@ -387,12 +387,72 @@ export const Land = (): JSX.Element => {
           src="/figmaAssets/image-13.png"
         />
 
-        <footer className="w-[1920px] h-[329px] top-[5997px] left-0 absolute">
-          <img
-            className="w-full h-full object-cover"
-            alt="Footer"
-            src="/figmaAssets/image-14.png"
-          />
+        <footer className="w-[1920px] h-[329px] top-[5997px] left-0 absolute bg-[#0a1b23] border-t-2 border-[#2c4a52]">
+          <div className="relative w-full h-full">
+            {/* Background gradient */}
+            <div className="absolute inset-0 bg-gradient-to-b from-[#132e35] to-[#0a1b23]"></div>
+            
+            {/* Content */}
+            <div className="relative z-10 flex justify-between items-start pt-12 px-20">
+              {/* Left section - Company info */}
+              <div className="flex flex-col">
+                <div className="[font-family:'Inter',Helvetica] font-bold text-white text-2xl mb-4">
+                  eaneer energetics
+                </div>
+                <div className="[font-family:'Inter',Helvetica] font-medium text-[#69818d] text-sm mb-2">
+                  Solar Energy Solutions
+                </div>
+                <div className="[font-family:'Inter',Helvetica] font-normal text-[#69818d] text-sm">
+                  Making Morocco a beacon of green energy
+                </div>
+              </div>
+              
+              {/* Center section - Quick links */}
+              <div className="flex flex-col">
+                <div className="[font-family:'Inter',Helvetica] font-semibold text-white text-lg mb-4">
+                  Quick Links
+                </div>
+                <div className="flex flex-col space-y-2">
+                  <div className="[font-family:'Inter',Helvetica] font-normal text-[#69818d] text-sm hover:text-white cursor-pointer">
+                    About Us
+                  </div>
+                  <div className="[font-family:'Inter',Helvetica] font-normal text-[#69818d] text-sm hover:text-white cursor-pointer">
+                    Our Services
+                  </div>
+                  <div className="[font-family:'Inter',Helvetica] font-normal text-[#69818d] text-sm hover:text-white cursor-pointer">
+                    Contact
+                  </div>
+                </div>
+              </div>
+              
+              {/* Right section - Contact info */}
+              <div className="flex flex-col">
+                <div className="[font-family:'Inter',Helvetica] font-semibold text-white text-lg mb-4">
+                  Get In Touch
+                </div>
+                <div className="flex flex-col space-y-2">
+                  <div className="[font-family:'Inter',Helvetica] font-normal text-[#69818d] text-sm">
+                    info@eaneer.ma
+                  </div>
+                  <div className="[font-family:'Inter',Helvetica] font-normal text-[#69818d] text-sm">
+                    +212 XXX XXX XXX
+                  </div>
+                  <div className="[font-family:'Inter',Helvetica] font-normal text-[#69818d] text-sm">
+                    Casablanca, Morocco
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Bottom copyright */}
+            <div className="absolute bottom-8 left-20 right-20">
+              <div className="border-t border-[#2c4a52] pt-4">
+                <div className="[font-family:'Inter',Helvetica] font-normal text-[#69818d] text-xs text-center">
+                  © 2024 eaneer energetics. All rights reserved. | Together, We Rise Under One Sun.
+                </div>
+              </div>
+            </div>
+          </div>
         </footer>
       </div>
     </div>
