@@ -112,125 +112,118 @@ export const Land = (): JSX.Element => {
           <div className="absolute w-[1251px] h-[527px] top-0 left-[110px]">
             <div className="relative w-[1918px] h-[546px] top-[5px] left-[-327px] bg-[#06141b] shadow-[0px_0px_25px_#2c4a52]">
               <Card className="relative w-[582px] h-[491px] top-[31px] left-[1014px] bg-[#06141b] rounded-[20px] shadow-[0px_0px_20px_5px_#2c4a52] border-0">
-                <CardContent className="absolute w-[529px] h-[339px] top-[17px] left-9 p-0">
-                  <div className="relative w-[535px] h-[339px]">
-                    <div className="absolute w-[125px] top-0 left-0 [font-family:'Rubik',Helvetica] font-semibold text-white text-xl tracking-[0] leading-[normal] whitespace-nowrap">
-                      Grid Type
+                <CardContent className="p-8">
+                  <div className="space-y-8">
+                    {/* Grid Type Section */}
+                    <div className="space-y-4">
+                      <h3 className="[font-family:'Rubik',Helvetica] font-semibold text-white text-xl tracking-[0] leading-[normal]">
+                        Grid Type
+                      </h3>
+                      <RadioGroup
+                        value={selectedGridType}
+                        onValueChange={setSelectedGridType}
+                        className="flex flex-row gap-3"
+                      >
+                        {gridTypeOptions.map((option) => (
+                          <div
+                            key={option.id}
+                            className="flex-1 relative"
+                          >
+                            <div
+                              className={`relative w-full h-[120px] rounded-[15px] border-2 p-4 ${
+                                selectedGridType === option.id
+                                  ? "border-white bg-[#0a1b23]"
+                                  : "border-gray-500 bg-[#0a1b23]"
+                              }`}
+                            >
+                              <div className="absolute top-4 left-4 w-[18px] h-[18px]">
+                                <RadioGroupItem
+                                  value={option.id}
+                                  id={option.id}
+                                  className="h-[18px] w-[18px] rounded-full border-2 border-white data-[state=checked]:bg-white data-[state=checked]:border-white"
+                                />
+                              </div>
+                              <Label
+                                htmlFor={option.id}
+                                className="absolute top-4 left-12 [font-family:'Inter',Helvetica] font-bold text-white text-lg tracking-[0] leading-[normal] cursor-pointer"
+                              >
+                                {option.label}
+                              </Label>
+                              <div className="absolute top-12 left-12 right-4 [font-family:'Inter',Helvetica] font-normal text-white text-base tracking-[0] leading-[normal]">
+                                {option.description}
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </RadioGroup>
                     </div>
 
-                    <div className="absolute w-[529px] h-[304px] top-9 left-0">
-                      <div className="absolute w-[207px] top-[147px] left-0 [font-family:'Rubik',Helvetica] font-semibold text-white text-xl tracking-[0] leading-[normal] whitespace-nowrap">
+                    {/* Installation Type Section */}
+                    <div className="space-y-4">
+                      <h3 className="[font-family:'Rubik',Helvetica] font-semibold text-white text-xl tracking-[0] leading-[normal]">
                         Installation Type
-                      </div>
-
-                      <div className="absolute w-[529px] h-[304px] top-0 left-0">
-                        <RadioGroup
-                          value={selectedInstallationType}
-                          onValueChange={setSelectedInstallationType}
-                          className="absolute w-[529px] h-[122px] top-[182px] left-0 flex flex-row gap-[13px]"
-                        >
-                          {installationTypeOptions.map((option, index) => (
+                      </h3>
+                      <RadioGroup
+                        value={selectedInstallationType}
+                        onValueChange={setSelectedInstallationType}
+                        className="flex flex-row gap-3"
+                      >
+                        {installationTypeOptions.map((option) => (
+                          <div
+                            key={option.id}
+                            className="flex-1 relative"
+                          >
                             <div
-                              key={option.id}
-                              className="w-[168px] h-[122px]"
+                              className={`relative w-full h-[120px] rounded-[15px] border-2 p-4 ${
+                                selectedInstallationType === option.id
+                                  ? "border-white bg-[#0a1b23]"
+                                  : "border-gray-500 bg-[#0a1b23]"
+                              }`}
                             >
-                              <div
-                                className="w-[169px] h-[123px] bg-[url(/figmaAssets/rectangle-3.svg)] bg-[100%_100%]"
-                                style={{
-                                  backgroundImage: option.selected
-                                    ? "url(/figmaAssets/rectangle-3.svg)"
-                                    : "url(/figmaAssets/rectangle-4.svg)",
-                                }}
+                              <div className="absolute top-4 left-4 w-[18px] h-[18px]">
+                                <RadioGroupItem
+                                  value={option.id}
+                                  id={option.id}
+                                  className="h-[18px] w-[18px] rounded-full border-2 border-white data-[state=checked]:bg-white data-[state=checked]:border-white"
+                                />
+                              </div>
+                              <Label
+                                htmlFor={option.id}
+                                className="absolute top-4 left-12 [font-family:'Inter',Helvetica] font-bold text-white text-lg tracking-[0] leading-[normal] cursor-pointer"
                               >
-                                <div className="relative w-[137px] h-[82px] top-[17px] left-[13px]">
-                                  <div className="top-[3px] left-0 absolute w-[18px] h-[18px]">
-                                    <RadioGroupItem
-                                      value={option.id}
-                                      id={option.id}
-                                      className="relative h-[18px] w-[18px] rounded-[9.1px] border-white data-[state=checked]:bg-[#d9d9d9] data-[state=checked]:border-white"
-                                    />
-                                  </div>
-                                  <Label
-                                    htmlFor={option.id}
-                                    className="absolute w-[66px] top-0 left-7 [font-family:'Inter',Helvetica] font-bold text-white text-lg tracking-[0] leading-[normal] cursor-pointer"
-                                  >
-                                    {option.label}
-                                  </Label>
-                                  <div className="absolute w-[110px] top-[33px] left-[23px] [font-family:'Inter',Helvetica] font-normal text-white text-[15px] tracking-[0] leading-[normal]">
-                                    {option.description}
-                                  </div>
-                                </div>
+                                {option.label}
+                              </Label>
+                              <div className="absolute top-12 left-12 right-4 [font-family:'Inter',Helvetica] font-normal text-white text-[15px] tracking-[0] leading-[normal]">
+                                {option.description}
                               </div>
                             </div>
-                          ))}
-                        </RadioGroup>
+                          </div>
+                        ))}
+                      </RadioGroup>
+                    </div>
 
-                        <RadioGroup
-                          value={selectedGridType}
-                          onValueChange={setSelectedGridType}
-                          className="absolute w-[528px] h-[122px] top-0 left-0 flex flex-row gap-2"
-                        >
-                          {gridTypeOptions.map((option, index) => (
-                            <div
-                              key={option.id}
-                              className="w-[262px] h-[122px]"
-                            >
-                              <div
-                                className="relative w-[259px] h-[123px] bg-[url(/figmaAssets/rectangle-3.svg)] bg-[100%_100%]"
-                                style={{
-                                  backgroundImage: option.selected
-                                    ? "url(/figmaAssets/rectangle-3.svg)"
-                                    : "url(/figmaAssets/rectangle-4.svg)",
-                                }}
-                              >
-                                <div className="top-5 left-[19px] absolute w-[18px] h-[18px]">
-                                  <RadioGroupItem
-                                    value={option.id}
-                                    id={option.id}
-                                    className="relative h-[18px] w-[18px] rounded-[9.1px] border-white data-[state=checked]:bg-[#d9d9d9] data-[state=checked]:border-white"
-                                  />
-                                </div>
-                                <Label
-                                  htmlFor={option.id}
-                                  className="absolute w-[108px] top-[17px] left-[47px] [font-family:'Inter',Helvetica] font-bold text-white text-lg tracking-[0] leading-[normal] cursor-pointer"
-                                >
-                                  {option.label}
-                                </Label>
-                                <div className="absolute w-[184px] top-[51px] left-[46px] [font-family:'Inter',Helvetica] font-normal text-white text-base tracking-[0] leading-[normal]">
-                                  {option.description}
-                                </div>
-                              </div>
-                            </div>
-                          ))}
-                        </RadioGroup>
+                    {/* Electric Bill Section */}
+                    <div className="space-y-4">
+                      <h3 className="[font-family:'Rubik',Helvetica] font-semibold text-white text-xl tracking-[0] leading-[normal]">
+                        Electric Bill
+                      </h3>
+                      <div className="flex gap-4">
+                        <div className="relative flex-1">
+                          <Input
+                            className="w-full h-[50px] rounded-[10px] border-2 border-white bg-transparent text-white text-lg placeholder:text-[#ffffff60] pr-12"
+                            placeholder="0.00"
+                          />
+                          <div className="absolute right-4 top-1/2 transform -translate-y-1/2 [font-family:'Rubik',Helvetica] font-light text-white text-base tracking-[0] leading-[normal] pointer-events-none">
+                            Dh
+                          </div>
+                        </div>
+                        <Button className="h-[50px] px-8 bg-white rounded-[10px] border-0 hover:bg-white/90 text-black [font-family:'Rubik',Helvetica] font-semibold text-lg tracking-[0] leading-[normal]">
+                          Calculate
+                        </Button>
                       </div>
                     </div>
                   </div>
                 </CardContent>
-
-                <div className="absolute w-[532px] h-[78px] top-[380px] left-9">
-                  <div className="absolute w-[530px] h-[43px] top-[35px] left-0">
-                    <div className="absolute w-[253px] h-[42px] top-0 left-0">
-                      <Input
-                        className="relative w-[249px] h-[42px] rounded-[10px] border border-solid border-white bg-transparent text-white placeholder:text-[#ffffff40]"
-                        placeholder="0.00"
-                      />
-                      <div className="absolute w-[23px] top-2.5 left-[205px] [font-family:'Rubik',Helvetica] font-light text-white text-base tracking-[0] leading-[normal] pointer-events-none">
-                        Dh
-                      </div>
-                    </div>
-
-                    <Button className="absolute w-[251px] h-[42px] top-px left-[281px] bg-white rounded-[10px] border border-solid hover:bg-white/90 h-auto">
-                      <div className="absolute w-[84px] top-[11px] left-[82px] [font-family:'Rubik',Helvetica] font-semibold text-black text-lg tracking-[0] leading-[normal] whitespace-nowrap">
-                        Calculate
-                      </div>
-                    </Button>
-                  </div>
-
-                  <div className="absolute w-[147px] top-0 left-0 [font-family:'Rubik',Helvetica] font-semibold text-white text-xl tracking-[0] leading-[normal]">
-                    Electric Bill
-                  </div>
-                </div>
               </Card>
             </div>
           </div>
