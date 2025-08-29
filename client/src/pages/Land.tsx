@@ -146,26 +146,28 @@ export const Land = (): JSX.Element => {
   // Personal info page component
   const PersonalInfoPage = () => (
     <div className="bg-[#06141b] min-h-screen flex flex-col items-center justify-center">
-      <div className="max-w-4xl mx-auto p-8 text-center">
-        <h1 className="text-white text-3xl font-bold mb-8">You're Almost There...</h1>
-        <p className="text-white text-lg mb-8">Enter your personal information</p>
+      <div className="max-w-6xl mx-auto p-8">
+        <h1 className="text-white text-3xl font-bold text-center mb-4">You're Almost There...</h1>
+        <p className="text-white text-base text-center mb-12">Enter your personal information</p>
         
-        <div className="flex justify-center items-center gap-8 mb-8">
-          <div className="flex flex-col gap-4">
+        <div className="flex justify-center items-start gap-16 mb-16">
+          <div className="flex flex-col gap-6">
+            <div className="flex gap-4">
+              <Input 
+                className="w-40 px-4 py-3 rounded-full border-2 border-white bg-transparent text-white placeholder:text-gray-400 text-sm"
+                placeholder="Full name"
+                value={formData.fullName}
+                onChange={(e) => setFormData({...formData, fullName: e.target.value})}
+              />
+              <Input 
+                className="w-40 px-4 py-3 rounded-full border-2 border-white bg-transparent text-white placeholder:text-gray-400 text-sm"
+                placeholder="Phone number"
+                value={formData.phoneNumber}
+                onChange={(e) => setFormData({...formData, phoneNumber: e.target.value})}
+              />
+            </div>
             <Input 
-              className="w-64 px-4 py-3 rounded-lg border-2 border-white bg-transparent text-white placeholder:text-gray-400"
-              placeholder="Full name"
-              value={formData.fullName}
-              onChange={(e) => setFormData({...formData, fullName: e.target.value})}
-            />
-            <Input 
-              className="w-64 px-4 py-3 rounded-lg border-2 border-white bg-transparent text-white placeholder:text-gray-400"
-              placeholder="Phone number"
-              value={formData.phoneNumber}
-              onChange={(e) => setFormData({...formData, phoneNumber: e.target.value})}
-            />
-            <Input 
-              className="w-64 px-4 py-3 rounded-lg border-2 border-white bg-transparent text-white placeholder:text-gray-400"
+              className="w-full px-4 py-3 rounded-full border-2 border-white bg-transparent text-white placeholder:text-gray-400 text-sm"
               placeholder="Home address"
               value={formData.homeAddress}
               onChange={(e) => setFormData({...formData, homeAddress: e.target.value})}
@@ -173,13 +175,13 @@ export const Land = (): JSX.Element => {
             
             <div className="flex gap-4 mt-4">
               <Button 
-                className="bg-transparent border-2 border-white text-white px-6 py-2 rounded-lg hover:bg-white/10"
+                className="bg-transparent text-white text-sm hover:text-gray-300"
                 onClick={goToPreviousStep}
               >
                 Previous
               </Button>
               <Button 
-                className="bg-white text-black px-6 py-2 rounded-lg hover:bg-gray-100"
+                className="bg-white text-black px-8 py-2 rounded-full hover:bg-gray-100 text-sm font-medium"
                 onClick={goToNextStep}
               >
                 Next →
@@ -187,7 +189,7 @@ export const Land = (): JSX.Element => {
             </div>
           </div>
           
-          <div className="bg-[#132e35] border-2 border-white rounded-xl p-6 min-w-[300px]">
+          <div className="bg-[#132e35] border-2 border-white rounded-xl p-6 min-w-[320px]">
             <div className="text-gray-400 text-sm mb-2">Recommended</div>
             <div className="text-white text-xl font-bold mb-2">20.00kW Solar Power + 5kWh Storage</div>
             <div className="text-gray-400 text-sm mb-1">6% Offset + 1 Hours Avg Backup</div>
@@ -195,12 +197,14 @@ export const Land = (): JSX.Element => {
           </div>
         </div>
         
-        <Button 
-          className="bg-transparent text-white text-sm underline hover:text-gray-300"
-          onClick={goBackToMain}
-        >
-          Back to the main
-        </Button>
+        <div className="text-center">
+          <Button 
+            className="bg-transparent text-white text-sm hover:text-gray-300"
+            onClick={goBackToMain}
+          >
+            Back to the main
+          </Button>
+        </div>
       </div>
     </div>
   );
@@ -208,26 +212,28 @@ export const Land = (): JSX.Element => {
   // Property info page component
   const PropertyInfoPage = () => (
     <div className="bg-[#06141b] min-h-screen flex flex-col items-center justify-center">
-      <div className="max-w-4xl mx-auto p-8 text-center">
-        <h1 className="text-white text-3xl font-bold mb-8">You're Almost There...</h1>
-        <p className="text-white text-lg mb-8">Enter your property information</p>
+      <div className="max-w-6xl mx-auto p-8">
+        <h1 className="text-white text-3xl font-bold text-center mb-4">You're Almost There...</h1>
+        <p className="text-white text-base text-center mb-12">Enter your property information</p>
         
-        <div className="flex justify-center items-center gap-8 mb-8">
-          <div className="flex flex-col gap-4">
+        <div className="flex justify-center items-start gap-16 mb-16">
+          <div className="flex flex-col gap-6">
+            <div className="flex gap-4">
+              <Input 
+                className="w-40 px-4 py-3 rounded-full border-2 border-white bg-transparent text-white placeholder:text-gray-400 text-sm"
+                placeholder="Property type"
+                value={formData.propertyType}
+                onChange={(e) => setFormData({...formData, propertyType: e.target.value})}
+              />
+              <Input 
+                className="w-40 px-4 py-3 rounded-full border-2 border-white bg-transparent text-white placeholder:text-gray-400 text-sm"
+                placeholder="Humidity index"
+                value={formData.humidityIndex}
+                onChange={(e) => setFormData({...formData, humidityIndex: e.target.value})}
+              />
+            </div>
             <Input 
-              className="w-64 px-4 py-3 rounded-lg border-2 border-white bg-transparent text-white placeholder:text-gray-400"
-              placeholder="Property type"
-              value={formData.propertyType}
-              onChange={(e) => setFormData({...formData, propertyType: e.target.value})}
-            />
-            <Input 
-              className="w-64 px-4 py-3 rounded-lg border-2 border-white bg-transparent text-white placeholder:text-gray-400"
-              placeholder="Humidity index"
-              value={formData.humidityIndex}
-              onChange={(e) => setFormData({...formData, humidityIndex: e.target.value})}
-            />
-            <Input 
-              className="w-64 px-4 py-3 rounded-lg border-2 border-white bg-transparent text-white placeholder:text-gray-400"
+              className="w-full px-4 py-3 rounded-full border-2 border-white bg-transparent text-white placeholder:text-gray-400 text-sm"
               placeholder="How much sunlight does your roof get?"
               value={formData.sunlightExposure}
               onChange={(e) => setFormData({...formData, sunlightExposure: e.target.value})}
@@ -235,13 +241,13 @@ export const Land = (): JSX.Element => {
             
             <div className="flex gap-4 mt-4">
               <Button 
-                className="bg-transparent border-2 border-white text-white px-6 py-2 rounded-lg hover:bg-white/10"
+                className="bg-transparent text-white text-sm hover:text-gray-300"
                 onClick={goToPreviousStep}
               >
                 Previous
               </Button>
               <Button 
-                className="bg-white text-black px-6 py-2 rounded-lg hover:bg-gray-100"
+                className="bg-white text-black px-8 py-2 rounded-full hover:bg-gray-100 text-sm font-medium"
                 onClick={goToNextStep}
               >
                 Next →
@@ -249,7 +255,7 @@ export const Land = (): JSX.Element => {
             </div>
           </div>
           
-          <div className="bg-[#132e35] border-2 border-white rounded-xl p-6 min-w-[300px]">
+          <div className="bg-[#132e35] border-2 border-white rounded-xl p-6 min-w-[320px]">
             <div className="text-gray-400 text-sm mb-2">Recommended</div>
             <div className="text-white text-xl font-bold mb-2">20.00kW Solar Power + 5kWh Storage</div>
             <div className="text-gray-400 text-sm mb-1">6% Offset + 1 Hours Avg Backup</div>
@@ -257,12 +263,14 @@ export const Land = (): JSX.Element => {
           </div>
         </div>
         
-        <Button 
-          className="bg-transparent text-white text-sm underline hover:text-gray-300"
-          onClick={goBackToMain}
-        >
-          Back to the main
-        </Button>
+        <div className="text-center">
+          <Button 
+            className="bg-transparent text-white text-sm hover:text-gray-300"
+            onClick={goBackToMain}
+          >
+            Back to the main
+          </Button>
+        </div>
       </div>
     </div>
   );
@@ -270,26 +278,28 @@ export const Land = (): JSX.Element => {
   // Energy options page component
   const EnergyOptionsPage = () => (
     <div className="bg-[#06141b] min-h-screen flex flex-col items-center justify-center">
-      <div className="max-w-4xl mx-auto p-8 text-center">
-        <h1 className="text-white text-3xl font-bold mb-8">You're Almost There...</h1>
-        <p className="text-white text-lg mb-8">Energy storage options</p>
+      <div className="max-w-6xl mx-auto p-8">
+        <h1 className="text-white text-3xl font-bold text-center mb-4">You're Almost There...</h1>
+        <p className="text-white text-base text-center mb-12">Energy storage options</p>
         
-        <div className="flex justify-center items-center gap-8 mb-8">
-          <div className="flex flex-col gap-4">
+        <div className="flex justify-center items-start gap-16 mb-16">
+          <div className="flex flex-col gap-6">
+            <div className="flex gap-4">
+              <Input 
+                className="w-40 px-4 py-3 rounded-full border-2 border-white bg-transparent text-white placeholder:text-gray-400 text-sm"
+                placeholder="Storage mode"
+                value={formData.storageMode}
+                onChange={(e) => setFormData({...formData, storageMode: e.target.value})}
+              />
+              <Input 
+                className="w-40 px-4 py-3 rounded-full border-2 border-white bg-transparent text-white placeholder:text-gray-400 text-sm"
+                placeholder="Maintenance service"
+                value={formData.maintenanceService}
+                onChange={(e) => setFormData({...formData, maintenanceService: e.target.value})}
+              />
+            </div>
             <Input 
-              className="w-64 px-4 py-3 rounded-lg border-2 border-white bg-transparent text-white placeholder:text-gray-400"
-              placeholder="Storage mode"
-              value={formData.storageMode}
-              onChange={(e) => setFormData({...formData, storageMode: e.target.value})}
-            />
-            <Input 
-              className="w-64 px-4 py-3 rounded-lg border-2 border-white bg-transparent text-white placeholder:text-gray-400"
-              placeholder="Maintenance service"
-              value={formData.maintenanceService}
-              onChange={(e) => setFormData({...formData, maintenanceService: e.target.value})}
-            />
-            <Input 
-              className="w-64 px-4 py-3 rounded-lg border-2 border-white bg-transparent text-white placeholder:text-gray-400"
+              className="w-full px-4 py-3 rounded-full border-2 border-white bg-transparent text-white placeholder:text-gray-400 text-sm"
               placeholder="How many hours of back up you want?"
               value={formData.backupHours}
               onChange={(e) => setFormData({...formData, backupHours: e.target.value})}
@@ -297,21 +307,21 @@ export const Land = (): JSX.Element => {
             
             <div className="flex gap-4 mt-4">
               <Button 
-                className="bg-transparent border-2 border-white text-white px-6 py-2 rounded-lg hover:bg-white/10"
+                className="bg-transparent text-white text-sm hover:text-gray-300"
                 onClick={goToPreviousStep}
               >
                 Previous
               </Button>
               <Button 
-                className="bg-white text-black px-6 py-2 rounded-lg hover:bg-gray-100"
-                onClick={() => alert("Form completed! Thank you for your information.")}
+                className="bg-white text-black px-8 py-2 rounded-full hover:bg-gray-100 text-sm font-medium"
+                onClick={() => setCurrentStep("simulation")}
               >
-                Complete
+                Next →
               </Button>
             </div>
           </div>
           
-          <div className="bg-[#132e35] border-2 border-white rounded-xl p-6 min-w-[300px]">
+          <div className="bg-[#132e35] border-2 border-white rounded-xl p-6 min-w-[320px]">
             <div className="text-gray-400 text-sm mb-2">Recommended</div>
             <div className="text-white text-xl font-bold mb-2">20.00kW Solar Power + 5kWh Storage</div>
             <div className="text-gray-400 text-sm mb-1">6% Offset + 1 Hours Avg Backup</div>
@@ -319,8 +329,117 @@ export const Land = (): JSX.Element => {
           </div>
         </div>
         
+        <div className="text-center">
+          <Button 
+            className="bg-transparent text-white text-sm hover:text-gray-300"
+            onClick={goBackToMain}
+          >
+            Back to the main
+          </Button>
+        </div>
+      </div>
+    </div>
+  );
+
+  // Simulation results page component
+  const SimulationPage = () => (
+    <div className="bg-[#06141b] min-h-screen flex flex-col items-center justify-center">
+      <div className="max-w-6xl mx-auto p-8">
+        <h1 className="text-white text-3xl font-bold text-center mb-12">This Is Your Simulation</h1>
+        
+        <div className="flex justify-center items-start gap-16 mb-16">
+          <div className="flex flex-col gap-6">
+            <div className="flex justify-between items-center py-2">
+              <span className="text-white text-sm">Estimated cost</span>
+              <span className="text-white text-sm font-medium">40,500.00DH</span>
+            </div>
+            <div className="flex justify-between items-center py-2">
+              <span className="text-white text-sm">Annual savings</span>
+              <span className="text-white text-sm font-medium">6,500.00/y</span>
+            </div>
+            <div className="flex justify-between items-center py-2">
+              <span className="text-white text-sm">Payback period</span>
+              <span className="text-white text-sm font-medium">9 Years</span>
+            </div>
+            <div className="flex justify-between items-center py-2">
+              <span className="text-white text-sm">Installation time</span>
+              <span className="text-white text-sm font-medium">3 Days</span>
+            </div>
+            
+            <div className="flex gap-4 mt-4">
+              <Button 
+                className="bg-transparent text-white text-sm hover:text-gray-300"
+                onClick={() => setCurrentStep("energy")}
+              >
+                Previous
+              </Button>
+              <Button 
+                className="bg-white text-black px-8 py-2 rounded-full hover:bg-gray-100 text-sm font-medium"
+                onClick={() => setCurrentStep("completed")}
+              >
+                Confirm →
+              </Button>
+            </div>
+          </div>
+          
+          <div className="bg-[#132e35] border-2 border-white rounded-xl p-6 min-w-[320px]">
+            <div className="text-gray-400 text-sm mb-2">Recommended</div>
+            <div className="text-white text-xl font-bold mb-2">20.00kW Solar Power + 5kWh Storage</div>
+            <div className="text-gray-400 text-sm mb-1">6% Offset + 1 Hours Avg Backup</div>
+            <div className="text-gray-400 text-sm">Estimated System Size Based On Your Reported Electricity Use</div>
+          </div>
+        </div>
+        
+        <div className="text-center">
+          <Button 
+            className="bg-transparent text-white text-sm hover:text-gray-300"
+            onClick={goBackToMain}
+          >
+            Back to the main
+          </Button>
+        </div>
+      </div>
+    </div>
+  );
+
+  // Completion page component
+  const CompletionPage = () => (
+    <div className="bg-[#06141b] min-h-screen flex flex-col items-center justify-center">
+      <div className="max-w-4xl mx-auto p-8 text-center">
+        <h1 className="text-white text-4xl font-bold mb-8">All Done</h1>
+        
+        <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-8">
+          <svg className="w-8 h-8 text-black" fill="currentColor" viewBox="0 0 20 20">
+            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+          </svg>
+        </div>
+        
+        <h2 className="text-white text-xl font-medium mb-4">We'll be in touch shortly!</h2>
+        
+        <p className="text-white text-sm mb-2 max-w-md mx-auto">
+          Thank you for choosing eaneer for your solar energetics
+        </p>
+        <p className="text-white text-sm mb-2 max-w-md mx-auto">
+          team will contact you soon. You'll receive a WhatsApp
+        </p>
+        <p className="text-white text-sm mb-8 max-w-md mx-auto">
+          message with your personalized solar offer.
+        </p>
+        
+        <p className="text-white text-sm mb-8 max-w-md mx-auto">
+          <strong>Together, we're building a brighter,</strong><br/>
+          <strong>greener Morocco.</strong>
+        </p>
+        
         <Button 
-          className="bg-transparent text-white text-sm underline hover:text-gray-300"
+          className="bg-white text-black px-8 py-3 rounded-full hover:bg-gray-100 text-sm font-medium mb-16"
+          onClick={() => alert("Thank you for rating your experience!")}
+        >
+          Rate Your Experience →
+        </Button>
+        
+        <Button 
+          className="bg-transparent text-white text-sm hover:text-gray-300"
           onClick={goBackToMain}
         >
           Back to the main
@@ -334,6 +453,8 @@ export const Land = (): JSX.Element => {
   if (currentStep === "personal") return <PersonalInfoPage />;
   if (currentStep === "property") return <PropertyInfoPage />;
   if (currentStep === "energy") return <EnergyOptionsPage />;
+  if (currentStep === "simulation") return <SimulationPage />;
+  if (currentStep === "completed") return <CompletionPage />;
 
   return (
     <div className="bg-[#06141b] grid justify-items-center [align-items:start] w-screen">
