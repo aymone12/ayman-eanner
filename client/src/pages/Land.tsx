@@ -70,7 +70,7 @@ export const Land = (): JSX.Element => {
   return (
     <div className="bg-[#06141b] grid justify-items-center [align-items:start] w-screen">
       <div className="bg-[#06141b] w-[1920px] h-[6326px] relative">
-        <header className="w-[1920px] h-[86px] top-0 left-0 absolute bg-[#0a1a1a] border-b border-[#2c4a52]">
+        <header className="w-[1920px] h-[86px] top-0 left-0 absolute bg-[#0a1a1a] border-b border-[#2c4a52] shadow-[0px_4px_20px_rgba(0,0,0,0.5)] z-10">
           <div className="w-full h-full flex items-center px-16 text-[#06141b] bg-[#06141b]">
             <div className="flex items-center justify-between w-full">
               {/* Logo */}
