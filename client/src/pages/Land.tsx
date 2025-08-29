@@ -70,8 +70,9 @@ export const Land = (): JSX.Element => {
   return (
     <div className="bg-[#06141b] grid justify-items-center [align-items:start] w-screen">
       <div className="bg-[#06141b] w-[1920px] h-[6326px] relative">
-        <header className="w-[1920px] h-[86px] top-0 left-0 absolute bg-[#06141b] shadow-[0px_4px_20px_#07151c] z-10">
-          <div className="w-full h-full flex items-center px-16">
+        <header className="w-[1920px] h-[86px] top-0 left-0 absolute z-10">
+          <div className="w-full h-full bg-[#06141b] shadow-[0px_0px_25px_#07151c]">
+            <div className="w-full h-full flex items-center px-16">
             <div className="flex items-center justify-between w-full">
               {/* Logo */}
               <div className="flex items-center">
@@ -125,6 +126,7 @@ export const Land = (): JSX.Element => {
                   Get started
                 </button>
               </div>
+            </div>
             </div>
           </div>
         </header>
