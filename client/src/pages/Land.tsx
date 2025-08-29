@@ -442,10 +442,9 @@ export const Land = (): JSX.Element => {
                 <div className="flex items-center mb-5">
                   <div className="w-10 h-10 mr-2.5 relative">
                     <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect x="0" y="0" width="20" height="20" fill="white"/>
-                      <rect x="20" y="0" width="20" height="20" fill="black"/>
-                      <rect x="0" y="20" width="20" height="20" fill="black"/>
-                      <rect x="20" y="20" width="20" height="20" fill="white"/>
+                      <rect width="40" height="40" fill="black"/>
+                      <path d="M8 8 L24 8 L24 16 L32 16 L32 24 L16 24 L16 32 L8 32 Z" fill="white"/>
+                      <path d="M16 8 L32 8 L32 16 L24 16 L24 24 L16 24 Z" fill="white"/>
                     </svg>
                   </div>
                   <div>
