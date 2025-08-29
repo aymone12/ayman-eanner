@@ -9,6 +9,49 @@ export const Land = (): JSX.Element => {
   const [selectedGridType, setSelectedGridType] = useState("tree-phase");
   const [selectedInstallationType, setSelectedInstallationType] =
     useState("ongrid");
+  
+  // Multi-step form state
+  const [currentStep, setCurrentStep] = useState("initial"); // initial, results, personal, property, energy
+  const [electricBill, setElectricBill] = useState("");
+  const [formData, setFormData] = useState({
+    fullName: "",
+    phoneNumber: "",
+    homeAddress: "",
+    propertyType: "",
+    humidityIndex: "",
+    sunlightExposure: "",
+    storageMode: "",
+    maintenanceService: "",
+    backupHours: ""
+  });
+
+  // Handle calculate button click
+  const handleCalculate = () => {
+    if (!electricBill || electricBill.trim() === "" || parseFloat(electricBill) <= 0) {
+      alert("Please enter a valid electric bill amount before calculating.");
+      return;
+    }
+    setCurrentStep("results");
+  };
+
+  // Navigation functions
+  const goToNextStep = () => {
+    if (currentStep === "results") setCurrentStep("personal");
+    else if (currentStep === "personal") setCurrentStep("property");
+    else if (currentStep === "property") setCurrentStep("energy");
+  };
+
+  const goToPreviousStep = () => {
+    if (currentStep === "energy") setCurrentStep("property");
+    else if (currentStep === "property") setCurrentStep("personal");
+    else if (currentStep === "personal") setCurrentStep("results");
+    else if (currentStep === "results") setCurrentStep("initial");
+  };
+
+  const goBackToMain = () => {
+    setCurrentStep("initial");
+    setElectricBill("");
+  };
 
   const gridTypeOptions = [
     {
@@ -66,6 +109,231 @@ export const Land = (): JSX.Element => {
       highlighted: false,
     },
   ];
+
+  // Results page component
+  const ResultsPage = () => (
+    <div className="bg-[#06141b] min-h-screen flex flex-col items-center justify-center">
+      <div className="max-w-4xl mx-auto p-8 text-center">
+        <h1 className="text-white text-3xl font-bold mb-8">You're Almost There...</h1>
+        <p className="text-white text-lg mb-8">You've Seen What Solar Can Do For You<br/>Now Let Us Take Care Of The Rest</p>
+        
+        <div className="flex justify-center items-center gap-8 mb-8">
+          <Button 
+            className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full hover:bg-white/10"
+            onClick={goToNextStep}
+          >
+            What Next →
+          </Button>
+          
+          <div className="bg-[#132e35] border-2 border-white rounded-xl p-6 min-w-[300px]">
+            <div className="text-gray-400 text-sm mb-2">Recommended</div>
+            <div className="text-white text-xl font-bold mb-2">20.00kW Solar Power + 5kWh Storage</div>
+            <div className="text-gray-400 text-sm mb-1">6% Offset + 1 Hours Avg Backup</div>
+            <div className="text-gray-400 text-sm">Estimated System Size Based On Your Reported Electricity Use</div>
+          </div>
+        </div>
+        
+        <Button 
+          className="bg-transparent text-white text-sm underline hover:text-gray-300"
+          onClick={goBackToMain}
+        >
+          Back to the main
+        </Button>
+      </div>
+    </div>
+  );
+
+  // Personal info page component
+  const PersonalInfoPage = () => (
+    <div className="bg-[#06141b] min-h-screen flex flex-col items-center justify-center">
+      <div className="max-w-4xl mx-auto p-8 text-center">
+        <h1 className="text-white text-3xl font-bold mb-8">You're Almost There...</h1>
+        <p className="text-white text-lg mb-8">Enter your personal information</p>
+        
+        <div className="flex justify-center items-center gap-8 mb-8">
+          <div className="flex flex-col gap-4">
+            <Input 
+              className="w-64 px-4 py-3 rounded-lg border-2 border-white bg-transparent text-white placeholder:text-gray-400"
+              placeholder="Full name"
+              value={formData.fullName}
+              onChange={(e) => setFormData({...formData, fullName: e.target.value})}
+            />
+            <Input 
+              className="w-64 px-4 py-3 rounded-lg border-2 border-white bg-transparent text-white placeholder:text-gray-400"
+              placeholder="Phone number"
+              value={formData.phoneNumber}
+              onChange={(e) => setFormData({...formData, phoneNumber: e.target.value})}
+            />
+            <Input 
+              className="w-64 px-4 py-3 rounded-lg border-2 border-white bg-transparent text-white placeholder:text-gray-400"
+              placeholder="Home address"
+              value={formData.homeAddress}
+              onChange={(e) => setFormData({...formData, homeAddress: e.target.value})}
+            />
+            
+            <div className="flex gap-4 mt-4">
+              <Button 
+                className="bg-transparent border-2 border-white text-white px-6 py-2 rounded-lg hover:bg-white/10"
+                onClick={goToPreviousStep}
+              >
+                Previous
+              </Button>
+              <Button 
+                className="bg-white text-black px-6 py-2 rounded-lg hover:bg-gray-100"
+                onClick={goToNextStep}
+              >
+                Next →
+              </Button>
+            </div>
+          </div>
+          
+          <div className="bg-[#132e35] border-2 border-white rounded-xl p-6 min-w-[300px]">
+            <div className="text-gray-400 text-sm mb-2">Recommended</div>
+            <div className="text-white text-xl font-bold mb-2">20.00kW Solar Power + 5kWh Storage</div>
+            <div className="text-gray-400 text-sm mb-1">6% Offset + 1 Hours Avg Backup</div>
+            <div className="text-gray-400 text-sm">Estimated System Size Based On Your Reported Electricity Use</div>
+          </div>
+        </div>
+        
+        <Button 
+          className="bg-transparent text-white text-sm underline hover:text-gray-300"
+          onClick={goBackToMain}
+        >
+          Back to the main
+        </Button>
+      </div>
+    </div>
+  );
+
+  // Property info page component
+  const PropertyInfoPage = () => (
+    <div className="bg-[#06141b] min-h-screen flex flex-col items-center justify-center">
+      <div className="max-w-4xl mx-auto p-8 text-center">
+        <h1 className="text-white text-3xl font-bold mb-8">You're Almost There...</h1>
+        <p className="text-white text-lg mb-8">Enter your property information</p>
+        
+        <div className="flex justify-center items-center gap-8 mb-8">
+          <div className="flex flex-col gap-4">
+            <Input 
+              className="w-64 px-4 py-3 rounded-lg border-2 border-white bg-transparent text-white placeholder:text-gray-400"
+              placeholder="Property type"
+              value={formData.propertyType}
+              onChange={(e) => setFormData({...formData, propertyType: e.target.value})}
+            />
+            <Input 
+              className="w-64 px-4 py-3 rounded-lg border-2 border-white bg-transparent text-white placeholder:text-gray-400"
+              placeholder="Humidity index"
+              value={formData.humidityIndex}
+              onChange={(e) => setFormData({...formData, humidityIndex: e.target.value})}
+            />
+            <Input 
+              className="w-64 px-4 py-3 rounded-lg border-2 border-white bg-transparent text-white placeholder:text-gray-400"
+              placeholder="How much sunlight does your roof get?"
+              value={formData.sunlightExposure}
+              onChange={(e) => setFormData({...formData, sunlightExposure: e.target.value})}
+            />
+            
+            <div className="flex gap-4 mt-4">
+              <Button 
+                className="bg-transparent border-2 border-white text-white px-6 py-2 rounded-lg hover:bg-white/10"
+                onClick={goToPreviousStep}
+              >
+                Previous
+              </Button>
+              <Button 
+                className="bg-white text-black px-6 py-2 rounded-lg hover:bg-gray-100"
+                onClick={goToNextStep}
+              >
+                Next →
+              </Button>
+            </div>
+          </div>
+          
+          <div className="bg-[#132e35] border-2 border-white rounded-xl p-6 min-w-[300px]">
+            <div className="text-gray-400 text-sm mb-2">Recommended</div>
+            <div className="text-white text-xl font-bold mb-2">20.00kW Solar Power + 5kWh Storage</div>
+            <div className="text-gray-400 text-sm mb-1">6% Offset + 1 Hours Avg Backup</div>
+            <div className="text-gray-400 text-sm">Estimated System Size Based On Your Reported Electricity Use</div>
+          </div>
+        </div>
+        
+        <Button 
+          className="bg-transparent text-white text-sm underline hover:text-gray-300"
+          onClick={goBackToMain}
+        >
+          Back to the main
+        </Button>
+      </div>
+    </div>
+  );
+
+  // Energy options page component
+  const EnergyOptionsPage = () => (
+    <div className="bg-[#06141b] min-h-screen flex flex-col items-center justify-center">
+      <div className="max-w-4xl mx-auto p-8 text-center">
+        <h1 className="text-white text-3xl font-bold mb-8">You're Almost There...</h1>
+        <p className="text-white text-lg mb-8">Energy storage options</p>
+        
+        <div className="flex justify-center items-center gap-8 mb-8">
+          <div className="flex flex-col gap-4">
+            <Input 
+              className="w-64 px-4 py-3 rounded-lg border-2 border-white bg-transparent text-white placeholder:text-gray-400"
+              placeholder="Storage mode"
+              value={formData.storageMode}
+              onChange={(e) => setFormData({...formData, storageMode: e.target.value})}
+            />
+            <Input 
+              className="w-64 px-4 py-3 rounded-lg border-2 border-white bg-transparent text-white placeholder:text-gray-400"
+              placeholder="Maintenance service"
+              value={formData.maintenanceService}
+              onChange={(e) => setFormData({...formData, maintenanceService: e.target.value})}
+            />
+            <Input 
+              className="w-64 px-4 py-3 rounded-lg border-2 border-white bg-transparent text-white placeholder:text-gray-400"
+              placeholder="How many hours of back up you want?"
+              value={formData.backupHours}
+              onChange={(e) => setFormData({...formData, backupHours: e.target.value})}
+            />
+            
+            <div className="flex gap-4 mt-4">
+              <Button 
+                className="bg-transparent border-2 border-white text-white px-6 py-2 rounded-lg hover:bg-white/10"
+                onClick={goToPreviousStep}
+              >
+                Previous
+              </Button>
+              <Button 
+                className="bg-white text-black px-6 py-2 rounded-lg hover:bg-gray-100"
+                onClick={() => alert("Form completed! Thank you for your information.")}
+              >
+                Complete
+              </Button>
+            </div>
+          </div>
+          
+          <div className="bg-[#132e35] border-2 border-white rounded-xl p-6 min-w-[300px]">
+            <div className="text-gray-400 text-sm mb-2">Recommended</div>
+            <div className="text-white text-xl font-bold mb-2">20.00kW Solar Power + 5kWh Storage</div>
+            <div className="text-gray-400 text-sm mb-1">6% Offset + 1 Hours Avg Backup</div>
+            <div className="text-gray-400 text-sm">Estimated System Size Based On Your Reported Electricity Use</div>
+          </div>
+        </div>
+        
+        <Button 
+          className="bg-transparent text-white text-sm underline hover:text-gray-300"
+          onClick={goBackToMain}
+        >
+          Back to the main
+        </Button>
+      </div>
+    </div>
+  );
+
+  // Render different components based on current step
+  if (currentStep === "results") return <ResultsPage />;
+  if (currentStep === "personal") return <PersonalInfoPage />;
+  if (currentStep === "property") return <PropertyInfoPage />;
+  if (currentStep === "energy") return <EnergyOptionsPage />;
 
   return (
     <div className="bg-[#06141b] grid justify-items-center [align-items:start] w-screen">
@@ -265,13 +533,19 @@ export const Land = (): JSX.Element => {
                       <Input
                         className="relative w-[249px] h-[42px] rounded-[10px] border border-solid border-white bg-transparent text-white placeholder:text-[#ffffff40]"
                         placeholder="0.00"
+                        value={electricBill}
+                        onChange={(e) => setElectricBill(e.target.value)}
+                        type="number"
                       />
                       <div className="absolute w-[23px] top-2.5 left-[205px] [font-family:'Rubik',Helvetica] font-light text-white text-base tracking-[0] leading-[normal] pointer-events-none">
                         Dh
                       </div>
                     </div>
 
-                    <Button className="absolute w-[251px] h-[42px] top-px left-[281px] bg-white rounded-[10px] border border-solid hover:bg-white/90 h-auto flex items-center justify-center">
+                    <Button 
+                      className="absolute w-[251px] h-[42px] top-px left-[281px] bg-white rounded-[10px] border border-solid hover:bg-white/90 h-auto flex items-center justify-center"
+                      onClick={handleCalculate}
+                    >
                       <span className="[font-family:'Rubik',Helvetica] font-semibold text-black text-lg tracking-[0] leading-[normal] whitespace-nowrap">
                         Calculate
                       </span>
