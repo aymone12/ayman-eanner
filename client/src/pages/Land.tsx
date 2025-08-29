@@ -70,12 +70,69 @@ export const Land = (): JSX.Element => {
   return (
     <div className="bg-[#06141b] grid justify-items-center [align-items:start] w-screen">
       <div className="bg-[#06141b] w-[1920px] h-[6326px] relative">
-        <header className="w-[1920px] h-[86px] top-0 left-0 absolute">
-          <img
-            className="w-full h-full object-cover"
-            alt="Header"
-            src="/figmaAssets/image-3.png"
-          />
+        <header className="w-[1920px] h-[86px] top-0 left-0 absolute bg-[#06141b]">
+          <div className="w-full py-4 px-6 h-full flex items-center">
+            <div className="max-w-7xl mx-auto flex items-center justify-between w-full">
+              {/* Logo */}
+              <div className="flex-shrink-0">
+                <div className="flex items-center">
+                  <div className="w-10 h-10 mr-2.5 relative bg-black rounded">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <polygon points="8,8 20,8 20,20 8,20" fill="white"/>
+                      <polygon points="12,20 32,20 32,28 20,28 20,32 12,32" fill="white"/>
+                      <polygon points="20,8 32,8 32,16 20,16" fill="white"/>
+                    </svg>
+                  </div>
+                  <span className="text-2xl font-bold text-white">
+                    eaneer
+                  </span>
+                </div>
+              </div>
+
+              {/* Navigation */}
+              <nav className="flex items-center space-x-8">
+                <button className="flex items-center text-white text-sm font-medium hover:text-blue-300 transition-colors duration-200 focus:outline-none">
+                  Company
+                  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                <button className="flex items-center text-white text-sm font-medium hover:text-blue-300 transition-colors duration-200 focus:outline-none">
+                  Industry
+                  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                <button className="flex items-center text-white text-sm font-medium hover:text-blue-300 transition-colors duration-200 focus:outline-none">
+                  Services
+                  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                <button className="text-white text-sm font-medium hover:text-blue-300 transition-colors duration-200">
+                  Career
+                </button>
+                <button className="text-white text-sm font-medium hover:text-blue-300 transition-colors duration-200">
+                  Finance
+                </button>
+                <button className="text-white text-sm font-medium hover:text-blue-300 transition-colors duration-200">
+                  Support
+                </button>
+              </nav>
+
+              {/* Auth Buttons */}
+              <div className="flex items-center space-x-4">
+                <button className="text-white text-sm font-medium hover:text-blue-300 transition-colors duration-200">
+                  Login
+                </button>
+                <button 
+                  className="px-4 py-2 text-sm font-medium rounded-md transition-all duration-200 hover:opacity-90 bg-[#e5e7eb] text-[#374151]"
+                >
+                  Get started
+                </button>
+              </div>
+            </div>
+          </div>
         </header>
 
         <section className="absolute w-[882px] h-[129px] top-[168px] left-[522px]">

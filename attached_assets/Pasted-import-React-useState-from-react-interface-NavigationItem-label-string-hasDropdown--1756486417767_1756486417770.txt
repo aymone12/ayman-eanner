@@ -1,0 +1,156 @@
+import React, { useState } from 'react';
+
+interface NavigationItem {
+  label: string;
+  hasDropdown: boolean;
+}
+
+const EaneerHeader: React.FC = () => {
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+
+  const navigationItems: NavigationItem[] = [
+    { label: 'Company', hasDropdown: true },
+    { label: 'Industry', hasDropdown: true },
+    { label: 'Services', hasDropdown: true },
+    { label: 'Career', hasDropdown: false },
+    { label: 'Finance', hasDropdown: false },
+    { label: 'Support', hasDropdown: false }
+  ];
+
+  const handleNavClick = (item: string): void => {
+    console.log('Clicked:', item);
+  };
+
+  const handleDropdownToggle = (item: string): void => {
+    setActiveDropdown(activeDropdown === item ? null : item);
+  };
+
+  const LogoIcon: React.FC = () => (
+    <div className="flex items-center">
+      <div 
+        className="w-10 h-10 mr-3 relative"
+        style={{
+          background: 'linear-gradient(135deg, #4a9eff 0%, #00d4ff 100%)',
+          transform: 'rotate(45deg)',
+          borderRadius: '6px'
+        }}
+      >
+        <div 
+          className="absolute"
+          style={{
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%) rotate(-45deg)',
+            width: '0',
+            height: '0',
+            borderLeft: '8px solid transparent',
+            borderRight: '8px solid transparent',
+            borderBottom: '12px solid white'
+          }}
+        />
+      </div>
+      <span 
+        className="text-2xl font-bold"
+        style={{ color: '#ffffff' }}
+      >
+        eaneer
+      </span>
+    </div>
+  );
+
+  const DropdownArrow: React.FC<{ isActive: boolean }> = ({ isActive }) => (
+    <svg
+      className={`w-4 h-4 ml-1 transition-transform duration-200 ${isActive ? 'rotate-180' : ''}`}
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+    </svg>
+  );
+
+  return (
+    <header 
+      className="w-full py-4 px-6"
+      style={{ backgroundColor: '#0a1a1a' }}
+    >
+      <div className="max-w-7xl mx-auto flex items-center justify-between">
+        {/* Logo */}
+        <div className="flex-shrink-0">
+          <LogoIcon />
+        </div>
+
+        {/* Navigation */}
+        <nav className="flex items-center space-x-8">
+          {navigationItems.map((item, index) => (
+            <div key={index} className="relative">
+              <button
+                onClick={() => item.hasDropdown ? handleDropdownToggle(item.label) : handleNavClick(item.label)}
+                className="flex items-center text-white text-sm font-medium hover:text-blue-300 transition-colors duration-200 focus:outline-none"
+                style={{ fontSize: '14px' }}
+              >
+                {item.label}
+                {item.hasDropdown && (
+                  <DropdownArrow isActive={activeDropdown === item.label} />
+                )}
+              </button>
+            </div>
+          ))}
+        </nav>
+
+        {/* Auth Buttons */}
+        <div className="flex items-center space-x-4">
+          <button
+            onClick={() => handleNavClick('Login')}
+            className="text-white text-sm font-medium hover:text-blue-300 transition-colors duration-200"
+            style={{ fontSize: '14px' }}
+          >
+            Login
+          </button>
+          <button
+            onClick={() => handleNavClick('Get started')}
+            className="px-4 py-2 text-sm font-medium rounded-md transition-all duration-200 hover:opacity-90"
+            style={{
+              backgroundColor: '#e5e7eb',
+              color: '#374151',
+              fontSize: '14px',
+              borderRadius: '6px'
+            }}
+          >
+            Get started
+          </button>
+        </div>
+      </div>
+
+      <style jsx>{`
+        @media (max-width: 1024px) {
+          nav {
+            display: none;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .auth-buttons {
+            gap: 8px;
+          }
+          
+          .auth-buttons button {
+            font-size: 12px !important;
+            padding: 6px 12px;
+          }
+        }
+
+        button:hover {
+          transform: translateY(-1px);
+        }
+
+        button:active {
+          transform: translateY(0);
+        }
+      `}</style>
+    </header>
+  );
+};
+
+export default EaneerHeader;
+
