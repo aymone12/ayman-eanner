@@ -76,14 +76,16 @@ export const Land = (): JSX.Element => {
               {/* Logo */}
               <div className="flex items-center">
                 <div className="w-8 h-8 mr-3 flex items-center justify-center">
-                  <span className="text-white text-2xl font-bold">F</span>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="white"/>
+                  </svg>
                 </div>
                 <span className="text-xl font-medium text-white">
                   eaneer
                 </span>
               </div>
 
-              {/* Navigation - Right aligned */}
+              {/* Center Navigation */}
               <nav className="flex items-center space-x-8">
                 <button className="flex items-center text-white text-sm font-medium hover:text-gray-300 transition-colors duration-200 focus:outline-none">
                   Company
@@ -113,6 +115,16 @@ export const Land = (): JSX.Element => {
                   Support
                 </button>
               </nav>
+
+              {/* Right side - Login and Get started */}
+              <div className="flex items-center space-x-4">
+                <button className="text-white text-sm font-medium hover:text-gray-300 transition-colors duration-200">
+                  Login
+                </button>
+                <button className="px-4 py-2 text-sm font-medium rounded-md transition-all duration-200 hover:opacity-90 bg-white text-black">
+                  Get started
+                </button>
+              </div>
             </div>
           </div>
         </header>
