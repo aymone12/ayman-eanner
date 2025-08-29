@@ -375,11 +375,57 @@ export const Land = (): JSX.Element => {
           Together, We Rise Under One Sun.
         </div>
 
-        <img
-          className="w-[1280px] h-[309px] top-[5362px] left-80 absolute object-cover"
-          alt="Image"
-          src="/figmaAssets/image-12.png"
-        />
+        <div className="w-[1280px] h-[309px] top-[5362px] left-80 absolute">
+          <div className="min-h-full flex justify-center items-center p-5" style={{ backgroundColor: '#06141b' }}>
+            <div 
+              className="bg-[#06141b] rounded-3xl max-w-6xl w-full flex justify-between items-center shadow-sm"
+              style={{ 
+                border: '1.5px solid #2c4a52',
+                padding: '60px 80px'
+              }}
+            >
+              <div className="flex-1 pr-16">
+                <div 
+                  className="text-base font-medium mb-4 tracking-wide"
+                  style={{ color: '#69818d' }}
+                >
+                  Contact us today!
+                </div>
+                <h2 
+                  className="text-5xl font-semibold leading-tight"
+                  style={{ 
+                    color: '#ffffff',
+                    fontSize: '42px',
+                    lineHeight: '1.2'
+                  }}
+                >
+                  Have questions about our services or ready to start your project?
+                </h2>
+              </div>
+              
+              <div className="flex flex-col gap-4" style={{ flex: '0 0 400px' }}>
+                <input
+                  type="email"
+                  placeholder="Type your email"
+                  className="w-full px-6 py-5 text-base font-normal bg-[#06141b] rounded-xl outline-none transition-all duration-200"
+                  style={{
+                    border: '2px solid #2c4a52',
+                    color: '#ffffff'
+                  }}
+                />
+                <button
+                  className="w-full px-6 py-5 text-white text-base font-semibold rounded-xl cursor-pointer outline-none transition-all duration-200 hover:transform hover:-translate-y-px active:translate-y-0"
+                  style={{
+                    backgroundColor: '#2c4a52',
+                    border: 'none'
+                  }}
+                >
+                  Get started
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <img
           className="w-[23px] h-[26px] top-[5820px] left-[948px] absolute object-cover"
