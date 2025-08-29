@@ -440,8 +440,13 @@ export const Land = (): JSX.Element => {
               <div className="flex flex-col flex-1 mr-10">
                 {/* Logo */}
                 <div className="flex items-center mb-5">
-                  <div className="w-10 h-10 bg-gradient-to-br from-[#4a9eff] to-[#00d4ff] mr-2.5 relative transform rotate-45 rounded">
-                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -rotate-45 w-0 h-0 border-l-2 border-l-transparent border-r-2 border-r-transparent border-b-3 border-b-white"></div>
+                  <div className="w-10 h-10 mr-2.5 relative">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="0" y="0" width="20" height="20" fill="white"/>
+                      <rect x="20" y="0" width="20" height="20" fill="black"/>
+                      <rect x="0" y="20" width="20" height="20" fill="black"/>
+                      <rect x="20" y="20" width="20" height="20" fill="white"/>
+                    </svg>
                   </div>
                   <div>
                     <div className="[font-family:'Inter',Helvetica] font-bold text-white text-2xl">
