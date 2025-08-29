@@ -376,25 +376,25 @@ export const Land = (): JSX.Element => {
         </div>
 
         <div className="w-[1280px] h-[309px] top-[5362px] left-80 absolute">
-          <div className="min-h-full flex justify-center items-center p-5" style={{ backgroundColor: '#06141b' }}>
+          <div className="min-h-full flex justify-center items-center p-5" style={{ backgroundColor: '#f8f9fa' }}>
             <div 
-              className="bg-[#06141b] rounded-3xl max-w-6xl w-full flex justify-between items-center shadow-sm"
+              className="bg-white rounded-3xl max-w-6xl w-full flex justify-between items-center shadow-sm"
               style={{ 
-                border: '1.5px solid #2c4a52',
+                border: '1.5px solid #e1e5e9',
                 padding: '60px 80px'
               }}
             >
               <div className="flex-1 pr-16">
                 <div 
                   className="text-base font-medium mb-4 tracking-wide"
-                  style={{ color: '#69818d' }}
+                  style={{ color: '#6b7280' }}
                 >
                   Contact us today!
                 </div>
                 <h2 
                   className="text-5xl font-semibold leading-tight"
                   style={{ 
-                    color: '#ffffff',
+                    color: '#1f2937',
                     fontSize: '42px',
                     lineHeight: '1.2'
                   }}
@@ -407,16 +407,16 @@ export const Land = (): JSX.Element => {
                 <input
                   type="email"
                   placeholder="Type your email"
-                  className="w-full px-6 py-5 text-base font-normal bg-[#06141b] rounded-xl outline-none transition-all duration-200"
+                  className="w-full px-6 py-5 text-base font-normal bg-white rounded-xl outline-none transition-all duration-200"
                   style={{
-                    border: '2px solid #2c4a52',
-                    color: '#ffffff'
+                    border: '2px solid #e5e7eb',
+                    color: '#374151'
                   }}
                 />
                 <button
                   className="w-full px-6 py-5 text-white text-base font-semibold rounded-xl cursor-pointer outline-none transition-all duration-200 hover:transform hover:-translate-y-px active:translate-y-0"
                   style={{
-                    backgroundColor: '#2c4a52',
+                    backgroundColor: '#374151',
                     border: 'none'
                   }}
                 >
