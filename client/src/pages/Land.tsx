@@ -71,62 +71,48 @@ export const Land = (): JSX.Element => {
     <div className="bg-[#06141b] grid justify-items-center [align-items:start] w-screen">
       <div className="bg-[#06141b] w-[1920px] h-[6326px] relative">
         <header className="w-[1920px] h-[86px] top-0 left-0 absolute bg-[#0a1a1a] border-b border-[#2c4a52] shadow-[0px_4px_20px_rgba(0,0,0,0.5)] z-10">
-          <div className="w-full h-full flex items-center px-16 text-[#06141b] bg-[#06141b]">
+          <div className="w-full h-full flex items-center px-16">
             <div className="flex items-center justify-between w-full">
               {/* Logo */}
               <div className="flex items-center">
-                <div className="w-8 h-8 mr-3 relative bg-black rounded">
-                  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <polygon points="6,6 16,6 16,16 6,16" fill="white"/>
-                    <polygon points="10,16 26,16 26,22 16,22 16,26 10,26" fill="white"/>
-                    <polygon points="16,6 26,6 26,12 16,12" fill="white"/>
-                  </svg>
+                <div className="w-8 h-8 mr-3 flex items-center justify-center">
+                  <span className="text-white text-2xl font-bold">F</span>
                 </div>
-                <span className="text-xl font-bold text-white">
+                <span className="text-xl font-medium text-white">
                   eaneer
                 </span>
               </div>
 
-              {/* Navigation */}
+              {/* Navigation - Right aligned */}
               <nav className="flex items-center space-x-8">
-                <button className="flex items-center text-white text-sm font-medium hover:text-blue-300 transition-colors duration-200 focus:outline-none">
+                <button className="flex items-center text-white text-sm font-medium hover:text-gray-300 transition-colors duration-200 focus:outline-none">
                   Company
                   <svg className="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
-                <button className="flex items-center text-white text-sm font-medium hover:text-blue-300 transition-colors duration-200 focus:outline-none">
+                <button className="flex items-center text-white text-sm font-medium hover:text-gray-300 transition-colors duration-200 focus:outline-none">
                   Industry
                   <svg className="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
-                <button className="flex items-center text-white text-sm font-medium hover:text-blue-300 transition-colors duration-200 focus:outline-none">
+                <button className="flex items-center text-white text-sm font-medium hover:text-gray-300 transition-colors duration-200 focus:outline-none">
                   Services
                   <svg className="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
-                <button className="text-white text-sm font-medium hover:text-blue-300 transition-colors duration-200">
+                <button className="text-white text-sm font-medium hover:text-gray-300 transition-colors duration-200">
                   Career
                 </button>
-                <button className="text-white text-sm font-medium hover:text-blue-300 transition-colors duration-200">
+                <button className="text-white text-sm font-medium hover:text-gray-300 transition-colors duration-200">
                   Finance
                 </button>
-                <button className="text-white text-sm font-medium hover:text-blue-300 transition-colors duration-200">
+                <button className="text-white text-sm font-medium hover:text-gray-300 transition-colors duration-200">
                   Support
                 </button>
               </nav>
-
-              {/* Auth Buttons */}
-              <div className="flex items-center space-x-4">
-                <button className="text-white text-sm font-medium hover:text-blue-300 transition-colors duration-200">
-                  Login
-                </button>
-                <button className="px-4 py-2 text-sm font-medium rounded-md transition-all duration-200 hover:opacity-90 bg-white text-black">
-                  Get started
-                </button>
-              </div>
             </div>
           </div>
         </header>
