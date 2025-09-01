@@ -836,37 +836,16 @@ export const Land = (): JSX.Element => {
           </Card>
         </section>
 
-        {/* Process Steps Section */}
-        <section className="px-4 py-8">
-          <div className="text-center mb-8">
-            <div className="text-white text-lg font-semibold mb-2">How Do I Get Started?</div>
-            <div className="text-white text-xl font-bold mb-1">
-              <span className="text-white">Explore </span>
-              <span className="text-[#69818d]">eaneer</span>
-              <span className="text-[#69818d]"> energetics</span>
-              <span className="text-white">: Solar Energy installations</span>
-            </div>
-          </div>
-          
-          <div className="space-y-4 max-w-sm mx-auto">
-            {processSteps.map((step, index) => (
-              <Card
-                key={index}
-                className={`bg-[#132e35] rounded-[20px] ${step.highlighted ? "border-[3px] border-solid border-white" : "border-2 border-solid border-white"} relative`}
-              >
-                <CardContent className="p-6">
-                  <h3 className="text-white font-semibold text-lg mb-3">
-                    {step.title}
-                  </h3>
-                  <p className="text-white font-medium text-sm leading-relaxed">
-                    {step.description}
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-          
-          <div className="text-center mt-8">
+        {/* Power Your Home Save Money Section */}
+        <section className="relative w-full h-96 bg-[url(/figmaAssets/image-8-bit-style.png)] bg-cover bg-center flex items-center justify-center px-4">
+          <div className="text-center max-w-md mx-auto">
+            <h2 className="text-white text-2xl font-bold mb-4 leading-tight">
+              Power Your Home, Save Money
+            </h2>
+            <p className="text-white text-base font-medium mb-8 leading-relaxed">
+              Whether your goal is to reduce your electric bill or eliminate it completely, eaneer can help make that happen.
+            </p>
+            
             <Button className="w-full max-w-xs mx-auto bg-transparent border-2 border-white text-white px-6 py-3 rounded-full hover:bg-white/10 flex items-center justify-between">
               <span className="font-bold text-base">Ready To Save Energy?</span>
               <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
