@@ -1451,9 +1451,9 @@ export const Land = (): JSX.Element => {
                 <div className="flex items-center mb-5">
                   <div className="w-10 h-10 mr-2.5 relative bg-black rounded">
                     <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <polygon points="8,8 20,8 20,20 8,20" fill="white"/>
-                      <polygon points="12,20 32,20 32,28 20,28 20,32 12,32" fill="white"/>
-                      <polygon points="20,8 32,8 32,16 20,16" fill="white"/>
+                      <polygon points="0,0 20,0 20,20 0,20" fill="white"/>
+                      <polygon points="20,0 40,0 40,20 30,20 30,30 20,30" fill="white"/>
+                      <polygon points="0,20 30,20 30,40 0,40" fill="white"/>
                     </svg>
                   </div>
                   <div>
