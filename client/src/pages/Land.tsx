@@ -731,6 +731,19 @@ export const Land = (): JSX.Element => {
           </Button>
         </section>
 
+        {/* 3D House Model Section */}
+        <section className="px-4 pb-4">
+          <div className="max-w-md mx-auto">
+            <div className="relative flex items-center justify-center h-64 mb-4">
+              <img 
+                src="/figmaAssets/1-1--1.png" 
+                alt="3D Solar House Model" 
+                className="max-w-full max-h-full object-contain"
+              />
+            </div>
+          </div>
+        </section>
+
         {/* Calculator Section */}
         <section className="px-4 pb-8">
           <Card className="bg-[#06141b] rounded-2xl border-0 max-w-md mx-auto shadow-[0px_0px_20px_5px_#2c4a52]">
