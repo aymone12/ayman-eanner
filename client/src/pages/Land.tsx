@@ -738,11 +738,11 @@ export const Land = (): JSX.Element => {
               {/* Grid Type */}
               <div className="mb-6">
                 <h3 className="text-white text-lg font-semibold mb-4 font-['Rubik']">Grid Type</h3>
-                <div className="flex gap-2">
+                <div className="flex gap-4 h-[70px]">
                   {gridTypeOptions.map((option) => (
                     <div
                       key={option.id}
-                      className={`flex-1 p-3 rounded-[15px] border-2 cursor-pointer transition-all duration-200 ${
+                      className={`flex-1 px-3 py-1.5 rounded-[15px] border-2 cursor-pointer transition-all duration-200 h-full flex flex-col ${
                         selectedGridType === option.id
                           ? "border-white bg-[#0a1b23]"
                           : "border-gray-600 bg-[#0a1b23]"
@@ -750,19 +750,19 @@ export const Land = (): JSX.Element => {
                       onClick={() => setSelectedGridType(option.id)}
                       data-testid={`grid-${option.id}`}
                     >
-                      <div className="flex items-start mb-2">
-                        <div className={`w-[18px] h-[18px] rounded-full border-2 mr-3 mt-0.5 flex-shrink-0 ${
+                      <div className="flex items-start mb-1">
+                        <div className={`w-[16px] h-[16px] rounded-full border-2 mr-2 mt-0.5 flex-shrink-0 ${
                           selectedGridType === option.id ? "border-white bg-[#d9d9d9]" : "border-white"
                         }`}>
                           {selectedGridType === option.id && (
                             <div className="w-full h-full rounded-full bg-[#d9d9d9] flex items-center justify-center">
-                              <div className="w-1.5 h-1.5 bg-black rounded-full"></div>
+                              <div className="w-1 h-1 bg-black rounded-full"></div>
                             </div>
                           )}
                         </div>
-                        <div className="text-white font-bold text-sm font-['Inter']">{option.label}</div>
+                        <div className="text-white font-bold text-xs font-['Inter']">{option.label}</div>
                       </div>
-                      <div className="text-white text-xs leading-relaxed font-['Inter'] ml-8">
+                      <div className="text-white text-[10px] leading-tight font-['Inter'] ml-5 flex-1">
                         {option.description}
                       </div>
                     </div>
