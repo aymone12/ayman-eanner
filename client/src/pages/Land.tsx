@@ -458,7 +458,162 @@ export const Land = (): JSX.Element => {
 
   return (
     <div className="bg-[#06141b] grid justify-items-center [align-items:start] w-screen">
-      <div className="bg-[#06141b] w-[1920px] h-[6326px] relative">
+      {/* Mobile Layout - Hidden on desktop */}
+      <div className="md:hidden w-full min-h-screen bg-[#06141b] relative">
+        {/* Mobile Header */}
+        <header className="w-full h-16 bg-[#06141b] shadow-[0px_0px_25px_#07151c] px-4 flex items-center justify-between relative z-10">
+          {/* Logo */}
+          <div className="flex items-center">
+            <div className="w-6 h-6 mr-2 flex items-center justify-center">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="white"/>
+              </svg>
+            </div>
+            <span className="text-lg font-medium text-white">eaneer</span>
+          </div>
+          
+          {/* Mobile Menu Button */}
+          <button className="text-white">
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </header>
+
+        {/* Mobile Content */}
+        <div className="px-4 py-8">
+          {/* Title Section */}
+          <div className="text-center mb-8">
+            <h1 className="text-white text-xl font-semibold mb-2">eaneer energetics summer 20%</h1>
+            <h2 className="text-white text-lg font-medium">Start Saving Up to 80% /mo On average</h2>
+          </div>
+
+          {/* Mobile Solar Calculator */}
+          <div className="space-y-6">
+            {/* Grid Type Selection */}
+            <div>
+              <h3 className="text-white text-base font-medium mb-4">Grid Type</h3>
+              <div className="space-y-3">
+                {gridTypeOptions.map((option) => (
+                  <div
+                    key={option.id}
+                    className={`p-4 rounded-lg border-2 cursor-pointer transition-all ${
+                      selectedGridType === option.id
+                        ? "border-white bg-white/10"
+                        : "border-gray-600 bg-transparent hover:border-gray-400"
+                    }`}
+                    onClick={() => setSelectedGridType(option.id)}
+                    data-testid={`grid-${option.id}`}
+                  >
+                    <div className="flex items-center space-x-3">
+                      <div className={`w-4 h-4 rounded-full border-2 ${
+                        selectedGridType === option.id ? "border-white bg-white" : "border-gray-400"
+                      }`} />
+                      <div>
+                        <div className="text-white font-medium text-sm">{option.label}</div>
+                        <div className="text-gray-400 text-xs">{option.description}</div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Installation Type Selection */}
+            <div>
+              <h3 className="text-white text-base font-medium mb-4">Installation Type</h3>
+              <div className="space-y-3">
+                {installationTypeOptions.map((option) => (
+                  <div
+                    key={option.id}
+                    className={`p-4 rounded-lg border-2 cursor-pointer transition-all ${
+                      selectedInstallationType === option.id
+                        ? "border-white bg-white/10"
+                        : "border-gray-600 bg-transparent hover:border-gray-400"
+                    }`}
+                    onClick={() => setSelectedInstallationType(option.id)}
+                    data-testid={`installation-${option.id}`}
+                  >
+                    <div className="flex items-center space-x-3">
+                      <div className={`w-4 h-4 rounded-full border-2 ${
+                        selectedInstallationType === option.id ? "border-white bg-white" : "border-gray-400"
+                      }`} />
+                      <div>
+                        <div className="text-white font-medium text-sm">{option.label}</div>
+                        <div className="text-gray-400 text-xs">{option.description}</div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Electric Bill Input */}
+            <div>
+              <Label htmlFor="electricBill" className="text-white text-base font-medium mb-4 block">
+                How Much Do You Pay For Electric Bills
+              </Label>
+              <Input
+                id="electricBill"
+                type="number"
+                placeholder="Enter amount"
+                value={electricBill}
+                onChange={(e) => setElectricBill(e.target.value)}
+                className="w-full px-4 py-3 rounded-full border-2 border-white bg-transparent text-white placeholder:text-gray-400"
+                data-testid="input-electric-bill"
+              />
+            </div>
+
+            {/* Calculate Button */}
+            <Button
+              onClick={handleCalculate}
+              className="w-full bg-white text-black py-3 rounded-full hover:bg-gray-100 font-medium"
+              data-testid="button-calculate"
+            >
+              Calculate Now →
+            </Button>
+
+            {/* Process Steps */}
+            <div className="mt-8">
+              <h3 className="text-white text-base font-medium mb-4">How It Works</h3>
+              <div className="space-y-4">
+                {processSteps.map((step, index) => (
+                  <div key={index} className="flex space-x-3">
+                    <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                      <span className="text-black text-xs font-bold">{index + 1}</span>
+                    </div>
+                    <div>
+                      <h4 className="text-white font-medium text-sm mb-1">{step.title}</h4>
+                      <p className="text-gray-400 text-xs leading-relaxed">{step.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Footer */}
+        <footer className="mt-12 px-4 py-6 border-t border-gray-700">
+          <div className="text-center space-y-4">
+            {/* Footer Links */}
+            <div className="flex flex-wrap justify-center gap-4 text-xs">
+              <span className="text-gray-400 hover:text-white cursor-pointer">Privacy Policy</span>
+              <span className="text-gray-400 hover:text-white cursor-pointer">Terms of Service</span>
+              <span className="text-gray-400 hover:text-white cursor-pointer">Contact</span>
+              <span className="text-gray-400 hover:text-white cursor-pointer">Support</span>
+            </div>
+            
+            {/* Copyright */}
+            <div className="text-gray-400 text-xs">
+              2024 eaneer. All rights reserved
+            </div>
+          </div>
+        </footer>
+      </div>
+
+      {/* Desktop Layout - Hidden on mobile */}
+      <div className="hidden md:block bg-[#06141b] w-[1920px] h-[6326px] relative">
         <header className="w-[1920px] h-[86px] top-0 left-0 absolute z-10">
           <div className="w-full h-full bg-[#06141b] shadow-[0px_0px_25px_#07151c]">
             <div className="w-full h-full flex items-center px-16">
