@@ -13,6 +13,9 @@ export const Land = (): JSX.Element => {
   // Multi-step form state
   const [currentStep, setCurrentStep] = useState("initial"); // initial, hero, steps, calculator, results, personal, property, energy
   const [electricBill, setElectricBill] = useState("");
+  
+  // Mobile menu state
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
     phoneNumber: "",
