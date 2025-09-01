@@ -721,14 +721,6 @@ export const Land = (): JSX.Element => {
             Enter Your Solar Installation Details And Average Electricity Bill To Get A Quote And View Your savings
           </p>
           
-          <Button className="w-full max-w-xs mx-auto bg-transparent border-2 border-white text-white px-6 py-3 rounded-full hover:bg-white/10 flex items-center justify-between">
-            <span className="font-bold text-base">Ready To Save Energy?</span>
-            <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="black"/>
-              </svg>
-            </div>
-          </Button>
         </section>
 
         {/* 3D House Model Section */}
