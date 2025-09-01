@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ProgressIndicator } from "./ProgressIndicator";
+import { ContactFooterSection } from "./ContactFooterSection";
 
 interface Step5SimulationProps {
   onNext: () => void;
@@ -78,6 +79,8 @@ export function Step5Simulation({ onNext, onBack }: Step5SimulationProps) {
             Back to the main
           </Button>
         </div>
+
+        <ContactFooterSection />
       </div>
     </div>
   );

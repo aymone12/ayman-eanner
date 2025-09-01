@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ProgressIndicator } from "./ProgressIndicator";
+import { ContactFooterSection } from "./ContactFooterSection";
 
 interface Step3PropertyInfoProps {
   onNext: () => void;
@@ -92,6 +93,8 @@ export function Step3PropertyInfo({ onNext, onBack }: Step3PropertyInfoProps) {
             Back to the main
           </Button>
         </div>
+
+        <ContactFooterSection />
       </div>
     </div>
   );
