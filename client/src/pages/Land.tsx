@@ -683,141 +683,255 @@ export const Land = (): JSX.Element => {
   return (
     <div className="bg-[#06141b] grid justify-items-center [align-items:start] w-screen">
       {/* Mobile Layout - Hidden on desktop */}
-      <div className="md:hidden w-full min-h-screen bg-gradient-to-b from-[#0a1f26] via-[#0a1f26] to-[#06141b] relative">
-        {/* 3D House Model Section */}
-        <div className="relative h-80 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#0a1f26]/50"></div>
-          <div className="flex items-center justify-center h-full pt-16">
-            {/* 3D House placeholder - using a simple house icon representation */}
-            <div className="relative">
-              <svg width="200" height="160" viewBox="0 0 200 160" fill="none" className="drop-shadow-2xl">
-                {/* House base */}
-                <rect x="40" y="80" width="120" height="70" fill="#d4d4d4" rx="4"/>
-                {/* Roof */}
-                <polygon points="30,80 100,30 170,80" fill="#a3a3a3"/>
-                {/* Door */}
-                <rect x="90" y="120" width="20" height="30" fill="#525252" rx="2"/>
-                {/* Windows */}
-                <rect x="60" y="100" width="15" height="15" fill="#1f2937" rx="2"/>
-                <rect x="125" y="100" width="15" height="15" fill="#1f2937" rx="2"/>
-                {/* Solar panels on roof */}
-                <rect x="70" y="45" width="60" height="25" fill="#1f2937" rx="2"/>
-                <rect x="75" y="50" width="50" height="15" fill="#374151" rx="1"/>
-                {/* Solar panel details */}
-                <rect x="80" y="52" width="8" height="11" fill="#111827"/>
-                <rect x="90" y="52" width="8" height="11" fill="#111827"/>
-                <rect x="100" y="52" width="8" height="11" fill="#111827"/>
-                <rect x="110" y="52" width="8" height="11" fill="#111827"/>
+      <div className="md:hidden w-full min-h-screen bg-[#06141b]">
+        {/* Mobile Header */}
+        <header className="w-full bg-[#06141b] shadow-[0px_0px_25px_#07151c] px-4 py-4 flex items-center justify-between">
+          {/* Logo */}
+          <div className="flex items-center">
+            <div className="w-6 h-6 mr-2 flex items-center justify-center">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="white"/>
               </svg>
             </div>
+            <span className="text-lg font-medium text-white">eaneer</span>
           </div>
-        </div>
+          
+          {/* Mobile Menu Button */}
+          <button className="text-white p-2">
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </header>
 
-        {/* Calculator Card */}
-        <div className="px-4 pb-8">
-          <div className="bg-[#1a2b33]/90 backdrop-blur-sm rounded-3xl p-6 mx-auto max-w-sm border border-gray-700/30 shadow-2xl">
-            {/* Grid Type Section */}
-            <div className="mb-6">
-              <h3 className="text-white text-lg font-semibold mb-4">Grid Type</h3>
-              <div className="flex gap-3">
-                {gridTypeOptions.map((option) => (
-                  <div
-                    key={option.id}
-                    className={`flex-1 p-4 rounded-2xl border-2 cursor-pointer transition-all ${
-                      selectedGridType === option.id
-                        ? "border-cyan-400 bg-cyan-400/10"
-                        : "border-gray-600 bg-gray-800/50 hover:border-gray-500"
-                    }`}
-                    onClick={() => setSelectedGridType(option.id)}
-                    data-testid={`grid-${option.id}`}
-                  >
-                    <div className="flex items-center mb-2">
-                      <div className={`w-5 h-5 rounded-full border-2 mr-3 ${
-                        selectedGridType === option.id 
-                          ? "border-cyan-400 bg-cyan-400" 
-                          : "border-gray-400"
-                      }`}>
-                        {selectedGridType === option.id && (
-                          <div className="w-full h-full rounded-full bg-cyan-400 flex items-center justify-center">
-                            <div className="w-2 h-2 bg-white rounded-full"></div>
-                          </div>
-                        )}
+        {/* Hero Section */}
+        <section className="px-4 py-8 text-center">
+          <div className="mb-4">
+            <span className="text-white text-lg font-semibold">eaneer</span>
+            <span className="text-white text-lg font-semibold"> energetics summer 20%</span>
+          </div>
+          <h1 className="text-white text-2xl font-semibold mb-4 leading-tight">
+            Start Saving Up to 80% /mo On average
+          </h1>
+          <p className="text-white text-sm mb-8 leading-relaxed max-w-sm mx-auto">
+            Enter Your Solar Installation Details And Average Electricity Bill To Get A Quote And View Your savings
+          </p>
+          
+          <Button className="w-full max-w-xs mx-auto bg-transparent border-2 border-white text-white px-6 py-3 rounded-full hover:bg-white/10 flex items-center justify-between">
+            <span className="font-bold text-base">Ready To Save Energy?</span>
+            <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="black"/>
+              </svg>
+            </div>
+          </Button>
+        </section>
+
+        {/* Calculator Section */}
+        <section className="px-4 pb-8">
+          <Card className="bg-[#06141b] rounded-3xl shadow-[0px_0px_20px_5px_#2c4a52] border-0 max-w-md mx-auto">
+            <CardContent className="p-6">
+              {/* Grid Type */}
+              <div className="mb-6">
+                <h3 className="text-white text-lg font-semibold mb-4">Grid Type</h3>
+                <div className="flex gap-3">
+                  {gridTypeOptions.map((option) => (
+                    <div
+                      key={option.id}
+                      className={`flex-1 p-3 rounded-2xl border-2 cursor-pointer transition-all ${
+                        selectedGridType === option.id
+                          ? "border-white bg-[#0a1b23]"
+                          : "border-gray-600 bg-[#0a1b23]"
+                      }`}
+                      onClick={() => setSelectedGridType(option.id)}
+                      data-testid={`grid-${option.id}`}
+                    >
+                      <div className="flex items-center mb-1">
+                        <div className={`w-4 h-4 rounded-full border-2 mr-2 ${
+                          selectedGridType === option.id ? "border-white bg-white" : "border-gray-400"
+                        }`}>
+                          {selectedGridType === option.id && (
+                            <div className="w-full h-full rounded-full bg-white flex items-center justify-center">
+                              <div className="w-1.5 h-1.5 bg-black rounded-full"></div>
+                            </div>
+                          )}
+                        </div>
+                        <div className="text-white font-medium text-sm">{option.label}</div>
                       </div>
-                      <div className="text-white font-medium text-sm">{option.label}</div>
+                      <div className="text-gray-400 text-xs leading-relaxed pl-6">
+                        {option.description}
+                      </div>
                     </div>
-                    <div className="text-gray-400 text-xs leading-relaxed pl-8">
-                      {option.description}
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
+
+              {/* Installation Type */}
+              <div className="mb-6">
+                <h3 className="text-white text-lg font-semibold mb-4">Installation Type</h3>
+                <div className="flex gap-2">
+                  {installationTypeOptions.map((option) => (
+                    <div
+                      key={option.id}
+                      className={`flex-1 p-3 rounded-2xl border-2 cursor-pointer transition-all ${
+                        selectedInstallationType === option.id
+                          ? "border-white bg-[#0a1b23]"
+                          : "border-gray-600 bg-[#0a1b23]"
+                      }`}
+                      onClick={() => setSelectedInstallationType(option.id)}
+                      data-testid={`installation-${option.id}`}
+                    >
+                      <div className="flex items-center mb-1">
+                        <div className={`w-4 h-4 rounded-full border-2 mr-2 ${
+                          selectedInstallationType === option.id ? "border-white bg-white" : "border-gray-400"
+                        }`}>
+                          {selectedInstallationType === option.id && (
+                            <div className="w-full h-full rounded-full bg-white flex items-center justify-center">
+                              <div className="w-1.5 h-1.5 bg-black rounded-full"></div>
+                            </div>
+                          )}
+                        </div>
+                        <div className="text-white font-medium text-xs">{option.label}</div>
+                      </div>
+                      <div className="text-gray-400 text-xs leading-relaxed pl-6">
+                        {option.description}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Electric Bill Input */}
+              <div className="mb-6">
+                <Label htmlFor="electricBill" className="text-white text-base font-medium mb-3 block">
+                  How Much Do You Pay For Electric Bills
+                </Label>
+                <div className="relative">
+                  <Input
+                    id="electricBill"
+                    type="number"
+                    placeholder="Enter amount"
+                    value={electricBill}
+                    onChange={(e) => setElectricBill(e.target.value)}
+                    className="w-full px-4 py-3 rounded-2xl border-2 border-gray-600 bg-[#0a1b23] text-white placeholder:text-gray-400 pr-12"
+                    data-testid="input-electric-bill"
+                  />
+                  <div className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm">
+                    DH
+                  </div>
+                </div>
+              </div>
+
+              {/* Calculate Button */}
+              <Button
+                onClick={handleCalculate}
+                className="w-full bg-white text-black py-3 rounded-2xl hover:bg-gray-100 font-semibold"
+                data-testid="button-calculate"
+              >
+                Calculate Now →
+              </Button>
+            </CardContent>
+          </Card>
+        </section>
+
+        {/* Process Steps Section */}
+        <section className="px-4 py-8">
+          <h2 className="text-white text-xl font-semibold text-center mb-8">How It Works</h2>
+          <div className="space-y-6 max-w-md mx-auto">
+            {processSteps.map((step, index) => (
+              <div key={index} className="flex space-x-4">
+                <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <span className="text-black text-sm font-bold">{index + 1}</span>
+                </div>
+                <div>
+                  <h3 className="text-white font-semibold text-base mb-2">{step.title}</h3>
+                  <p className="text-gray-400 text-sm leading-relaxed">{step.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Mobile Footer */}
+        <footer className="px-4 py-8 border-t border-[#2c4a52] mt-12">
+          {/* Main Footer Content */}
+          <div className="max-w-md mx-auto">
+            {/* Logo and Description */}
+            <div className="text-center mb-8">
+              <div className="flex items-center justify-center mb-4">
+                <div className="w-6 h-6 mr-2 flex items-center justify-center">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="white"/>
+                  </svg>
+                </div>
+                <span className="text-lg font-medium text-white">eaneer</span>
+              </div>
+              <p className="text-white text-sm font-medium mb-1">
+                Contact Eaneer for Innovative Energy Solutions.
+              </p>
+              <p className="text-white text-sm mb-1">
+                Transform Your Vision into Reality with Speed,
+              </p>
+              <p className="text-white text-sm">
+                Efficiency and Savings.
+              </p>
             </div>
 
-            {/* Installation Type Section */}
-            <div className="mb-6">
-              <h3 className="text-white text-lg font-semibold mb-4">Installation Type</h3>
-              <div className="flex gap-3">
-                {installationTypeOptions.map((option) => (
-                  <div
-                    key={option.id}
-                    className={`flex-1 p-3 rounded-2xl border-2 cursor-pointer transition-all ${
-                      selectedInstallationType === option.id
-                        ? "border-cyan-400 bg-cyan-400/10"
-                        : "border-gray-600 bg-gray-800/50 hover:border-gray-500"
-                    }`}
-                    onClick={() => setSelectedInstallationType(option.id)}
-                    data-testid={`installation-${option.id}`}
-                  >
-                    <div className="flex items-center mb-2">
-                      <div className={`w-5 h-5 rounded-full border-2 mr-2 ${
-                        selectedInstallationType === option.id 
-                          ? "border-cyan-400 bg-cyan-400" 
-                          : "border-gray-400"
-                      }`}>
-                        {selectedInstallationType === option.id && (
-                          <div className="w-full h-full rounded-full bg-cyan-400 flex items-center justify-center">
-                            <div className="w-2 h-2 bg-white rounded-full"></div>
-                          </div>
-                        )}
-                      </div>
-                      <div className="text-white font-medium text-xs">{option.label}</div>
-                    </div>
-                    <div className="text-gray-400 text-xs leading-relaxed pl-7">
-                      {option.description}
-                    </div>
-                  </div>
-                ))}
+            {/* Navigation Links */}
+            <div className="grid grid-cols-2 gap-6 mb-8">
+              <div>
+                <h4 className="text-white font-bold text-sm mb-3">Home</h4>
+                <div className="space-y-2">
+                  <div className="text-gray-400 text-xs hover:text-white cursor-pointer">About us</div>
+                  <div className="text-gray-400 text-xs hover:text-white cursor-pointer">Technologies</div>
+                </div>
               </div>
-            </div>
-
-            {/* Power Usage Section */}
-            <div className="mb-6">
-              <h3 className="text-white text-lg font-semibold mb-4">Power usage</h3>
-              <div className="relative">
-                <Input
-                  type="number"
-                  placeholder="0.00"
-                  value={electricBill}
-                  onChange={(e) => setElectricBill(e.target.value)}
-                  className="w-full px-4 py-4 rounded-2xl border-2 border-gray-600 bg-gray-800/50 text-white placeholder:text-gray-500 text-base pr-16"
-                  data-testid="input-electric-bill"
-                />
-                <div className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm">
-                  Watts
+              
+              <div>
+                <h4 className="text-white font-bold text-sm mb-3">Industry</h4>
+                <div className="space-y-2">
+                  <div className="text-gray-400 text-xs hover:text-white cursor-pointer">Industrial</div>
+                  <div className="text-gray-400 text-xs hover:text-white cursor-pointer">Agriculture</div>
+                  <div className="text-gray-400 text-xs hover:text-white cursor-pointer">Building</div>
+                </div>
+              </div>
+              
+              <div>
+                <h4 className="text-white font-bold text-sm mb-3">Investors</h4>
+                <div className="space-y-2">
+                  <div className="text-gray-400 text-xs hover:text-white cursor-pointer">Projects</div>
+                  <div className="text-gray-400 text-xs hover:text-white cursor-pointer">Finance</div>
+                  <div className="text-gray-400 text-xs hover:text-white cursor-pointer">Statements</div>
+                </div>
+              </div>
+              
+              <div>
+                <h4 className="text-white font-bold text-sm mb-3">Company</h4>
+                <div className="space-y-2">
+                  <div className="text-gray-400 text-xs hover:text-white cursor-pointer">Purpose</div>
+                  <div className="text-gray-400 text-xs hover:text-white cursor-pointer">Innovation</div>
+                  <div className="text-gray-400 text-xs hover:text-white cursor-pointer">Partners</div>
                 </div>
               </div>
             </div>
-
-            {/* Calculate Button */}
-            <Button
-              onClick={handleCalculate}
-              className="w-full bg-white text-black py-4 rounded-2xl hover:bg-gray-100 font-semibold text-base"
-              data-testid="button-calculate"
-            >
-              Calculate
-            </Button>
           </div>
-        </div>
+          
+          {/* Bottom Links */}
+          <div className="border-t border-[#2c4a52] pt-4">
+            <div className="text-center space-y-3">
+              <div className="flex flex-wrap justify-center gap-4 text-xs">
+                <span className="text-gray-400 hover:text-white cursor-pointer">Privacy policy</span>
+                <span className="text-gray-400 hover:text-white cursor-pointer">Terms of Service</span>
+                <span className="text-gray-400 hover:text-white cursor-pointer">Accessibility</span>
+                <span className="text-gray-400 hover:text-white cursor-pointer">Contact</span>
+                <span className="text-gray-400 hover:text-white cursor-pointer">Legal</span>
+              </div>
+              <div className="text-gray-400 text-xs">
+                2024 eaneer. All rights reserved
+              </div>
+            </div>
+          </div>
+        </footer>
       </div>
 
       {/* Desktop Layout - Hidden on mobile */}
