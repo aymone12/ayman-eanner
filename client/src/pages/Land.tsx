@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { MobileWizard } from "@/components/mobile-wizard/MobileWizard";
 
 export const Land = (): JSX.Element => {
   const [selectedGridType, setSelectedGridType] = useState("three-phase");
@@ -35,7 +36,7 @@ export const Land = (): JSX.Element => {
       alert("Please enter a valid electric bill amount before calculating.");
       return;
     }
-    setCurrentStep("results");
+    setCurrentStep("wizard");
   };
 
   // Mobile Hero Section Component
@@ -539,6 +540,7 @@ export const Land = (): JSX.Element => {
   // Render different components based on current step
   if (currentStep === "hero") return <MobileHeroPage />;
   if (currentStep === "steps") return <MobileStepsPage />;
+  if (currentStep === "wizard") return <MobileWizard onBack={() => setCurrentStep("calculator")} />;
   if (currentStep === "calculator") return (
     <div className="md:hidden w-full min-h-screen bg-gradient-to-b from-[#0a1f26] via-[#0a1f26] to-[#06141b] relative">
       {/* 3D House Model Section */}
