@@ -854,10 +854,10 @@ export const Land = (): JSX.Element => {
               Whether your goal is to reduce your electric bill or eliminate it completely, eaneer can help make that happen.
             </p>
             
-            <Button className="w-full max-w-sm mx-auto bg-transparent border-2 border-white text-white px-4 py-3 rounded-full hover:bg-white/10 flex items-center justify-between text-sm sm:text-base sm:px-6">
+            <Button className="w-full max-w-[280px] mx-auto bg-transparent border-2 border-white text-white px-3 py-2.5 rounded-full hover:bg-white/10 flex items-center justify-between text-xs sm:text-base sm:px-6 sm:py-3">
               <span className="font-bold">Ready To Save Energy?</span>
-              <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white rounded-full flex items-center justify-center flex-shrink-0">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="sm:w-4 sm:h-4">
+              <div className="w-6 h-6 sm:w-8 sm:h-8 bg-white rounded-full flex items-center justify-center flex-shrink-0">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" className="sm:w-4 sm:h-4">
                   <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="black"/>
                 </svg>
               </div>
@@ -900,10 +900,10 @@ export const Land = (): JSX.Element => {
 
           {/* CTA Button */}
           <div className="text-center mt-8">
-            <Button className="w-full max-w-xs mx-auto bg-transparent border-2 border-white text-white px-6 py-3 rounded-full hover:bg-white/10 flex items-center justify-between">
-              <span className="font-bold text-base">Ready To Save Energy?</span>
-              <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <Button className="w-full max-w-[280px] mx-auto bg-transparent border-2 border-white text-white px-3 py-2.5 rounded-full hover:bg-white/10 flex items-center justify-between text-xs sm:text-base sm:px-6 sm:py-3">
+              <span className="font-bold">Ready To Save Energy?</span>
+              <div className="w-6 h-6 sm:w-8 sm:h-8 bg-white rounded-full flex items-center justify-center flex-shrink-0">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" className="sm:w-4 sm:h-4">
                   <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="black"/>
                 </svg>
               </div>
