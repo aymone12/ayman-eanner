@@ -26,7 +26,7 @@ export function ProgressIndicator({ currentStep, totalSteps }: ProgressIndicator
                 )}
               </div>
               {stepNumber < totalSteps && (
-                <div className="w-6 h-px bg-gray-600 mx-1.5"></div>
+                <div className="w-4 h-px bg-gray-600 mx-1"></div>
               )}
             </div>
           );
