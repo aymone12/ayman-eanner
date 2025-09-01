@@ -16,6 +16,7 @@ export const Land = (): JSX.Element => {
   
   // Mobile menu state
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [selectedProcessStep, setSelectedProcessStep] = useState(0); // For tracking clicked process step
   const [formData, setFormData] = useState({
     fullName: "",
     phoneNumber: "",
@@ -871,14 +872,18 @@ export const Land = (): JSX.Element => {
             {processSteps.map((step, index) => (
               <div
                 key={index}
-                className={`bg-[#132e35] rounded-2xl p-6 ${
-                  step.highlighted ? "border-2 border-white" : "border border-gray-600"
+                onClick={() => setSelectedProcessStep(index)}
+                className={`bg-[#132e35] rounded-2xl p-6 cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg ${
+                  step.highlighted || selectedProcessStep === index
+                    ? "border-2 border-white shadow-md shadow-white/20" 
+                    : "border border-gray-600 hover:border-white hover:border-2"
                 }`}
+                data-testid={`process-step-${index}`}
               >
-                <h3 className="text-white text-lg font-semibold mb-3">
+                <h3 className="text-white text-lg font-semibold mb-3 transition-colors duration-300">
                   {step.title}
                 </h3>
-                <p className="text-gray-300 text-sm leading-relaxed">
+                <p className="text-gray-300 text-sm leading-relaxed transition-colors duration-300 hover:text-gray-200">
                   {step.description}
                 </p>
               </div>
