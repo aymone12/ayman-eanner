@@ -733,36 +733,36 @@ export const Land = (): JSX.Element => {
 
         {/* Calculator Section */}
         <section className="px-4 pb-8">
-          <Card className="bg-[#1a2a30] rounded-3xl border-0 max-w-md mx-auto overflow-hidden">
+          <Card className="bg-[#06141b] rounded-2xl border-0 max-w-md mx-auto shadow-[0px_0px_20px_5px_#2c4a52]">
             <CardContent className="p-6">
               {/* Grid Type */}
               <div className="mb-6">
-                <h3 className="text-white text-xl font-bold mb-4">Grid Type</h3>
-                <div className="flex gap-3">
+                <h3 className="text-white text-lg font-semibold mb-4 font-['Rubik']">Grid Type</h3>
+                <div className="flex gap-2">
                   {gridTypeOptions.map((option) => (
                     <div
                       key={option.id}
-                      className={`flex-1 p-4 rounded-2xl border-2 cursor-pointer transition-all ${
+                      className={`flex-1 p-3 rounded-[15px] border-2 cursor-pointer transition-all duration-200 ${
                         selectedGridType === option.id
-                          ? "border-white bg-[#0f1a1f]"
-                          : "border-gray-500 bg-[#0f1a1f]"
+                          ? "border-white bg-[#0a1b23]"
+                          : "border-gray-600 bg-[#0a1b23]"
                       }`}
                       onClick={() => setSelectedGridType(option.id)}
                       data-testid={`grid-${option.id}`}
                     >
                       <div className="flex items-start mb-2">
-                        <div className={`w-4 h-4 rounded-full border-2 mr-3 mt-0.5 flex-shrink-0 ${
-                          selectedGridType === option.id ? "border-white bg-white" : "border-gray-400"
+                        <div className={`w-[18px] h-[18px] rounded-full border-2 mr-3 mt-0.5 flex-shrink-0 ${
+                          selectedGridType === option.id ? "border-white bg-[#d9d9d9]" : "border-white"
                         }`}>
                           {selectedGridType === option.id && (
-                            <div className="w-full h-full rounded-full bg-white flex items-center justify-center">
+                            <div className="w-full h-full rounded-full bg-[#d9d9d9] flex items-center justify-center">
                               <div className="w-1.5 h-1.5 bg-black rounded-full"></div>
                             </div>
                           )}
                         </div>
-                        <div className="text-white font-bold text-sm">{option.label}</div>
+                        <div className="text-white font-bold text-sm font-['Inter']">{option.label}</div>
                       </div>
-                      <div className="text-gray-300 text-xs leading-relaxed">
+                      <div className="text-white text-xs leading-relaxed font-['Inter'] ml-8">
                         {option.description}
                       </div>
                     </div>
@@ -772,32 +772,32 @@ export const Land = (): JSX.Element => {
 
               {/* Installation Type */}
               <div className="mb-6">
-                <h3 className="text-white text-xl font-bold mb-4">Installation Type</h3>
-                <div className="grid grid-cols-3 gap-3">
+                <h3 className="text-white text-lg font-semibold mb-4 font-['Rubik']">Installation Type</h3>
+                <div className="flex gap-3">
                   {installationTypeOptions.map((option) => (
                     <div
                       key={option.id}
-                      className={`p-3 rounded-2xl border-2 cursor-pointer transition-all text-center ${
+                      className={`flex-1 p-3 rounded-[15px] border-2 cursor-pointer transition-all duration-200 ${
                         selectedInstallationType === option.id
-                          ? "border-white bg-[#0f1a1f]"
-                          : "border-gray-500 bg-[#0f1a1f]"
+                          ? "border-white bg-[#0a1b23]"
+                          : "border-gray-600 bg-[#0a1b23]"
                       }`}
                       onClick={() => setSelectedInstallationType(option.id)}
                       data-testid={`installation-${option.id}`}
                     >
                       <div className="flex items-center justify-center mb-2">
-                        <div className={`w-4 h-4 rounded-full border-2 flex-shrink-0 ${
-                          selectedInstallationType === option.id ? "border-white bg-white" : "border-gray-400"
+                        <div className={`w-[18px] h-[18px] rounded-full border-2 flex-shrink-0 ${
+                          selectedInstallationType === option.id ? "border-white bg-[#d9d9d9]" : "border-white"
                         }`}>
                           {selectedInstallationType === option.id && (
-                            <div className="w-full h-full rounded-full bg-white flex items-center justify-center">
+                            <div className="w-full h-full rounded-full bg-[#d9d9d9] flex items-center justify-center">
                               <div className="w-1.5 h-1.5 bg-black rounded-full"></div>
                             </div>
                           )}
                         </div>
                       </div>
-                      <div className="text-white font-bold text-sm mb-1">{option.label}</div>
-                      <div className="text-gray-300 text-xs leading-relaxed">
+                      <div className="text-white font-bold text-sm mb-1 text-center font-['Inter']">{option.label}</div>
+                      <div className="text-white text-xs leading-relaxed text-center font-['Inter']">
                         {option.description}
                       </div>
                     </div>
@@ -805,33 +805,34 @@ export const Land = (): JSX.Element => {
                 </div>
               </div>
 
-              {/* Power Usage Input */}
+              {/* Electric Bill Input */}
               <div className="mb-6">
-                <h3 className="text-white text-xl font-bold mb-4">Power usage</h3>
-                <div className="relative">
-                  <Input
-                    id="electricBill"
-                    type="number"
-                    placeholder="0.00"
-                    value={electricBill}
-                    onChange={(e) => setElectricBill(e.target.value)}
-                    className="w-full px-4 py-4 rounded-full border-2 border-gray-500 bg-[#0f1a1f] text-white placeholder:text-gray-400 text-center pr-16"
-                    data-testid="input-electric-bill"
-                  />
-                  <div className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm font-medium">
-                    Watts
+                <h3 className="text-white text-lg font-semibold mb-4 font-['Rubik']">Electric Bill</h3>
+                <div className="flex gap-3 items-end">
+                  <div className="relative flex-1">
+                    <Input
+                      id="electricBill"
+                      type="number"
+                      placeholder="0.00"
+                      value={electricBill}
+                      onChange={(e) => setElectricBill(e.target.value)}
+                      className="w-full px-4 py-3 rounded-[10px] border border-white bg-transparent text-white placeholder:text-[#ffffff40] text-sm"
+                      data-testid="input-electric-bill"
+                    />
+                    <div className="absolute right-3 top-1/2 transform -translate-y-1/2 text-white text-sm font-light font-['Rubik'] pointer-events-none">
+                      Dh
+                    </div>
                   </div>
+                  
+                  <Button
+                    onClick={handleCalculate}
+                    className="bg-white text-black px-6 py-3 rounded-[10px] hover:bg-white/90 font-semibold text-sm font-['Rubik'] whitespace-nowrap"
+                    data-testid="button-calculate"
+                  >
+                    Calculate
+                  </Button>
                 </div>
               </div>
-
-              {/* Calculate Button */}
-              <Button
-                onClick={handleCalculate}
-                className="w-full bg-white text-black py-4 rounded-full hover:bg-gray-100 font-bold text-lg"
-                data-testid="button-calculate"
-              >
-                Calculate
-              </Button>
             </CardContent>
           </Card>
         </section>
