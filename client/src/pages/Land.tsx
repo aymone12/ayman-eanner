@@ -837,6 +837,53 @@ export const Land = (): JSX.Element => {
           </Card>
         </section>
 
+        {/* 3D House Visualization Section */}
+        <section className="px-4 py-12 bg-[#06141b]">
+          <div className="max-w-md mx-auto">
+            {/* 3D House Model Container */}
+            <div className="relative bg-gradient-to-br from-[#0a1b23] to-[#06141b] rounded-2xl p-8 mb-6 overflow-hidden">
+              {/* Background pattern */}
+              <div className="absolute inset-0 opacity-10">
+                <div className="absolute top-4 left-4 w-2 h-2 bg-white rounded-full"></div>
+                <div className="absolute top-8 right-6 w-1 h-1 bg-white rounded-full"></div>
+                <div className="absolute bottom-6 left-8 w-1.5 h-1.5 bg-white rounded-full"></div>
+                <div className="absolute bottom-4 right-4 w-1 h-1 bg-white rounded-full"></div>
+              </div>
+              
+              {/* 3D House Image */}
+              <div className="relative z-10 flex items-center justify-center h-64">
+                <img 
+                  src="/figmaAssets/1-1--1.png" 
+                  alt="3D Solar House Model" 
+                  className="max-w-full max-h-full object-contain filter brightness-110 contrast-105"
+                />
+              </div>
+              
+              {/* Floating elements */}
+              <div className="absolute top-6 right-6 bg-white/10 backdrop-blur-sm rounded-lg px-3 py-1.5">
+                <div className="text-white text-xs font-medium">Solar Panels</div>
+                <div className="text-green-400 text-xs">Active</div>
+              </div>
+              
+              <div className="absolute bottom-6 left-6 bg-white/10 backdrop-blur-sm rounded-lg px-3 py-1.5">
+                <div className="text-white text-xs font-medium">Energy Saved</div>
+                <div className="text-yellow-400 text-xs font-bold">80% /mo</div>
+              </div>
+            </div>
+            
+            {/* Description */}
+            <div className="text-center">
+              <h3 className="text-white text-xl font-bold mb-3">
+                Your Solar-Powered Future
+              </h3>
+              <p className="text-gray-300 text-sm leading-relaxed">
+                Visualize how our solar energy system transforms your home into an efficient, 
+                money-saving powerhouse with clean renewable energy.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* Power Your Home Save Money Section */}
         <section className="relative w-full h-[32rem] bg-[url(/figmaAssets/image-8-bit-style.png)] bg-cover bg-center flex items-center justify-center px-4">
           <div className="text-center max-w-md mx-auto">
