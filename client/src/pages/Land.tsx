@@ -773,11 +773,11 @@ export const Land = (): JSX.Element => {
               {/* Installation Type */}
               <div className="mb-6">
                 <h3 className="text-white text-lg font-semibold mb-4 font-['Rubik']">Installation Type</h3>
-                <div className="flex gap-3">
+                <div className="grid grid-cols-3 gap-3">
                   {installationTypeOptions.map((option) => (
                     <div
                       key={option.id}
-                      className={`flex-1 p-3 rounded-[15px] border-2 cursor-pointer transition-all duration-200 ${
+                      className={`p-4 rounded-[15px] border-2 cursor-pointer transition-all duration-200 ${
                         selectedInstallationType === option.id
                           ? "border-white bg-[#0a1b23]"
                           : "border-gray-600 bg-[#0a1b23]"
@@ -785,7 +785,7 @@ export const Land = (): JSX.Element => {
                       onClick={() => setSelectedInstallationType(option.id)}
                       data-testid={`installation-${option.id}`}
                     >
-                      <div className="flex items-center justify-center mb-2">
+                      <div className="flex items-center justify-center mb-3">
                         <div className={`w-[18px] h-[18px] rounded-full border-2 flex-shrink-0 ${
                           selectedInstallationType === option.id ? "border-white bg-[#d9d9d9]" : "border-white"
                         }`}>
@@ -796,7 +796,7 @@ export const Land = (): JSX.Element => {
                           )}
                         </div>
                       </div>
-                      <div className="text-white font-bold text-sm mb-1 text-center font-['Inter']">{option.label}</div>
+                      <div className="text-white font-bold text-sm mb-2 text-center font-['Inter']">{option.label}</div>
                       <div className="text-white text-xs leading-relaxed text-center font-['Inter']">
                         {option.description}
                       </div>
