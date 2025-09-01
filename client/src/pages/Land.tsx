@@ -738,7 +738,7 @@ export const Land = (): JSX.Element => {
                   {gridTypeOptions.map((option) => (
                     <div
                       key={option.id}
-                      className={`flex-1 p-3 rounded-2xl border-2 cursor-pointer transition-all ${
+                      className={`flex-1 p-4 rounded-2xl border-2 cursor-pointer transition-all ${
                         selectedGridType === option.id
                           ? "border-white bg-[#0a1b23]"
                           : "border-gray-600 bg-[#0a1b23]"
@@ -746,19 +746,19 @@ export const Land = (): JSX.Element => {
                       onClick={() => setSelectedGridType(option.id)}
                       data-testid={`grid-${option.id}`}
                     >
-                      <div className="flex items-center mb-1">
-                        <div className={`w-4 h-4 rounded-full border-2 mr-2 ${
+                      <div className="flex items-start mb-2">
+                        <div className={`w-5 h-5 rounded-full border-2 mr-3 mt-0.5 flex-shrink-0 ${
                           selectedGridType === option.id ? "border-white bg-white" : "border-gray-400"
                         }`}>
                           {selectedGridType === option.id && (
                             <div className="w-full h-full rounded-full bg-white flex items-center justify-center">
-                              <div className="w-1.5 h-1.5 bg-black rounded-full"></div>
+                              <div className="w-2 h-2 bg-black rounded-full"></div>
                             </div>
                           )}
                         </div>
                         <div className="text-white font-medium text-sm">{option.label}</div>
                       </div>
-                      <div className="text-gray-400 text-xs leading-relaxed pl-6">
+                      <div className="text-gray-400 text-xs leading-relaxed pl-8">
                         {option.description}
                       </div>
                     </div>
@@ -769,11 +769,11 @@ export const Land = (): JSX.Element => {
               {/* Installation Type */}
               <div className="mb-6">
                 <h3 className="text-white text-lg font-semibold mb-4">Installation Type</h3>
-                <div className="flex gap-2">
+                <div className="space-y-3">
                   {installationTypeOptions.map((option) => (
                     <div
                       key={option.id}
-                      className={`flex-1 p-3 rounded-2xl border-2 cursor-pointer transition-all ${
+                      className={`w-full p-4 rounded-2xl border-2 cursor-pointer transition-all ${
                         selectedInstallationType === option.id
                           ? "border-white bg-[#0a1b23]"
                           : "border-gray-600 bg-[#0a1b23]"
@@ -781,20 +781,22 @@ export const Land = (): JSX.Element => {
                       onClick={() => setSelectedInstallationType(option.id)}
                       data-testid={`installation-${option.id}`}
                     >
-                      <div className="flex items-center mb-1">
-                        <div className={`w-4 h-4 rounded-full border-2 mr-2 ${
+                      <div className="flex items-start">
+                        <div className={`w-5 h-5 rounded-full border-2 mr-3 mt-0.5 flex-shrink-0 ${
                           selectedInstallationType === option.id ? "border-white bg-white" : "border-gray-400"
                         }`}>
                           {selectedInstallationType === option.id && (
                             <div className="w-full h-full rounded-full bg-white flex items-center justify-center">
-                              <div className="w-1.5 h-1.5 bg-black rounded-full"></div>
+                              <div className="w-2 h-2 bg-black rounded-full"></div>
                             </div>
                           )}
                         </div>
-                        <div className="text-white font-medium text-xs">{option.label}</div>
-                      </div>
-                      <div className="text-gray-400 text-xs leading-relaxed pl-6">
-                        {option.description}
+                        <div className="flex-1">
+                          <div className="text-white font-medium text-sm mb-1">{option.label}</div>
+                          <div className="text-gray-400 text-xs leading-relaxed">
+                            {option.description}
+                          </div>
+                        </div>
                       </div>
                     </div>
                   ))}
