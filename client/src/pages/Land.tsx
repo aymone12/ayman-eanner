@@ -773,11 +773,11 @@ export const Land = (): JSX.Element => {
               {/* Installation Type */}
               <div className="mb-6">
                 <h3 className="text-white text-lg font-semibold mb-4 font-['Rubik']">Installation Type</h3>
-                <div className="grid grid-cols-3 gap-4 h-[90px]">
+                <div className="grid grid-cols-3 gap-4 h-[70px]">
                   {installationTypeOptions.map((option) => (
                     <div
                       key={option.id}
-                      className={`px-3 py-2 rounded-[15px] border-2 cursor-pointer transition-all duration-200 h-full flex flex-col ${
+                      className={`px-3 py-1.5 rounded-[15px] border-2 cursor-pointer transition-all duration-200 h-full flex flex-col ${
                         selectedInstallationType === option.id
                           ? "border-white bg-[#0a1b23]"
                           : "border-gray-600 bg-[#0a1b23]"
