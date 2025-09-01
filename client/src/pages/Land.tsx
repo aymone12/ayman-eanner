@@ -738,11 +738,11 @@ export const Land = (): JSX.Element => {
               {/* Grid Type */}
               <div className="mb-6">
                 <h3 className="text-white text-lg font-semibold mb-4 font-['Rubik']">Grid Type</h3>
-                <div className="flex gap-4 h-[70px]">
+                <div className="flex gap-3 h-[85px]">
                   {gridTypeOptions.map((option) => (
                     <div
                       key={option.id}
-                      className={`flex-1 px-3 py-1.5 rounded-[15px] border-2 cursor-pointer transition-all duration-200 h-full flex flex-col ${
+                      className={`flex-1 px-2 py-2 rounded-[15px] border-2 cursor-pointer transition-all duration-200 h-full flex flex-col ${
                         selectedGridType === option.id
                           ? "border-white bg-[#0a1b23]"
                           : "border-gray-600 bg-[#0a1b23]"
@@ -751,7 +751,7 @@ export const Land = (): JSX.Element => {
                       data-testid={`grid-${option.id}`}
                     >
                       <div className="flex items-start mb-1">
-                        <div className={`w-[16px] h-[16px] rounded-full border-2 mr-2 mt-0.5 flex-shrink-0 ${
+                        <div className={`w-[14px] h-[14px] rounded-full border-2 mr-1.5 mt-0.5 flex-shrink-0 ${
                           selectedGridType === option.id ? "border-white bg-[#d9d9d9]" : "border-white"
                         }`}>
                           {selectedGridType === option.id && (
@@ -760,9 +760,9 @@ export const Land = (): JSX.Element => {
                             </div>
                           )}
                         </div>
-                        <div className="text-white font-bold text-xs font-['Inter']">{option.label}</div>
+                        <div className="text-white font-bold text-[11px] font-['Inter'] leading-tight">{option.label}</div>
                       </div>
-                      <div className="text-white text-[10px] leading-tight font-['Inter'] ml-5 flex-1">
+                      <div className="text-white text-[9px] leading-tight font-['Inter'] ml-4 flex-1">
                         {option.description}
                       </div>
                     </div>
@@ -773,11 +773,11 @@ export const Land = (): JSX.Element => {
               {/* Installation Type */}
               <div className="mb-6">
                 <h3 className="text-white text-lg font-semibold mb-4 font-['Rubik']">Installation Type</h3>
-                <div className="grid grid-cols-3 gap-4 h-[70px]">
+                <div className="grid grid-cols-3 gap-3 h-[85px]">
                   {installationTypeOptions.map((option) => (
                     <div
                       key={option.id}
-                      className={`px-3 py-1.5 rounded-[15px] border-2 cursor-pointer transition-all duration-200 h-full flex flex-col ${
+                      className={`px-2 py-2 rounded-[15px] border-2 cursor-pointer transition-all duration-200 h-full flex flex-col ${
                         selectedInstallationType === option.id
                           ? "border-white bg-[#0a1b23]"
                           : "border-gray-600 bg-[#0a1b23]"
@@ -786,7 +786,7 @@ export const Land = (): JSX.Element => {
                       data-testid={`installation-${option.id}`}
                     >
                       <div className="flex items-start mb-1">
-                        <div className={`w-[16px] h-[16px] rounded-full border-2 mr-2 mt-0.5 flex-shrink-0 ${
+                        <div className={`w-[14px] h-[14px] rounded-full border-2 mr-1.5 mt-0.5 flex-shrink-0 ${
                           selectedInstallationType === option.id ? "border-white bg-[#d9d9d9]" : "border-white"
                         }`}>
                           {selectedInstallationType === option.id && (
@@ -795,9 +795,9 @@ export const Land = (): JSX.Element => {
                             </div>
                           )}
                         </div>
-                        <div className="text-white font-bold text-xs font-['Inter']">{option.label}</div>
+                        <div className="text-white font-bold text-[11px] font-['Inter'] leading-tight">{option.label}</div>
                       </div>
-                      <div className="text-white text-[10px] leading-tight font-['Inter'] ml-5 flex-1">
+                      <div className="text-white text-[9px] leading-tight font-['Inter'] ml-4 flex-1">
                         {option.description}
                       </div>
                     </div>
