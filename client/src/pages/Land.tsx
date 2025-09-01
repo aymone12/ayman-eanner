@@ -729,36 +729,36 @@ export const Land = (): JSX.Element => {
 
         {/* Calculator Section */}
         <section className="px-4 pb-8">
-          <Card className="bg-[#06141b] rounded-3xl shadow-[0px_0px_20px_5px_#2c4a52] border-0 max-w-md mx-auto">
+          <Card className="bg-[#1a2a30] rounded-3xl border-0 max-w-md mx-auto overflow-hidden">
             <CardContent className="p-6">
               {/* Grid Type */}
               <div className="mb-6">
-                <h3 className="text-white text-lg font-semibold mb-4">Grid Type</h3>
+                <h3 className="text-white text-xl font-bold mb-4">Grid Type</h3>
                 <div className="flex gap-3">
                   {gridTypeOptions.map((option) => (
                     <div
                       key={option.id}
                       className={`flex-1 p-4 rounded-2xl border-2 cursor-pointer transition-all ${
                         selectedGridType === option.id
-                          ? "border-white bg-[#0a1b23]"
-                          : "border-gray-600 bg-[#0a1b23]"
+                          ? "border-white bg-[#0f1a1f]"
+                          : "border-gray-500 bg-[#0f1a1f]"
                       }`}
                       onClick={() => setSelectedGridType(option.id)}
                       data-testid={`grid-${option.id}`}
                     >
                       <div className="flex items-start mb-2">
-                        <div className={`w-5 h-5 rounded-full border-2 mr-3 mt-0.5 flex-shrink-0 ${
+                        <div className={`w-4 h-4 rounded-full border-2 mr-3 mt-0.5 flex-shrink-0 ${
                           selectedGridType === option.id ? "border-white bg-white" : "border-gray-400"
                         }`}>
                           {selectedGridType === option.id && (
                             <div className="w-full h-full rounded-full bg-white flex items-center justify-center">
-                              <div className="w-2 h-2 bg-black rounded-full"></div>
+                              <div className="w-1.5 h-1.5 bg-black rounded-full"></div>
                             </div>
                           )}
                         </div>
-                        <div className="text-white font-medium text-sm">{option.label}</div>
+                        <div className="text-white font-bold text-sm">{option.label}</div>
                       </div>
-                      <div className="text-gray-400 text-xs leading-relaxed pl-8">
+                      <div className="text-gray-300 text-xs leading-relaxed">
                         {option.description}
                       </div>
                     </div>
@@ -768,58 +768,54 @@ export const Land = (): JSX.Element => {
 
               {/* Installation Type */}
               <div className="mb-6">
-                <h3 className="text-white text-lg font-semibold mb-4">Installation Type</h3>
-                <div className="space-y-3">
+                <h3 className="text-white text-xl font-bold mb-4">Installation Type</h3>
+                <div className="grid grid-cols-3 gap-3">
                   {installationTypeOptions.map((option) => (
                     <div
                       key={option.id}
-                      className={`w-full p-4 rounded-2xl border-2 cursor-pointer transition-all ${
+                      className={`p-3 rounded-2xl border-2 cursor-pointer transition-all text-center ${
                         selectedInstallationType === option.id
-                          ? "border-white bg-[#0a1b23]"
-                          : "border-gray-600 bg-[#0a1b23]"
+                          ? "border-white bg-[#0f1a1f]"
+                          : "border-gray-500 bg-[#0f1a1f]"
                       }`}
                       onClick={() => setSelectedInstallationType(option.id)}
                       data-testid={`installation-${option.id}`}
                     >
-                      <div className="flex items-start">
-                        <div className={`w-5 h-5 rounded-full border-2 mr-3 mt-0.5 flex-shrink-0 ${
+                      <div className="flex items-center justify-center mb-2">
+                        <div className={`w-4 h-4 rounded-full border-2 flex-shrink-0 ${
                           selectedInstallationType === option.id ? "border-white bg-white" : "border-gray-400"
                         }`}>
                           {selectedInstallationType === option.id && (
                             <div className="w-full h-full rounded-full bg-white flex items-center justify-center">
-                              <div className="w-2 h-2 bg-black rounded-full"></div>
+                              <div className="w-1.5 h-1.5 bg-black rounded-full"></div>
                             </div>
                           )}
                         </div>
-                        <div className="flex-1">
-                          <div className="text-white font-medium text-sm mb-1">{option.label}</div>
-                          <div className="text-gray-400 text-xs leading-relaxed">
-                            {option.description}
-                          </div>
-                        </div>
+                      </div>
+                      <div className="text-white font-bold text-sm mb-1">{option.label}</div>
+                      <div className="text-gray-300 text-xs leading-relaxed">
+                        {option.description}
                       </div>
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* Electric Bill Input */}
+              {/* Power Usage Input */}
               <div className="mb-6">
-                <Label htmlFor="electricBill" className="text-white text-base font-medium mb-3 block">
-                  How Much Do You Pay For Electric Bills
-                </Label>
+                <h3 className="text-white text-xl font-bold mb-4">Power usage</h3>
                 <div className="relative">
                   <Input
                     id="electricBill"
                     type="number"
-                    placeholder="Enter amount"
+                    placeholder="0.00"
                     value={electricBill}
                     onChange={(e) => setElectricBill(e.target.value)}
-                    className="w-full px-4 py-3 rounded-2xl border-2 border-gray-600 bg-[#0a1b23] text-white placeholder:text-gray-400 pr-12"
+                    className="w-full px-4 py-4 rounded-full border-2 border-gray-500 bg-[#0f1a1f] text-white placeholder:text-gray-400 text-center pr-16"
                     data-testid="input-electric-bill"
                   />
-                  <div className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm">
-                    DH
+                  <div className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm font-medium">
+                    Watts
                   </div>
                 </div>
               </div>
@@ -827,10 +823,10 @@ export const Land = (): JSX.Element => {
               {/* Calculate Button */}
               <Button
                 onClick={handleCalculate}
-                className="w-full bg-white text-black py-3 rounded-2xl hover:bg-gray-100 font-semibold"
+                className="w-full bg-white text-black py-4 rounded-full hover:bg-gray-100 font-bold text-lg"
                 data-testid="button-calculate"
               >
-                Calculate Now →
+                Calculate
               </Button>
             </CardContent>
           </Card>
