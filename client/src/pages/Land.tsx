@@ -838,19 +838,43 @@ export const Land = (): JSX.Element => {
 
         {/* Process Steps Section */}
         <section className="px-4 py-8">
-          <h2 className="text-white text-xl font-semibold text-center mb-8">How It Works</h2>
-          <div className="space-y-6 max-w-md mx-auto">
+          <div className="text-center mb-8">
+            <div className="text-white text-lg font-semibold mb-2">How Do I Get Started?</div>
+            <div className="text-white text-xl font-bold mb-1">
+              <span className="text-white">Explore </span>
+              <span className="text-[#69818d]">eaneer</span>
+              <span className="text-[#69818d]"> energetics</span>
+              <span className="text-white">: Solar Energy installations</span>
+            </div>
+          </div>
+          
+          <div className="space-y-4 max-w-sm mx-auto">
             {processSteps.map((step, index) => (
-              <div key={index} className="flex space-x-4">
-                <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                  <span className="text-black text-sm font-bold">{index + 1}</span>
-                </div>
-                <div>
-                  <h3 className="text-white font-semibold text-base mb-2">{step.title}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">{step.description}</p>
-                </div>
-              </div>
+              <Card
+                key={index}
+                className={`bg-[#132e35] rounded-[20px] ${step.highlighted ? "border-[3px] border-solid border-white" : "border-2 border-solid border-white"} relative`}
+              >
+                <CardContent className="p-6">
+                  <h3 className="text-white font-semibold text-lg mb-3">
+                    {step.title}
+                  </h3>
+                  <p className="text-white font-medium text-sm leading-relaxed">
+                    {step.description}
+                  </p>
+                </CardContent>
+              </Card>
             ))}
+          </div>
+          
+          <div className="text-center mt-8">
+            <Button className="w-full max-w-xs mx-auto bg-transparent border-2 border-white text-white px-6 py-3 rounded-full hover:bg-white/10 flex items-center justify-between">
+              <span className="font-bold text-base">Ready To Save Energy?</span>
+              <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="black"/>
+                </svg>
+              </div>
+            </Button>
           </div>
         </section>
 
