@@ -773,11 +773,11 @@ export const Land = (): JSX.Element => {
               {/* Installation Type */}
               <div className="mb-6">
                 <h3 className="text-white text-lg font-semibold mb-4 font-['Rubik']">Installation Type</h3>
-                <div className="grid grid-cols-3 gap-3 h-[120px]">
+                <div className="grid grid-cols-3 gap-2 h-[90px]">
                   {installationTypeOptions.map((option) => (
                     <div
                       key={option.id}
-                      className={`p-3 rounded-[15px] border-2 cursor-pointer transition-all duration-200 h-full flex flex-col ${
+                      className={`p-2 rounded-[15px] border-2 cursor-pointer transition-all duration-200 h-full flex flex-col ${
                         selectedInstallationType === option.id
                           ? "border-white bg-[#0a1b23]"
                           : "border-gray-600 bg-[#0a1b23]"
@@ -785,19 +785,19 @@ export const Land = (): JSX.Element => {
                       onClick={() => setSelectedInstallationType(option.id)}
                       data-testid={`installation-${option.id}`}
                     >
-                      <div className="flex items-start mb-2">
-                        <div className={`w-[18px] h-[18px] rounded-full border-2 mr-2 mt-0.5 flex-shrink-0 ${
+                      <div className="flex items-start mb-1">
+                        <div className={`w-[16px] h-[16px] rounded-full border-2 mr-2 mt-0.5 flex-shrink-0 ${
                           selectedInstallationType === option.id ? "border-white bg-[#d9d9d9]" : "border-white"
                         }`}>
                           {selectedInstallationType === option.id && (
                             <div className="w-full h-full rounded-full bg-[#d9d9d9] flex items-center justify-center">
-                              <div className="w-1.5 h-1.5 bg-black rounded-full"></div>
+                              <div className="w-1 h-1 bg-black rounded-full"></div>
                             </div>
                           )}
                         </div>
-                        <div className="text-white font-bold text-sm font-['Inter']">{option.label}</div>
+                        <div className="text-white font-bold text-xs font-['Inter']">{option.label}</div>
                       </div>
-                      <div className="text-white text-xs leading-tight font-['Inter'] ml-6 flex-1">
+                      <div className="text-white text-[10px] leading-tight font-['Inter'] ml-5 flex-1">
                         {option.description}
                       </div>
                     </div>
