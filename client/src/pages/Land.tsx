@@ -856,8 +856,78 @@ export const Land = (): JSX.Element => {
           </div>
         </section>
 
+        {/* How Do I Get Started Section */}
+        <section className="px-4 py-12 bg-[#06141b]">
+          <div className="max-w-md mx-auto text-center">
+            {/* Header */}
+            <p className="text-gray-400 text-sm mb-4">How Do I Get Started?</p>
+            <h2 className="text-white text-xl font-bold mb-2">
+              Explore <span className="text-[#69818d]">eaneer Energetics</span> : Solar Energy Installations
+            </h2>
+          </div>
+
+          {/* Process Steps Cards */}
+          <div className="max-w-md mx-auto mt-8 space-y-4">
+            {processSteps.map((step, index) => (
+              <div
+                key={index}
+                className={`bg-[#132e35] rounded-2xl p-6 ${
+                  step.highlighted ? "border-2 border-white" : "border border-gray-600"
+                }`}
+              >
+                <h3 className="text-white text-lg font-semibold mb-3">
+                  {step.title}
+                </h3>
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  {step.description}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* CTA Button */}
+          <div className="text-center mt-8">
+            <Button className="w-full max-w-xs mx-auto bg-transparent border-2 border-white text-white px-6 py-3 rounded-full hover:bg-white/10 flex items-center justify-between">
+              <span className="font-bold text-base">Ready To Save Energy?</span>
+              <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="black"/>
+                </svg>
+              </div>
+            </Button>
+          </div>
+        </section>
+
+        {/* Contact Section */}
+        <section className="px-4 py-12 bg-[#f8f8f8]">
+          <div className="max-w-md mx-auto">
+            <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-200">
+              <div className="mb-6">
+                <p className="text-gray-500 text-sm font-medium mb-3">
+                  Contact us today!
+                </p>
+                <h2 className="text-gray-900 text-2xl font-semibold leading-tight">
+                  Have questions about our services or ready to start your project?
+                </h2>
+              </div>
+              
+              <div className="space-y-4">
+                <Input
+                  type="email"
+                  placeholder="Type your email"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-900 placeholder:text-gray-400 focus:border-[#06141b] focus:ring-1 focus:ring-[#06141b]"
+                  data-testid="input-contact-email"
+                />
+                <Button className="w-full bg-[#06141b] text-white py-3 rounded-xl hover:bg-[#06141b]/90 font-medium">
+                  Get started
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Mobile Footer */}
-        <footer className="px-4 py-8 border-t border-[#2c4a52] mt-12">
+        <footer className="px-4 py-8 border-t border-[#2c4a52] mt-0">
           {/* Main Footer Content */}
           <div className="max-w-md mx-auto">
             {/* Logo and Description */}
