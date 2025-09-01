@@ -20,13 +20,7 @@ export function ProgressIndicator({ currentStep, totalSteps }: ProgressIndicator
                     <div className="w-2 h-2 bg-black rounded-full"></div>
                   </div>
                 ) : (
-                  <div
-                    className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold ${
-                      isCompleted
-                        ? "bg-gray-500 text-white"
-                        : "bg-gray-700 text-gray-400"
-                    }`}
-                  >
+                  <div className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center text-xs font-bold text-white">
                     {stepNumber}
                   </div>
                 )}
