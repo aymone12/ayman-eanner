@@ -785,8 +785,8 @@ export const Land = (): JSX.Element => {
                       onClick={() => setSelectedInstallationType(option.id)}
                       data-testid={`installation-${option.id}`}
                     >
-                      <div className="flex items-center justify-center mb-3">
-                        <div className={`w-[18px] h-[18px] rounded-full border-2 flex-shrink-0 ${
+                      <div className="flex items-start mb-3">
+                        <div className={`w-[18px] h-[18px] rounded-full border-2 mr-3 mt-0.5 flex-shrink-0 ${
                           selectedInstallationType === option.id ? "border-white bg-[#d9d9d9]" : "border-white"
                         }`}>
                           {selectedInstallationType === option.id && (
@@ -795,9 +795,9 @@ export const Land = (): JSX.Element => {
                             </div>
                           )}
                         </div>
+                        <div className="text-white font-bold text-sm font-['Inter']">{option.label}</div>
                       </div>
-                      <div className="text-white font-bold text-sm mb-2 text-center font-['Inter']">{option.label}</div>
-                      <div className="text-white text-xs leading-relaxed text-center font-['Inter']">
+                      <div className="text-white text-xs leading-relaxed font-['Inter'] ml-8">
                         {option.description}
                       </div>
                     </div>
