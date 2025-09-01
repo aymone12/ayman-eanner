@@ -837,7 +837,7 @@ export const Land = (): JSX.Element => {
         </section>
 
         {/* Power Your Home Save Money Section */}
-        <section className="relative w-full h-96 bg-[url(/figmaAssets/image-8-bit-style.png)] bg-cover bg-center flex items-center justify-center px-4">
+        <section className="relative w-full h-[32rem] bg-[url(/figmaAssets/image-8-bit-style.png)] bg-cover bg-center flex items-center justify-center px-4">
           <div className="text-center max-w-md mx-auto">
             <h2 className="text-white text-2xl font-bold mb-4 leading-tight">
               Power Your Home, Save Money
