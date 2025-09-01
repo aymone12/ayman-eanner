@@ -899,7 +899,7 @@ export const Land = (): JSX.Element => {
         </section>
 
         {/* Contact Section */}
-        <section className="px-4 py-12 bg-[#f8f8f8]">
+        <section className="px-4 py-12 bg-[#06141b]">
           <div className="max-w-md mx-auto">
             <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-200">
               <div className="mb-6">
@@ -1007,7 +1007,6 @@ export const Land = (): JSX.Element => {
           </div>
         </footer>
       </div>
-
       {/* Desktop Layout - Hidden on mobile */}
       <div className="hidden md:block bg-[#06141b] w-[1920px] h-[6326px] relative">
         <header className="w-[1920px] h-[86px] top-0 left-0 absolute z-10">
