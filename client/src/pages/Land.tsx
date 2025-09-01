@@ -692,9 +692,11 @@ export const Land = (): JSX.Element => {
         <header className="w-full bg-[#06141b] shadow-[0px_0px_25px_#07151c] px-4 py-4 flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
-            <div className="w-6 h-6 mr-2 flex items-center justify-center">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="white"/>
+            <div className="w-6 h-6 mr-2 flex items-center justify-center bg-white rounded">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="0,0 10,0 10,10 0,10" fill="black"/>
+                <polygon points="10,0 20,0 20,10 15,10 15,15 10,15" fill="black"/>
+                <polygon points="0,10 15,10 15,20 0,20" fill="black"/>
               </svg>
             </div>
             <span className="text-lg font-medium text-white">eaneer</span>
@@ -1026,9 +1028,11 @@ export const Land = (): JSX.Element => {
             <div className="flex items-center justify-between w-full">
               {/* Logo */}
               <div className="flex items-center">
-                <div className="w-8 h-8 mr-3 flex items-center justify-center">
+                <div className="w-8 h-8 mr-3 flex items-center justify-center bg-white rounded">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="white"/>
+                    <polygon points="0,0 12,0 12,12 0,12" fill="black"/>
+                    <polygon points="12,0 24,0 24,12 18,12 18,18 12,18" fill="black"/>
+                    <polygon points="0,12 18,12 18,24 0,24" fill="black"/>
                   </svg>
                 </div>
                 <span className="text-xl font-medium text-white">
