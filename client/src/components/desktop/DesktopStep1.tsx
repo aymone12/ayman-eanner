@@ -52,7 +52,7 @@ export function DesktopStep1({ onNext, onBack }: DesktopStep1Props) {
                   placeholder="Full name"
                   value={formData.fullName}
                   onChange={(e) => handleInputChange('fullName', e.target.value)}
-                  className={`flex-1 bg-transparent border-2 rounded-full px-4 py-3 text-white placeholder-gray-400 focus:outline-none transition-colors duration-300 ${
+                  className={`flex-1 bg-transparent border-2 rounded-full px-4 py-3 text-left text-white placeholder-gray-400 focus:outline-none transition-colors duration-300 ${
                     isFieldFilled('fullName') ? 'border-white' : 'border-gray-600'
                   }`}
                   data-testid="input-full-name"
@@ -62,7 +62,7 @@ export function DesktopStep1({ onNext, onBack }: DesktopStep1Props) {
                   placeholder="Phone number"
                   value={formData.phoneNumber}
                   onChange={(e) => handleInputChange('phoneNumber', e.target.value)}
-                  className={`flex-1 bg-transparent border-2 rounded-full px-4 py-3 text-white placeholder-gray-400 focus:outline-none transition-colors duration-300 ${
+                  className={`flex-1 bg-transparent border-2 rounded-full px-4 py-3 text-left text-white placeholder-gray-400 focus:outline-none transition-colors duration-300 ${
                     isFieldFilled('phoneNumber') ? 'border-white' : 'border-gray-600'
                   }`}
                   data-testid="input-phone-number"
@@ -75,7 +75,7 @@ export function DesktopStep1({ onNext, onBack }: DesktopStep1Props) {
                 placeholder="Home address"
                 value={formData.homeAddress}
                 onChange={(e) => handleInputChange('homeAddress', e.target.value)}
-                className={`w-full bg-transparent border-2 rounded-full px-4 py-3 text-white placeholder-gray-400 focus:outline-none transition-colors duration-300 ${
+                className={`w-full bg-transparent border-2 rounded-full px-4 py-3 text-left text-white placeholder-gray-400 focus:outline-none transition-colors duration-300 ${
                   isFieldFilled('homeAddress') ? 'border-white' : 'border-gray-600'
                 }`}
                 data-testid="input-home-address"
