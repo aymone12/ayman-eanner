@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { DesktopStep0 } from './DesktopStep0';
 import { DesktopStep1 } from './DesktopStep1';
 import { DesktopStep2 } from './DesktopStep2';
 import { DesktopStep3 } from './DesktopStep3';
@@ -10,7 +11,7 @@ interface DesktopSolarFlowProps {
 }
 
 export function DesktopSolarFlow({ onBack }: DesktopSolarFlowProps) {
-  const [currentStep, setCurrentStep] = useState(1);
+  const [currentStep, setCurrentStep] = useState(0);
 
   const handleNext = () => {
     setCurrentStep(prev => prev + 1);
@@ -27,6 +28,12 @@ export function DesktopSolarFlow({ onBack }: DesktopSolarFlowProps) {
 
   return (
     <>
+      {currentStep === 0 && (
+        <DesktopStep0 
+          onNext={handleNext}
+          onBack={onBack}
+        />
+      )}
       {currentStep === 1 && (
         <DesktopStep1 
           onNext={handleNext}
