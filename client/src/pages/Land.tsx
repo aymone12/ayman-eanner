@@ -1460,6 +1460,11 @@ export const Land = (): JSX.Element => {
               <div className="flex flex-col flex-1 mr-10">
                 {/* Logo */}
                 <div className="flex items-center mb-5">
+                  <img
+                    src="/attached_assets/logo.png"
+                    alt="eaneer logo"
+                    className="w-10 h-10 mr-2.5"
+                  />
                   <div>
                     <div className="[font-family:'Inter',Helvetica] font-bold text-white text-2xl">
                       eaneer
