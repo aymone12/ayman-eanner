@@ -57,9 +57,7 @@ export function DesktopStep1({ onNext, onBack }: DesktopStep1Props) {
                   placeholder="Full name"
                   value={formData.fullName}
                   onChange={(e) => handleInputChange('fullName', e.target.value)}
-                  className={`flex-1 bg-transparent border-2 rounded-full px-6 py-4 text-left text-white placeholder-gray-400 focus:outline-none focus:ring-0 transition-colors duration-300 relative z-10 ${
-                    isFieldFilled('fullName') ? 'border-white' : 'border-gray-600'
-                  }`}
+                  className="flex-1 bg-transparent border-2 rounded-full px-6 py-4 text-left text-white placeholder-gray-400 focus:outline-none focus:ring-0 transition-colors duration-300 relative z-10 border-gray-600 ml-[-13px] mr-[-13px] pt-[11px] pb-[11px] pl-[17px] pr-[17px]"
                   data-testid="input-full-name"
                 />
                 <input
@@ -133,7 +131,6 @@ export function DesktopStep1({ onNext, onBack }: DesktopStep1Props) {
           </div>
         </div>
       </div>
-      
       {/* Bottom Link */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
         <button 
