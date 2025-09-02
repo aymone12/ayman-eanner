@@ -1397,7 +1397,7 @@ export const Land = (): JSX.Element => {
         </div>
 
         <div className="w-[1280px] h-[309px] top-[5362px] left-80 absolute">
-          <div className="min-h-full flex justify-center items-center p-5 bg-[#06141b]" style={{ backgroundColor: '#f8f9fa' }}>
+          <div className="min-h-full flex justify-center items-center p-5 bg-[#06141b]" style={{ backgroundColor: '#06141b' }}>
             <div 
               className="bg-white rounded-3xl max-w-6xl w-full flex justify-between items-center shadow-sm"
               style={{ 
