@@ -1,6 +1,5 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
-import { Header } from '@/components/Header';
 
 interface DesktopSolarInterfaceProps {
   onNext: () => void;
@@ -9,10 +8,7 @@ interface DesktopSolarInterfaceProps {
 
 export function DesktopSolarInterface({ onNext, onBack }: DesktopSolarInterfaceProps) {
   return (
-    <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#06141B' }}>
-      <Header />
-      
-      <div className="flex-1 flex flex-col justify-center items-center px-4">
+    <div className="min-h-screen flex flex-col justify-center items-center px-4" style={{ backgroundColor: '#06141B' }}>
         <div className="max-w-6xl w-full flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-24">
           
           {/* Left Side Content */}
@@ -71,7 +67,6 @@ export function DesktopSolarInterface({ onNext, onBack }: DesktopSolarInterfaceP
             Back to the main
           </button>
         </div>
-      </div>
     </div>
   );
 }
