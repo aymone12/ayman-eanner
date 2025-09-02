@@ -45,13 +45,13 @@ export function DesktopStep1({ onNext, onBack }: DesktopStep1Props) {
             {/* Form Fields */}
             <div className="space-y-6 mb-10">
               {/* Full Name and Phone Number Row */}
-              <div className="flex gap-6">
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
                 <input
                   type="text"
                   placeholder="Full name"
                   value={formData.fullName}
                   onChange={(e) => handleInputChange('fullName', e.target.value)}
-                  className="flex-1 bg-transparent border-2 rounded-full px-6 py-4 text-left text-white placeholder-gray-400 focus:outline-none focus:ring-0 transition-colors duration-300 relative z-10 border-gray-600"
+                  className="flex-1 bg-transparent border-2 rounded-xl px-6 py-4 text-white placeholder-gray-400 focus:outline-none focus:border-white focus:ring-0 transition-all duration-300 relative z-10 border-gray-600 hover:border-gray-400"
                   data-testid="input-full-name"
                 />
                 <input
@@ -59,7 +59,7 @@ export function DesktopStep1({ onNext, onBack }: DesktopStep1Props) {
                   placeholder="Phone number"
                   value={formData.phoneNumber}
                   onChange={(e) => handleInputChange('phoneNumber', e.target.value)}
-                  className="flex-1 bg-transparent border-2 rounded-full px-6 py-4 text-left text-white placeholder-gray-400 focus:outline-none focus:ring-0 transition-colors duration-300 relative z-10 border-gray-600"
+                  className="flex-1 bg-transparent border-2 rounded-xl px-6 py-4 text-white placeholder-gray-400 focus:outline-none focus:border-white focus:ring-0 transition-all duration-300 relative z-10 border-gray-600 hover:border-gray-400"
                   data-testid="input-phone-number"
                 />
               </div>
@@ -70,7 +70,7 @@ export function DesktopStep1({ onNext, onBack }: DesktopStep1Props) {
                 placeholder="Home address"
                 value={formData.homeAddress}
                 onChange={(e) => handleInputChange('homeAddress', e.target.value)}
-                className="w-full bg-transparent border-2 rounded-full px-6 py-4 text-left text-white placeholder-gray-400 focus:outline-none focus:ring-0 transition-colors duration-300 relative z-10 border-gray-600"
+                className="w-full bg-transparent border-2 rounded-xl px-6 py-4 text-white placeholder-gray-400 focus:outline-none focus:border-white focus:ring-0 transition-all duration-300 relative z-10 border-gray-600 hover:border-gray-400"
                 data-testid="input-home-address"
               />
             </div>
