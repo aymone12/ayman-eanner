@@ -7,38 +7,11 @@ interface DesktopStep1Props {
 }
 
 export function DesktopStep1({ onNext, onBack }: DesktopStep1Props) {
-  const [formData, setFormData] = useState({
-    propertyType: '',
-    humidityIndex: '',
-    sunlightAmount: ''
-  });
-
-  const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
-  };
-
-  const handleButtonClick = (field: string, value: string) => {
-    setFormData(prev => ({ 
-      ...prev, 
-      [field]: prev[field as keyof typeof prev] === value ? '' : value 
-    }));
-  };
-
-  // Add this helper to check if all fields are filled
-  const allFieldsFilled = 
-    formData.propertyType.trim() !== '' && 
-    formData.humidityIndex.trim() !== '' && 
-    formData.sunlightAmount.trim() !== '';
-
-  const handleNext = () => {
-    if (allFieldsFilled) {
-      onNext();
-    }
-    // No need for alert, button will be disabled if not filled
-  };
-
-  const isFieldFilled = (field: string) => {
-    return formData[field as keyof typeof formData].trim() !== '';
+  // Pre-filled data for client display (read-only)
+  const displayData = {
+    propertyType: 'Residential',
+    humidityIndex: 'Moderate (30-60%)',
+    sunlightAmount: 'Full sun exposure - 6-8 hours daily'
   };
 
   return (
@@ -55,41 +28,22 @@ export function DesktopStep1({ onNext, onBack }: DesktopStep1Props) {
           <div className="mb-12">
             <p className="text-lg mb-8">Enter your property information</p>
             
-            {/* Form Fields */}
+            {/* Display Fields - Read Only for Client */}
             <div className="space-y-6 mb-10">
               {/* Property Type and Humidity Index Row */}
               <div className="flex gap-6">
-                <button
-                  type="button"
-                  onClick={() => handleButtonClick('propertyType', 'Property type')}
-                  className={`flex-1 bg-transparent border-2 rounded-full px-6 py-4 text-left transition-colors duration-300 relative z-10 border-gray-600 focus:outline-none ${
-                    formData.propertyType ? 'text-white' : 'text-gray-400'
-                  }`}
-                  data-testid="button-property-type"
-                >
-                  Property type
-                </button>
-                <button
-                  type="button"
-                  onClick={() => handleButtonClick('humidityIndex', 'Humidity index')}
-                  className={`flex-1 bg-transparent border-2 rounded-full px-6 py-4 text-left transition-colors duration-300 relative z-10 border-gray-600 focus:outline-none ${
-                    formData.humidityIndex ? 'text-white' : 'text-gray-400'
-                  }`}
-                  data-testid="button-humidity-index"
-                >
-                  Humidity index
-                </button>
+                <div className="flex-1 bg-transparent border-2 rounded-full px-6 py-4 text-left text-white border-white cursor-default" data-testid="display-property-type">
+                  {displayData.propertyType}
+                </div>
+                <div className="flex-1 bg-transparent border-2 rounded-full px-6 py-4 text-left text-white border-white cursor-default" data-testid="display-humidity-index">
+                  {displayData.humidityIndex}
+                </div>
               </div>
               
               {/* Sunlight Amount Full Width */}
-              <input
-                type="text"
-                placeholder="How much sunlight does your roof get?"
-                value={formData.sunlightAmount}
-                onChange={(e) => handleInputChange('sunlightAmount', e.target.value)}
-                className="w-full bg-transparent border-2 rounded-full px-6 py-4 text-left text-white placeholder-gray-400 focus:outline-none focus:ring-0 transition-colors duration-300 relative z-10 border-gray-600"
-                data-testid="input-sunlight-amount"
-              />
+              <div className="w-full bg-transparent border-2 rounded-full px-6 py-4 text-left text-white border-white cursor-default" data-testid="display-sunlight-amount">
+                {displayData.sunlightAmount}
+              </div>
             </div>
             
             {/* Buttons Row */}
@@ -103,14 +57,9 @@ export function DesktopStep1({ onNext, onBack }: DesktopStep1Props) {
               </button>
               
               <button 
-                onClick={handleNext}
-                className={`bg-transparent border-2 border-white rounded-full px-10 py-4 flex items-center gap-3 transition-all duration-300 group relative z-10
-                  ${allFieldsFilled 
-                    ? 'hover:bg-white hover:text-[#06141B] cursor-pointer' 
-                    : 'opacity-50 cursor-not-allowed'
-                  }`}
+                onClick={onNext}
+                className="bg-transparent border-2 border-white rounded-full px-10 py-4 flex items-center gap-3 transition-all duration-300 group relative z-10 hover:bg-white hover:text-[#06141B] cursor-pointer"
                 data-testid="button-next"
-                disabled={!allFieldsFilled}
               >
                 <span className="font-medium">Next</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />

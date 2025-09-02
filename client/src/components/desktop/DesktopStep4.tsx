@@ -8,13 +8,7 @@ interface DesktopStep4Props {
 }
 
 export function DesktopStep4({ onNext, onPrevious, onBack }: DesktopStep4Props) {
-  const [agreed, setAgreed] = useState(false);
-
-  const handleConfirm = () => {
-    if (agreed) {
-      onNext();
-    }
-  };
+  // Client viewing mode - simulation results are pre-confirmed
 
   return (
     <div className="min-h-screen flex flex-col justify-center items-center px-4" style={{ backgroundColor: '#06141B' }}>
@@ -47,19 +41,14 @@ export function DesktopStep4({ onNext, onPrevious, onBack }: DesktopStep4Props) 
               </div>
             </div>
 
-            {/* Agreement Checkbox */}
+            {/* Confirmation Status - Read Only for Client */}
             <div className="flex items-center mb-6">
-              <input
-                type="checkbox"
-                id="agree"
-                checked={agreed}
-                onChange={() => setAgreed(!agreed)}
-                className="mr-2"
-                data-testid="checkbox-agree"
-              />
-              <label htmlFor="agree" className="text-sm text-gray-300 cursor-pointer">
-                I confirm these simulation results and wish to proceed.
-              </label>
+              <div className="w-4 h-4 bg-white rounded-sm mr-3 flex items-center justify-center">
+                <div className="w-2 h-2 bg-[#06141B] rounded-sm"></div>
+              </div>
+              <span className="text-sm text-white">
+                Simulation results confirmed and approved
+              </span>
             </div>
             
             {/* Buttons Row */}
@@ -73,14 +62,9 @@ export function DesktopStep4({ onNext, onPrevious, onBack }: DesktopStep4Props) 
               </button>
               
               <button 
-                onClick={handleConfirm}
-                className={`bg-transparent border-2 border-white rounded-full px-8 py-3 flex items-center gap-3 transition-all duration-300 group
-                  ${agreed 
-                    ? 'hover:bg-white hover:text-[#06141B] cursor-pointer' 
-                    : 'opacity-50 cursor-not-allowed'
-                  }`}
+                onClick={onNext}
+                className="bg-transparent border-2 border-white rounded-full px-8 py-3 flex items-center gap-3 transition-all duration-300 group hover:bg-white hover:text-[#06141B] cursor-pointer"
                 data-testid="button-confirm"
-                disabled={!agreed}
               >
                 <span className="font-medium">Confirm</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
