@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { ArrowRight } from 'lucide-react';
+import React, { useState } from "react";
+import { ArrowRight } from "lucide-react";
 
 interface DesktopStep3Props {
   onNext: () => void;
@@ -7,15 +7,19 @@ interface DesktopStep3Props {
   onBack: () => void;
 }
 
-export function DesktopStep3({ onNext, onPrevious, onBack }: DesktopStep3Props) {
+export function DesktopStep3({
+  onNext,
+  onPrevious,
+  onBack,
+}: DesktopStep3Props) {
   const [formData, setFormData] = useState({
-    storageMode: '',
-    maintenanceService: '',
-    backupHours: ''
+    storageMode: "",
+    maintenanceService: "",
+    backupHours: "",
   });
 
   const handleFieldClick = (field: string) => {
-    setFormData(prev => ({ ...prev, [field]: 'selected' }));
+    setFormData((prev) => ({ ...prev, [field]: "selected" }));
   };
 
   const allFieldsFilled =
@@ -28,77 +32,80 @@ export function DesktopStep3({ onNext, onPrevious, onBack }: DesktopStep3Props) 
   };
 
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center px-4" style={{ backgroundColor: '#06141B' }}>
+    <div
+      className="min-h-screen flex flex-col justify-center items-center px-4"
+      style={{ backgroundColor: "#06141B" }}
+    >
       <div className="max-w-6xl w-full flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-24">
-        
         {/* Left Side Content */}
         <div className="text-white max-w-md">
           <h1 className="text-4xl lg:text-5xl font-bold mb-8 leading-tight">
             You're Almost There...
           </h1>
-          
+
           {/* Form Section */}
           <div className="mb-8">
             <p className="text-lg mb-6">Energy storage options</p>
-            
+
             {/* Form Fields */}
             <div className="space-y-4 mb-6">
               {/* Storage Mode and Maintenance Service Row */}
               <div className="flex gap-4">
                 <button
-                  onClick={() => handleFieldClick('storageMode')}
+                  onClick={() => handleFieldClick("storageMode")}
                   className={`flex-1 bg-transparent border-2 rounded-full px-4 py-3 text-left transition-colors duration-300 cursor-pointer ${
-                    formData.storageMode 
-                      ? 'border-white text-white hover:bg-white hover:text-[#06141B]' 
-                      : 'border-gray-600 text-gray-400 hover:border-white hover:text-white'
+                    formData.storageMode
+                      ? "border-white text-white hover:bg-white hover:text-[#06141B]"
+                      : "border-gray-600 text-gray-400 hover:border-white hover:text-white"
                   }`}
                   data-testid="input-storage-mode"
                 >
                   Storage mode
                 </button>
                 <button
-                  onClick={() => handleFieldClick('maintenanceService')}
+                  onClick={() => handleFieldClick("maintenanceService")}
                   className={`flex-1 bg-transparent border-2 rounded-full px-4 py-3 text-left transition-colors duration-300 cursor-pointer ${
-                    formData.maintenanceService 
-                      ? 'border-white text-white hover:bg-white hover:text-[#06141B]' 
-                      : 'border-gray-600 text-gray-400 hover:border-white hover:text-white'
+                    formData.maintenanceService
+                      ? "border-white text-white hover:bg-white hover:text-[#06141B]"
+                      : "border-gray-600 text-gray-400 hover:border-white hover:text-white"
                   }`}
                   data-testid="input-maintenance-service"
                 >
                   Maintenance service
                 </button>
               </div>
-              
+
               {/* Backup Hours Question Full Width */}
               <button
-                onClick={() => handleFieldClick('backupHours')}
+                onClick={() => handleFieldClick("backupHours")}
                 className={`w-full bg-transparent border-2 rounded-full px-4 py-3 text-left transition-colors duration-300 cursor-pointer ${
-                  formData.backupHours 
-                    ? 'border-white text-white hover:bg-white hover:text-[#06141B]' 
-                    : 'border-gray-600 text-gray-400 hover:border-white hover:text-white'
+                  formData.backupHours
+                    ? "border-white text-white hover:bg-white hover:text-[#06141B]"
+                    : "border-gray-600 text-gray-400 hover:border-white hover:text-white"
                 }`}
                 data-testid="input-backup-hours"
               >
                 How many hours of back up you want?
               </button>
             </div>
-            
+
             {/* Buttons Row */}
             <div className="flex items-center justify-between">
-              <button 
+              <button
                 onClick={onPrevious}
                 className="text-white underline hover:no-underline transition-all duration-300"
                 data-testid="button-previous"
               >
                 Previous
               </button>
-              
-              <button 
+
+              <button
                 onClick={handleNext}
                 className={`bg-transparent border-2 border-white rounded-full px-8 py-3 flex items-center gap-3 transition-all duration-300 group
-                  ${allFieldsFilled 
-                    ? 'hover:bg-white hover:text-[#06141B] cursor-pointer' 
-                    : 'opacity-50 cursor-not-allowed'
+                  ${
+                    allFieldsFilled
+                      ? "hover:bg-white hover:text-[#06141B] cursor-pointer"
+                      : "opacity-50 cursor-not-allowed"
                   }`}
                 data-testid="button-next"
                 disabled={!allFieldsFilled}
@@ -123,16 +130,17 @@ export function DesktopStep3({ onNext, onPrevious, onBack }: DesktopStep3Props) 
               6% Offset + 1 Hours Avg Backup
             </p>
             <p className="text-gray-400 text-sm">
-              Estimated System Size Based On Your Reported<br />
+              Estimated System Size Based On Your Reported
+              <br />
               Electricity Use
             </p>
           </div>
         </div>
       </div>
-      
+
       {/* Bottom Link */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-        <button 
+        <button
           onClick={onBack}
           className="text-white underline hover:no-underline transition-all duration-300"
           data-testid="button-back-to-main"
