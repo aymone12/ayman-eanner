@@ -9,14 +9,11 @@ export function Footer() {
         <div className="flex flex-col lg:flex-row justify-between items-start mb-8">
           <div className="mb-8 lg:mb-0 lg:max-w-md">
             <div className="flex items-center mb-4">
-              <div className="w-8 h-8 mr-3 flex items-center justify-center bg-white rounded">
-                <img
-                  src="/logo.png"
-                  alt="Logo"
-                  className="w-6 h-6 object-contain"
-                  style={{ display: 'block' }}
-                />
-              </div>
+              <img
+                src="/attached_assets/logo.png"
+                alt="eaneer logo"
+                className="w-8 h-8 mr-3"
+              />
               <span className="text-xl font-medium text-white">eaneer</span>
             </div>
             <p className="text-white text-sm font-medium mb-1">
