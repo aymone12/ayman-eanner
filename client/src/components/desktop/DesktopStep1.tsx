@@ -49,31 +49,29 @@ export function DesktopStep1({ onNext, onBack }: DesktopStep1Props) {
             <p className="text-lg mb-8">Enter your property information</p>
             
             {/* Form Fields */}
-            <div className="space-y-6 mb-10">
+            <div className="space-y-4 mb-10">
               {/* Property Type and Humidity Index Row */}
-              <div className="flex gap-6">
-                <select
-                  value={formData.propertyType}
-                  onChange={(e) => handleInputChange('propertyType', e.target.value)}
-                  className="flex-1 bg-transparent border-2 rounded-full px-6 py-4 text-left text-white focus:outline-none focus:ring-0 transition-colors duration-300 relative z-10 border-gray-600"
-                  data-testid="select-property-type"
+              <div className="flex gap-4">
+                <button
+                  type="button"
+                  onClick={() => handleInputChange('propertyType', formData.propertyType === 'Property type' ? '' : 'Property type')}
+                  className={`flex-1 bg-transparent border-2 rounded-full px-6 py-4 text-left transition-colors duration-300 relative z-10 border-gray-600 focus:outline-none ${
+                    formData.propertyType ? 'text-white' : 'text-gray-400'
+                  }`}
+                  data-testid="button-property-type"
                 >
-                  <option value="" disabled className="text-gray-400 bg-[#06141B]">Property type</option>
-                  <option value="residential" className="bg-[#06141B]">Residential</option>
-                  <option value="commercial" className="bg-[#06141B]">Commercial</option>
-                  <option value="industrial" className="bg-[#06141B]">Industrial</option>
-                </select>
-                <select
-                  value={formData.humidityIndex}
-                  onChange={(e) => handleInputChange('humidityIndex', e.target.value)}
-                  className="flex-1 bg-transparent border-2 rounded-full px-6 py-4 text-left text-white focus:outline-none focus:ring-0 transition-colors duration-300 relative z-10 border-gray-600"
-                  data-testid="select-humidity-index"
+                  {formData.propertyType || 'Property type'}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleInputChange('humidityIndex', formData.humidityIndex === 'Humidity index' ? '' : 'Humidity index')}
+                  className={`flex-1 bg-transparent border-2 rounded-full px-6 py-4 text-left transition-colors duration-300 relative z-10 border-gray-600 focus:outline-none ${
+                    formData.humidityIndex ? 'text-white' : 'text-gray-400'
+                  }`}
+                  data-testid="button-humidity-index"
                 >
-                  <option value="" disabled className="text-gray-400 bg-[#06141B]">Humidity index</option>
-                  <option value="low" className="bg-[#06141B]">Low (0-30%)</option>
-                  <option value="moderate" className="bg-[#06141B]">Moderate (30-60%)</option>
-                  <option value="high" className="bg-[#06141B]">High (60%+)</option>
-                </select>
+                  {formData.humidityIndex || 'Humidity index'}
+                </button>
               </div>
               
               {/* Sunlight Amount Full Width */}
