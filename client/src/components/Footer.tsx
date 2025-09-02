@@ -10,11 +10,12 @@ export function Footer() {
           <div className="mb-8 lg:mb-0 lg:max-w-md">
             <div className="flex items-center mb-4">
               <div className="w-8 h-8 mr-3 flex items-center justify-center bg-white rounded">
-                <svg width="24" height="24" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <polygon points="0,0 10,0 10,10 0,10" fill="black"/>
-                  <polygon points="10,0 20,0 20,10 15,10 15,15 10,15" fill="black"/>
-                  <polygon points="0,10 15,10 15,20 0,20" fill="black"/>
-                </svg>
+                <img
+                  src="/logo.png"
+                  alt="Logo"
+                  className="w-6 h-6 object-contain"
+                  style={{ display: 'block' }}
+                />
               </div>
               <span className="text-xl font-medium text-white">eaneer</span>
             </div>

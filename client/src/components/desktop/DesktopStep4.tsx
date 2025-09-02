@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 
 interface DesktopStep4Props {
@@ -8,6 +8,14 @@ interface DesktopStep4Props {
 }
 
 export function DesktopStep4({ onNext, onPrevious, onBack }: DesktopStep4Props) {
+  const [agreed, setAgreed] = useState(false);
+
+  const handleConfirm = () => {
+    if (agreed) {
+      onNext();
+    }
+  };
+
   return (
     <div className="min-h-screen flex flex-col justify-center items-center px-4" style={{ backgroundColor: '#06141B' }}>
       <div className="max-w-6xl w-full flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-24">
@@ -38,6 +46,21 @@ export function DesktopStep4({ onNext, onPrevious, onBack }: DesktopStep4Props) 
                 <span className="text-lg font-semibold">30 Hour</span>
               </div>
             </div>
+
+            {/* Agreement Checkbox */}
+            <div className="flex items-center mb-6">
+              <input
+                type="checkbox"
+                id="agree"
+                checked={agreed}
+                onChange={() => setAgreed(!agreed)}
+                className="mr-2"
+                data-testid="checkbox-agree"
+              />
+              <label htmlFor="agree" className="text-sm text-gray-300 cursor-pointer">
+                I confirm these simulation results and wish to proceed.
+              </label>
+            </div>
             
             {/* Buttons Row */}
             <div className="flex items-center justify-between">
@@ -50,9 +73,14 @@ export function DesktopStep4({ onNext, onPrevious, onBack }: DesktopStep4Props) 
               </button>
               
               <button 
-                onClick={onNext}
-                className="bg-transparent border-2 border-white rounded-full px-8 py-3 flex items-center gap-3 hover:bg-white hover:text-[#06141B] transition-all duration-300 group"
+                onClick={handleConfirm}
+                className={`bg-transparent border-2 border-white rounded-full px-8 py-3 flex items-center gap-3 transition-all duration-300 group
+                  ${agreed 
+                    ? 'hover:bg-white hover:text-[#06141B] cursor-pointer' 
+                    : 'opacity-50 cursor-not-allowed'
+                  }`}
                 data-testid="button-confirm"
+                disabled={!agreed}
               >
                 <span className="font-medium">Confirm</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />

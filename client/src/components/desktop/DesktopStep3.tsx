@@ -19,12 +19,15 @@ export function DesktopStep3({ onNext, onPrevious, onBack }: DesktopStep3Props) 
     setFormData(prev => ({ ...prev, [field]: 'selected' }));
   };
 
+  // Helper to check if all fields are filled
+  const allFieldsFilled =
+    formData.storageMode && formData.maintenanceService && formData.backupHours;
+
   const handleNext = () => {
-    if (formData.storageMode && formData.maintenanceService && formData.backupHours) {
+    if (allFieldsFilled) {
       onNext();
-    } else {
-      alert('Please fill in all required fields before proceeding.');
     }
+    // No alert needed, button is disabled if not filled
   };
 
   return (
@@ -95,8 +98,13 @@ export function DesktopStep3({ onNext, onPrevious, onBack }: DesktopStep3Props) 
               
               <button 
                 onClick={handleNext}
-                className="bg-transparent border-2 border-white rounded-full px-8 py-3 flex items-center gap-3 hover:bg-white hover:text-[#06141B] transition-all duration-300 group"
+                className={`bg-transparent border-2 border-white rounded-full px-8 py-3 flex items-center gap-3 transition-all duration-300 group
+                  ${allFieldsFilled 
+                    ? 'hover:bg-white hover:text-[#06141B] cursor-pointer' 
+                    : 'opacity-50 cursor-not-allowed'
+                  }`}
                 data-testid="button-next"
+                disabled={!allFieldsFilled}
               >
                 <span className="font-medium">Next</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
