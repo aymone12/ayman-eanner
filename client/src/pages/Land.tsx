@@ -1039,6 +1039,11 @@ export const Land = (): JSX.Element => {
             <div className="flex items-center justify-between w-full">
               {/* Logo */}
               <div className="flex items-center">
+                <img 
+                  src="/attached_assets/logo.png" 
+                  alt="eaneer logo" 
+                  className="w-8 h-8 mr-3"
+                />
                 <span className="text-xl font-medium text-white">
                   eaneer
                 </span>
