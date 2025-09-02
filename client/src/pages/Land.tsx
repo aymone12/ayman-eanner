@@ -1039,13 +1039,6 @@ export const Land = (): JSX.Element => {
             <div className="flex items-center justify-between w-full">
               {/* Logo */}
               <div className="flex items-center">
-                <div className="w-8 h-8 mr-3 flex items-center justify-center bg-white rounded">
-                  <svg width="24" height="24" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <polygon points="0,0 10,0 10,10 0,10" fill="black"/>
-                    <polygon points="10,0 20,0 20,10 15,10 15,15 10,15" fill="black"/>
-                    <polygon points="0,10 15,10 15,20 0,20" fill="black"/>
-                  </svg>
-                </div>
                 <span className="text-xl font-medium text-white">
                   eaneer
                 </span>
