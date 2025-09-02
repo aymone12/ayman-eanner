@@ -103,7 +103,7 @@ export function DesktopStep1({ onNext, onBack }: DesktopStep1Props) {
         </div>
 
         {/* Right Side - Recommendation Card */}
-        <div className="bg-transparent border-2 border-gray-600 rounded-2xl p-6 max-w-sm w-full text-left pt-[24px] pb-[24px] mt-[0px] mb-[0px] ml-[73px] mr-[73px]">
+        <div className="bg-transparent border-2 border-gray-600 rounded-2xl p-6 max-w-sm w-full text-left ml-[65px] mr-[65px] pt-[26px] pb-[26px] mt-[0px] mb-[0px]">
           <div className="bg-gray-700 text-white text-sm px-3 py-1 rounded-md inline-block mb-4">
             Recommended
           </div>
