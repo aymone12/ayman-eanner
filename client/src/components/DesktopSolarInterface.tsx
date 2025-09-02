@@ -1,7 +1,6 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Header } from '@/components/Header';
-import { Footer } from '@/components/Footer';
 
 interface DesktopSolarInterfaceProps {
   onNext: () => void;
@@ -73,8 +72,6 @@ export function DesktopSolarInterface({ onNext, onBack }: DesktopSolarInterfaceP
           </button>
         </div>
       </div>
-
-      <Footer />
     </div>
   );
 }
