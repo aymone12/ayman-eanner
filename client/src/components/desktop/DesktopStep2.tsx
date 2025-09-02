@@ -54,7 +54,7 @@ export function DesktopStep2({
             <div className="space-y-6 mb-10">
               {/* Property Type and Humidity Index Row */}
               <div className="flex gap-6">
-                <input
+                <button
                   onClick={() => handleFieldClick("propertyType")}
                   className={`flex-1 bg-transparent border-2 rounded-full px-6 py-4 text-left transition-colors duration-300 cursor-pointer relative z-10 ${
                     formData.propertyType
@@ -64,8 +64,8 @@ export function DesktopStep2({
                   data-testid="input-property-type"
                 >
                   Property type
-                </input>
-                <input
+                </button>
+                <button
                   onClick={() => handleFieldClick("humidityIndex")}
                   className={`flex-1 bg-transparent border-2 rounded-full px-6 py-4 text-left transition-colors duration-300 cursor-pointer relative z-10 ${
                     formData.humidityIndex
@@ -75,11 +75,11 @@ export function DesktopStep2({
                   data-testid="input-humidity-index"
                 >
                   Humidity index
-                </input>
+                </button>
               </div>
 
               {/* Sunlight Question Full Width */}
-              <input
+              <button
                 onClick={() => handleFieldClick("sunlightExposure")}
                 className={`w-full bg-transparent border-2 rounded-full px-6 py-4 text-left transition-colors duration-300 cursor-pointer relative z-10 ${
                   formData.sunlightExposure
@@ -89,7 +89,7 @@ export function DesktopStep2({
                 data-testid="input-sunlight-exposure"
               >
                 How much sunlight does your roof get?
-              </input>
+              </button>
             </div>
 
             {/* Buttons Row */}
