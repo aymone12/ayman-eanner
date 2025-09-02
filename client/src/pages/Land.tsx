@@ -1460,13 +1460,6 @@ export const Land = (): JSX.Element => {
               <div className="flex flex-col flex-1 mr-10">
                 {/* Logo */}
                 <div className="flex items-center mb-5">
-                  <div className="w-10 h-10 mr-2.5 relative bg-black rounded">
-                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <polygon points="0,0 20,0 20,20 0,20" fill="white"/>
-                      <polygon points="20,0 40,0 40,20 30,20 30,30 20,30" fill="white"/>
-                      <polygon points="0,20 30,20 30,40 0,40" fill="white"/>
-                    </svg>
-                  </div>
                   <div>
                     <div className="[font-family:'Inter',Helvetica] font-bold text-white text-2xl">
                       eaneer
