@@ -59,7 +59,7 @@ export function DesktopStep1({ onNext, onBack }: DesktopStep1Props) {
                   placeholder="Phone number"
                   value={formData.phoneNumber}
                   onChange={(e) => handleInputChange('phoneNumber', e.target.value)}
-                  className="flex-1 bg-transparent border-2 rounded-full px-6 py-4 text-left text-white placeholder-gray-400 focus:outline-none focus:ring-0 transition-colors duration-300 relative z-10 border-gray-600"
+                  className="flex-1 bg-transparent border-2 rounded-full px-6 py-4 text-left text-white placeholder-gray-400 focus:outline-none focus:ring-0 transition-colors duration-300 relative z-10 border-gray-600 ml-[-16px] mr-[-16px]"
                   data-testid="input-phone-number"
                 />
               </div>
