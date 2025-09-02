@@ -45,7 +45,7 @@ export function DesktopStep3({ onNext, onPrevious, onBack }: DesktopStep3Props) 
             <div className="space-y-4 mb-6">
               {/* Storage Mode and Maintenance Service Row */}
               <div className="flex gap-4">
-                <input
+                <button
                   onClick={() => handleFieldClick('storageMode')}
                   className={`flex-1 bg-transparent border-2 rounded-full px-4 py-3 text-left transition-colors duration-300 cursor-pointer ${
                     formData.storageMode 
@@ -55,8 +55,8 @@ export function DesktopStep3({ onNext, onPrevious, onBack }: DesktopStep3Props) 
                   data-testid="input-storage-mode"
                 >
                   Storage mode
-                </input>
-                <input
+                </button>
+                <button
                   onClick={() => handleFieldClick('maintenanceService')}
                   className={`flex-1 bg-transparent border-2 rounded-full px-4 py-3 text-left transition-colors duration-300 cursor-pointer ${
                     formData.maintenanceService 
@@ -66,11 +66,11 @@ export function DesktopStep3({ onNext, onPrevious, onBack }: DesktopStep3Props) 
                   data-testid="input-maintenance-service"
                 >
                   Maintenance service
-                </input>
+                </button>
               </div>
               
               {/* Backup Hours Question Full Width */}
-              <input
+              <button
                 onClick={() => handleFieldClick('backupHours')}
                 className={`w-full bg-transparent border-2 rounded-full px-4 py-3 text-left transition-colors duration-300 cursor-pointer ${
                   formData.backupHours 
@@ -80,7 +80,7 @@ export function DesktopStep3({ onNext, onPrevious, onBack }: DesktopStep3Props) 
                 data-testid="input-backup-hours"
               >
                 How many hours of back up you want?
-              </input>
+              </button>
             </div>
             
             {/* Buttons Row */}
