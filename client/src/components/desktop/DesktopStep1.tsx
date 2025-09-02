@@ -65,7 +65,7 @@ export function DesktopStep1({ onNext, onBack }: DesktopStep1Props) {
                   placeholder="Phone number"
                   value={formData.phoneNumber}
                   onChange={(e) => handleInputChange('phoneNumber', e.target.value)}
-                  className="flex-1 bg-transparent border-2 rounded-full px-6 py-4 text-left text-white placeholder-gray-400 focus:outline-none focus:ring-0 transition-colors duration-300 relative z-10 border-gray-600 ml-[-5px] mr-[-5px] pt-[14px] pb-[14px] pl-[13px] pr-[13px]"
+                  className="flex-1 bg-transparent border-2 rounded-full px-6 py-4 text-left text-white placeholder-gray-400 focus:outline-none focus:ring-0 transition-colors duration-300 relative z-10 border-gray-600 pt-[14px] pb-[14px] pl-[13px] pr-[13px] ml-[-1px] mr-[-1px]"
                   data-testid="input-phone-number"
                 />
               </div>
@@ -76,7 +76,7 @@ export function DesktopStep1({ onNext, onBack }: DesktopStep1Props) {
                 placeholder="Home address"
                 value={formData.homeAddress}
                 onChange={(e) => handleInputChange('homeAddress', e.target.value)}
-                className="w-full bg-transparent border-2 rounded-full px-6 py-4 text-left text-white placeholder-gray-400 focus:outline-none focus:ring-0 transition-colors duration-300 relative z-10 border-gray-600 pl-[24px] pr-[24px] mt-[22px] mb-[22px] pt-[18px] pb-[18px] ml-[0px] mr-[0px]"
+                className="w-full bg-transparent border-2 rounded-full px-6 py-4 text-left text-white placeholder-gray-400 focus:outline-none focus:ring-0 transition-colors duration-300 relative z-10 border-gray-600 pl-[24px] pr-[24px] mt-[22px] mb-[22px] ml-[0px] mr-[0px] pt-[11px] pb-[11px]"
                 data-testid="input-home-address"
               />
             </div>
