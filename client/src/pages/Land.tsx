@@ -552,7 +552,6 @@ export const Land = (): JSX.Element => {
     <div className="md:hidden w-full min-h-screen bg-gradient-to-b from-[#0a1f26] via-[#0a1f26] to-[#06141b] relative">
       {/* 3D House Model Section */}
       <div className="relative h-80 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#0a1f26]/50"></div>
         <div className="flex items-center justify-center h-full pt-16">
           {/* 3D House placeholder - using a simple house icon representation */}
           <div className="relative">
