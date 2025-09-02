@@ -17,11 +17,18 @@ export function DesktopStep1({ onNext, onBack }: DesktopStep1Props) {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
+  const handleButtonClick = (field: string, value: string) => {
+    setFormData(prev => ({ 
+      ...prev, 
+      [field]: prev[field as keyof typeof prev] === value ? '' : value 
+    }));
+  };
+
   // Add this helper to check if all fields are filled
   const allFieldsFilled = 
-    formData.propertyType.trim() && 
-    formData.humidityIndex.trim() && 
-    formData.sunlightAmount.trim();
+    formData.propertyType.trim() !== '' && 
+    formData.humidityIndex.trim() !== '' && 
+    formData.sunlightAmount.trim() !== '';
 
   const handleNext = () => {
     if (allFieldsFilled) {
@@ -49,28 +56,28 @@ export function DesktopStep1({ onNext, onBack }: DesktopStep1Props) {
             <p className="text-lg mb-8">Enter your property information</p>
             
             {/* Form Fields */}
-            <div className="space-y-4 mb-10">
+            <div className="space-y-6 mb-10">
               {/* Property Type and Humidity Index Row */}
-              <div className="flex gap-4">
+              <div className="flex gap-6">
                 <button
                   type="button"
-                  onClick={() => handleInputChange('propertyType', formData.propertyType === 'Property type' ? '' : 'Property type')}
+                  onClick={() => handleButtonClick('propertyType', 'Property type')}
                   className={`flex-1 bg-transparent border-2 rounded-full px-6 py-4 text-left transition-colors duration-300 relative z-10 border-gray-600 focus:outline-none ${
                     formData.propertyType ? 'text-white' : 'text-gray-400'
                   }`}
                   data-testid="button-property-type"
                 >
-                  {formData.propertyType || 'Property type'}
+                  Property type
                 </button>
                 <button
                   type="button"
-                  onClick={() => handleInputChange('humidityIndex', formData.humidityIndex === 'Humidity index' ? '' : 'Humidity index')}
+                  onClick={() => handleButtonClick('humidityIndex', 'Humidity index')}
                   className={`flex-1 bg-transparent border-2 rounded-full px-6 py-4 text-left transition-colors duration-300 relative z-10 border-gray-600 focus:outline-none ${
                     formData.humidityIndex ? 'text-white' : 'text-gray-400'
                   }`}
                   data-testid="button-humidity-index"
                 >
-                  {formData.humidityIndex || 'Humidity index'}
+                  Humidity index
                 </button>
               </div>
               
