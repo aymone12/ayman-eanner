@@ -8,9 +8,9 @@ interface DesktopStep1Props {
 
 export function DesktopStep1({ onNext, onBack }: DesktopStep1Props) {
   const [formData, setFormData] = useState({
-    fullName: '',
-    phoneNumber: '',
-    homeAddress: ''
+    propertyType: '',
+    humidityIndex: '',
+    sunlightAmount: ''
   });
 
   const handleInputChange = (field: string, value: string) => {
@@ -19,9 +19,9 @@ export function DesktopStep1({ onNext, onBack }: DesktopStep1Props) {
 
   // Add this helper to check if all fields are filled
   const allFieldsFilled = 
-    formData.fullName.trim() && 
-    formData.phoneNumber.trim() && 
-    formData.homeAddress.trim();
+    formData.propertyType.trim() && 
+    formData.humidityIndex.trim() && 
+    formData.sunlightAmount.trim();
 
   const handleNext = () => {
     if (allFieldsFilled) {
@@ -46,38 +46,44 @@ export function DesktopStep1({ onNext, onBack }: DesktopStep1Props) {
           
           {/* Form Section */}
           <div className="mb-12">
-            <p className="text-lg mb-8">Enter your personal information</p>
+            <p className="text-lg mb-8">Enter your property information</p>
             
             {/* Form Fields */}
             <div className="space-y-6 mb-10">
-              {/* Full Name and Phone Number Row */}
+              {/* Property Type and Humidity Index Row */}
               <div className="flex gap-6">
-                <input
-                  type="text"
-                  placeholder="Full name"
-                  value={formData.fullName}
-                  onChange={(e) => handleInputChange('fullName', e.target.value)}
-                  className="flex-1 bg-transparent border-2 rounded-full px-6 py-4 text-left text-white placeholder-gray-400 focus:outline-none focus:ring-0 transition-colors duration-300 relative z-10 border-gray-600 ml-[-13px] mr-[-13px] pt-[11px] pb-[11px] pl-[17px] pr-[17px]"
-                  data-testid="input-full-name"
-                />
-                <input
-                  type="tel"
-                  placeholder="Phone number"
-                  value={formData.phoneNumber}
-                  onChange={(e) => handleInputChange('phoneNumber', e.target.value)}
-                  className="flex-1 bg-transparent border-2 rounded-full px-6 py-4 text-left text-white placeholder-gray-400 focus:outline-none focus:ring-0 transition-colors duration-300 relative z-10 border-gray-600 pt-[14px] pb-[14px] pl-[13px] pr-[13px] ml-[-1px] mr-[-1px]"
-                  data-testid="input-phone-number"
-                />
+                <select
+                  value={formData.propertyType}
+                  onChange={(e) => handleInputChange('propertyType', e.target.value)}
+                  className="flex-1 bg-transparent border-2 rounded-full px-6 py-4 text-left text-white focus:outline-none focus:ring-0 transition-colors duration-300 relative z-10 border-gray-600"
+                  data-testid="select-property-type"
+                >
+                  <option value="" disabled className="text-gray-400 bg-[#06141B]">Property type</option>
+                  <option value="residential" className="bg-[#06141B]">Residential</option>
+                  <option value="commercial" className="bg-[#06141B]">Commercial</option>
+                  <option value="industrial" className="bg-[#06141B]">Industrial</option>
+                </select>
+                <select
+                  value={formData.humidityIndex}
+                  onChange={(e) => handleInputChange('humidityIndex', e.target.value)}
+                  className="flex-1 bg-transparent border-2 rounded-full px-6 py-4 text-left text-white focus:outline-none focus:ring-0 transition-colors duration-300 relative z-10 border-gray-600"
+                  data-testid="select-humidity-index"
+                >
+                  <option value="" disabled className="text-gray-400 bg-[#06141B]">Humidity index</option>
+                  <option value="low" className="bg-[#06141B]">Low (0-30%)</option>
+                  <option value="moderate" className="bg-[#06141B]">Moderate (30-60%)</option>
+                  <option value="high" className="bg-[#06141B]">High (60%+)</option>
+                </select>
               </div>
               
-              {/* Home Address Full Width */}
+              {/* Sunlight Amount Full Width */}
               <input
                 type="text"
-                placeholder="Home address"
-                value={formData.homeAddress}
-                onChange={(e) => handleInputChange('homeAddress', e.target.value)}
-                className="w-full bg-transparent border-2 rounded-full px-6 py-4 text-left text-white placeholder-gray-400 focus:outline-none focus:ring-0 transition-colors duration-300 relative z-10 border-gray-600 pl-[24px] pr-[24px] mt-[22px] mb-[22px] ml-[0px] mr-[0px] pt-[11px] pb-[11px]"
-                data-testid="input-home-address"
+                placeholder="How much sunlight does your roof get?"
+                value={formData.sunlightAmount}
+                onChange={(e) => handleInputChange('sunlightAmount', e.target.value)}
+                className="w-full bg-transparent border-2 rounded-full px-6 py-4 text-left text-white placeholder-gray-400 focus:outline-none focus:ring-0 transition-colors duration-300 relative z-10 border-gray-600"
+                data-testid="input-sunlight-amount"
               />
             </div>
             
