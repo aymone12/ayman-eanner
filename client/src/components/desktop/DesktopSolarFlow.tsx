@@ -22,8 +22,8 @@ export function DesktopSolarFlow({ onBack }: DesktopSolarFlowProps) {
   };
 
   const handleRateExperience = () => {
-    // This could open a rating modal or redirect to a rating page
-    console.log('Rate experience clicked');
+    // Navigate back to landing page
+    onBack();
   };
 
   return (

@@ -544,7 +544,7 @@ export const Land = (): JSX.Element => {
   if (currentStep === "hero") return <MobileHeroPage />;
   if (currentStep === "steps") return <MobileStepsPage />;
   if (currentStep === "wizard") return <MobileWizard onBack={() => setCurrentStep("calculator")} />;
-  if (currentStep === "desktopWizard") return <DesktopSolarInterface onNext={() => setCurrentStep("calculator")} onBack={() => setCurrentStep("calculator")} />;
+  if (currentStep === "desktopWizard") return <DesktopSolarInterface onNext={() => setCurrentStep("initial")} onBack={() => setCurrentStep("initial")} />;
   if (currentStep === "calculator") return (
     <div className="md:hidden w-full min-h-screen bg-gradient-to-b from-[#0a1f26] via-[#0a1f26] to-[#06141b] relative">
       {/* 3D House Model Section */}

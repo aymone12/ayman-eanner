@@ -35,24 +35,24 @@ export function DesktopStep1({ onNext, onBack }: DesktopStep1Props) {
         
         {/* Left Side Content */}
         <div className="text-white max-w-md">
-          <h1 className="text-4xl lg:text-5xl font-bold mb-8 leading-tight">
+          <h1 className="text-4xl lg:text-5xl font-bold mb-12 leading-tight">
             You're Almost There...
           </h1>
           
           {/* Form Section */}
-          <div className="mb-8">
-            <p className="text-lg mb-6">Enter your personal information</p>
+          <div className="mb-12">
+            <p className="text-lg mb-8">Enter your personal information</p>
             
             {/* Form Fields */}
-            <div className="space-y-4 mb-6">
+            <div className="space-y-6 mb-10">
               {/* Full Name and Phone Number Row */}
-              <div className="flex gap-4">
+              <div className="flex gap-6">
                 <input
                   type="text"
                   placeholder="Full name"
                   value={formData.fullName}
                   onChange={(e) => handleInputChange('fullName', e.target.value)}
-                  className={`flex-1 bg-transparent border-2 rounded-full px-4 py-3 text-left text-white placeholder-gray-400 focus:outline-none transition-colors duration-300 ${
+                  className={`flex-1 bg-transparent border-2 rounded-full px-6 py-4 text-left text-white placeholder-gray-400 focus:outline-none focus:ring-0 transition-colors duration-300 relative z-10 ${
                     isFieldFilled('fullName') ? 'border-white' : 'border-gray-600'
                   }`}
                   data-testid="input-full-name"
@@ -62,7 +62,7 @@ export function DesktopStep1({ onNext, onBack }: DesktopStep1Props) {
                   placeholder="Phone number"
                   value={formData.phoneNumber}
                   onChange={(e) => handleInputChange('phoneNumber', e.target.value)}
-                  className={`flex-1 bg-transparent border-2 rounded-full px-4 py-3 text-left text-white placeholder-gray-400 focus:outline-none transition-colors duration-300 ${
+                  className={`flex-1 bg-transparent border-2 rounded-full px-6 py-4 text-left text-white placeholder-gray-400 focus:outline-none focus:ring-0 transition-colors duration-300 relative z-10 ${
                     isFieldFilled('phoneNumber') ? 'border-white' : 'border-gray-600'
                   }`}
                   data-testid="input-phone-number"
@@ -75,7 +75,7 @@ export function DesktopStep1({ onNext, onBack }: DesktopStep1Props) {
                 placeholder="Home address"
                 value={formData.homeAddress}
                 onChange={(e) => handleInputChange('homeAddress', e.target.value)}
-                className={`w-full bg-transparent border-2 rounded-full px-4 py-3 text-left text-white placeholder-gray-400 focus:outline-none transition-colors duration-300 ${
+                className={`w-full bg-transparent border-2 rounded-full px-6 py-4 text-left text-white placeholder-gray-400 focus:outline-none focus:ring-0 transition-colors duration-300 relative z-10 ${
                   isFieldFilled('homeAddress') ? 'border-white' : 'border-gray-600'
                 }`}
                 data-testid="input-home-address"
@@ -83,10 +83,10 @@ export function DesktopStep1({ onNext, onBack }: DesktopStep1Props) {
             </div>
             
             {/* Buttons Row */}
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between mt-8">
               <button 
                 onClick={onBack}
-                className="text-white underline hover:no-underline transition-all duration-300"
+                className="text-white underline hover:no-underline transition-all duration-300 relative z-10"
                 data-testid="button-previous"
               >
                 Previous
@@ -94,7 +94,7 @@ export function DesktopStep1({ onNext, onBack }: DesktopStep1Props) {
               
               <button 
                 onClick={handleNext}
-                className="bg-transparent border-2 border-white rounded-full px-8 py-3 flex items-center gap-3 hover:bg-white hover:text-[#06141B] transition-all duration-300 group"
+                className="bg-transparent border-2 border-white rounded-full px-10 py-4 flex items-center gap-3 hover:bg-white hover:text-[#06141B] transition-all duration-300 group relative z-10"
                 data-testid="button-next"
               >
                 <span className="font-medium">Next</span>

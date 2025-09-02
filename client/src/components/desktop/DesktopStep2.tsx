@@ -42,12 +42,12 @@ export function DesktopStep2({ onNext, onPrevious, onBack }: DesktopStep2Props) 
             <p className="text-lg mb-6">Enter your property information</p>
             
             {/* Form Fields */}
-            <div className="space-y-4 mb-6">
+            <div className="space-y-6 mb-10">
               {/* Property Type and Humidity Index Row */}
-              <div className="flex gap-4">
+              <div className="flex gap-6">
                 <button
                   onClick={() => handleFieldClick('propertyType')}
-                  className={`flex-1 bg-transparent border-2 rounded-full px-4 py-3 text-left transition-colors duration-300 cursor-pointer ${
+                  className={`flex-1 bg-transparent border-2 rounded-full px-6 py-4 text-left transition-colors duration-300 cursor-pointer relative z-10 ${
                     formData.propertyType 
                       ? 'border-white text-white hover:bg-white hover:text-[#06141B]' 
                       : 'border-gray-600 text-gray-400 hover:border-white hover:text-white'
@@ -58,7 +58,7 @@ export function DesktopStep2({ onNext, onPrevious, onBack }: DesktopStep2Props) 
                 </button>
                 <button
                   onClick={() => handleFieldClick('humidityIndex')}
-                  className={`flex-1 bg-transparent border-2 rounded-full px-4 py-3 text-left transition-colors duration-300 cursor-pointer ${
+                  className={`flex-1 bg-transparent border-2 rounded-full px-6 py-4 text-left transition-colors duration-300 cursor-pointer relative z-10 ${
                     formData.humidityIndex 
                       ? 'border-white text-white hover:bg-white hover:text-[#06141B]' 
                       : 'border-gray-600 text-gray-400 hover:border-white hover:text-white'
@@ -72,7 +72,7 @@ export function DesktopStep2({ onNext, onPrevious, onBack }: DesktopStep2Props) 
               {/* Sunlight Question Full Width */}
               <button
                 onClick={() => handleFieldClick('sunlightExposure')}
-                className={`w-full bg-transparent border-2 rounded-full px-4 py-3 text-left transition-colors duration-300 cursor-pointer ${
+                className={`w-full bg-transparent border-2 rounded-full px-6 py-4 text-left transition-colors duration-300 cursor-pointer relative z-10 ${
                   formData.sunlightExposure 
                     ? 'border-white text-white hover:bg-white hover:text-[#06141B]' 
                     : 'border-gray-600 text-gray-400 hover:border-white hover:text-white'
@@ -84,10 +84,10 @@ export function DesktopStep2({ onNext, onPrevious, onBack }: DesktopStep2Props) 
             </div>
             
             {/* Buttons Row */}
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between mt-8">
               <button 
                 onClick={onPrevious}
-                className="text-white underline hover:no-underline transition-all duration-300"
+                className="text-white underline hover:no-underline transition-all duration-300 relative z-10"
                 data-testid="button-previous"
               >
                 Previous
@@ -95,7 +95,7 @@ export function DesktopStep2({ onNext, onPrevious, onBack }: DesktopStep2Props) 
               
               <button 
                 onClick={handleNext}
-                className="bg-transparent border-2 border-white rounded-full px-8 py-3 flex items-center gap-3 hover:bg-white hover:text-[#06141B] transition-all duration-300 group"
+                className="bg-transparent border-2 border-white rounded-full px-10 py-4 flex items-center gap-3 hover:bg-white hover:text-[#06141B] transition-all duration-300 group relative z-10"
                 data-testid="button-next"
               >
                 <span className="font-medium">Next</span>
