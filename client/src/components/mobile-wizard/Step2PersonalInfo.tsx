@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ProgressIndicator } from "./ProgressIndicator";
-import { ContactFooterSection } from "./ContactFooterSection";
 
 interface Step2PersonalInfoProps {
   onNext: () => void;
@@ -94,7 +93,6 @@ export function Step2PersonalInfo({ onNext, onBack }: Step2PersonalInfoProps) {
           </Button>
         </div>
 
-        <ContactFooterSection />
       </div>
     </div>
   );

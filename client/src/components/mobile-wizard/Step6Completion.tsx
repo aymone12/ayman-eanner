@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { ContactFooterSection } from "./ContactFooterSection";
 
 interface Step6CompletionProps {
   onConfirm: () => void;
@@ -57,7 +56,6 @@ export function Step6Completion({ onConfirm, onBack }: Step6CompletionProps) {
           </Button>
         </div>
 
-        <ContactFooterSection />
       </div>
     </div>
   );

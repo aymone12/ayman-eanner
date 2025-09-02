@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { MobileWizard } from "@/components/mobile-wizard/MobileWizard";
 import { DesktopSolarInterface } from "@/components/DesktopSolarInterface";
+import { ContactFooterSection } from "@/components/mobile-wizard/ContactFooterSection";
 
 export const Land = (): JSX.Element => {
   const [selectedGridType, setSelectedGridType] = useState("three-phase");
@@ -70,6 +71,8 @@ export const Land = (): JSX.Element => {
           </svg>
         </Button>
       </div>
+      
+      <ContactFooterSection />
     </div>
   );
 

@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { ProgressIndicator } from "./ProgressIndicator";
-import { ContactFooterSection } from "./ContactFooterSection";
 
 interface Step1ResultsProps {
   onNext: () => void;
@@ -62,7 +61,6 @@ export function Step1Results({ onNext, onBack }: Step1ResultsProps) {
           </Button>
         </div>
 
-        <ContactFooterSection />
       </div>
     </div>
   );

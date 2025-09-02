@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ProgressIndicator } from "./ProgressIndicator";
-import { ContactFooterSection } from "./ContactFooterSection";
 
 interface Step4EnergyStorageProps {
   onNext: () => void;
@@ -94,7 +93,6 @@ export function Step4EnergyStorage({ onNext, onBack }: Step4EnergyStorageProps) 
           </Button>
         </div>
 
-        <ContactFooterSection />
       </div>
     </div>
   );
