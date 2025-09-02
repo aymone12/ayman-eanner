@@ -76,9 +76,7 @@ export function DesktopStep1({ onNext, onBack }: DesktopStep1Props) {
                 placeholder="Home address"
                 value={formData.homeAddress}
                 onChange={(e) => handleInputChange('homeAddress', e.target.value)}
-                className={`w-full bg-transparent border-2 rounded-full px-6 py-4 text-left text-white placeholder-gray-400 focus:outline-none focus:ring-0 transition-colors duration-300 relative z-10 ${
-                  isFieldFilled('homeAddress') ? 'border-white' : 'border-gray-600'
-                }`}
+                className="w-full bg-transparent border-2 rounded-full px-6 py-4 text-left text-white placeholder-gray-400 focus:outline-none focus:ring-0 transition-colors duration-300 relative z-10 border-gray-600 pl-[24px] pr-[24px] mt-[22px] mb-[22px] pt-[18px] pb-[18px] ml-[0px] mr-[0px]"
                 data-testid="input-home-address"
               />
             </div>
