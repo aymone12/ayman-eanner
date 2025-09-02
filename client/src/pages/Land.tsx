@@ -701,13 +701,11 @@ export const Land = (): JSX.Element => {
         <header className="w-full bg-[#06141b] shadow-[0px_0px_25px_#07151c] px-4 py-4 flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
-            <div className="w-6 h-6 mr-2 flex items-center justify-center bg-white rounded">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <polygon points="0,0 10,0 10,10 0,10" fill="black"/>
-                <polygon points="10,0 20,0 20,10 15,10 15,15 10,15" fill="black"/>
-                <polygon points="0,10 15,10 15,20 0,20" fill="black"/>
-              </svg>
-            </div>
+            <img 
+              src="/logo.png" 
+              alt="eaneer logo" 
+              className="w-6 h-6 mr-2"
+            />
             <span className="text-lg font-medium text-white">eaneer</span>
           </div>
           
@@ -1040,7 +1038,7 @@ export const Land = (): JSX.Element => {
               {/* Logo */}
               <div className="flex items-center">
                 <img 
-                  src="/attached_assets/logo.png" 
+                  src="/logo.png" 
                   alt="eaneer logo" 
                   className="w-8 h-8 mr-3"
                 />
