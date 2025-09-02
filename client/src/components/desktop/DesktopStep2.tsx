@@ -8,11 +8,23 @@ interface DesktopStep2Props {
 }
 
 export function DesktopStep2({ onNext, onPrevious, onBack }: DesktopStep2Props) {
-  // Pre-filled data for client display (read-only)
-  const displayData = {
-    propertyType: 'Residential',
-    humidityIndex: 'Moderate (30-60%)',
-    sunlightExposure: 'Full sun exposure - 6-8 hours daily'
+  const [formData, setFormData] = useState({
+    propertyType: '',
+    humidityIndex: '',
+    sunlightExposure: ''
+  });
+
+  const handleFieldClick = (field: string) => {
+    setFormData(prev => ({ ...prev, [field]: 'selected' }));
+  };
+
+  const allFieldsFilled =
+    formData.propertyType && formData.humidityIndex && formData.sunlightExposure;
+
+  const handleNext = () => {
+    if (allFieldsFilled) {
+      onNext();
+    }
   };
 
   return (
@@ -29,22 +41,46 @@ export function DesktopStep2({ onNext, onPrevious, onBack }: DesktopStep2Props) 
           <div className="mb-8">
             <p className="text-lg mb-6">Enter your property information</p>
             
-            {/* Display Fields - Read Only for Client */}
+            {/* Form Fields */}
             <div className="space-y-6 mb-10">
               {/* Property Type and Humidity Index Row */}
               <div className="flex gap-6">
-                <div className="flex-1 bg-transparent border-2 rounded-full px-6 py-4 text-left text-white border-white cursor-default" data-testid="display-property-type">
-                  {displayData.propertyType}
-                </div>
-                <div className="flex-1 bg-transparent border-2 rounded-full px-6 py-4 text-left text-white border-white cursor-default" data-testid="display-humidity-index">
-                  {displayData.humidityIndex}
-                </div>
+                <button
+                  onClick={() => handleFieldClick('propertyType')}
+                  className={`flex-1 bg-transparent border-2 rounded-full px-6 py-4 text-left transition-colors duration-300 cursor-pointer relative z-10 ${
+                    formData.propertyType 
+                      ? 'border-white text-white hover:bg-white hover:text-[#06141B]' 
+                      : 'border-gray-600 text-gray-400 hover:border-white hover:text-white'
+                  }`}
+                  data-testid="button-property-type"
+                >
+                  Property type
+                </button>
+                <button
+                  onClick={() => handleFieldClick('humidityIndex')}
+                  className={`flex-1 bg-transparent border-2 rounded-full px-6 py-4 text-left transition-colors duration-300 cursor-pointer relative z-10 ${
+                    formData.humidityIndex 
+                      ? 'border-white text-white hover:bg-white hover:text-[#06141B]' 
+                      : 'border-gray-600 text-gray-400 hover:border-white hover:text-white'
+                  }`}
+                  data-testid="button-humidity-index"
+                >
+                  Humidity index
+                </button>
               </div>
               
               {/* Sunlight Question Full Width */}
-              <div className="w-full bg-transparent border-2 rounded-full px-6 py-4 text-left text-white border-white cursor-default" data-testid="display-sunlight-exposure">
-                {displayData.sunlightExposure}
-              </div>
+              <button
+                onClick={() => handleFieldClick('sunlightExposure')}
+                className={`w-full bg-transparent border-2 rounded-full px-6 py-4 text-left transition-colors duration-300 cursor-pointer relative z-10 ${
+                  formData.sunlightExposure 
+                    ? 'border-white text-white hover:bg-white hover:text-[#06141B]' 
+                    : 'border-gray-600 text-gray-400 hover:border-white hover:text-white'
+                }`}
+                data-testid="button-sunlight-exposure"
+              >
+                How much sunlight does your roof get?
+              </button>
             </div>
             
             {/* Buttons Row */}
@@ -58,9 +94,14 @@ export function DesktopStep2({ onNext, onPrevious, onBack }: DesktopStep2Props) 
               </button>
               
               <button 
-                onClick={onNext}
-                className="bg-transparent border-2 border-white rounded-full px-10 py-4 flex items-center gap-3 transition-all duration-300 group relative z-10 hover:bg-white hover:text-[#06141B] cursor-pointer"
+                onClick={handleNext}
+                className={`bg-transparent border-2 border-white rounded-full px-10 py-4 flex items-center gap-3 transition-all duration-300 group relative z-10
+                  ${allFieldsFilled 
+                    ? 'hover:bg-white hover:text-[#06141B] cursor-pointer' 
+                    : 'opacity-50 cursor-not-allowed'
+                  }`}
                 data-testid="button-next"
+                disabled={!allFieldsFilled}
               >
                 <span className="font-medium">Next</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />

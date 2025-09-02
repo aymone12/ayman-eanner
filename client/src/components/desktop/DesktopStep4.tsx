@@ -8,7 +8,13 @@ interface DesktopStep4Props {
 }
 
 export function DesktopStep4({ onNext, onPrevious, onBack }: DesktopStep4Props) {
-  // Client viewing mode - simulation results are pre-confirmed
+  const [agreed, setAgreed] = useState(false);
+
+  const handleConfirm = () => {
+    if (agreed) {
+      onNext();
+    }
+  };
 
   return (
     <div className="min-h-screen flex flex-col justify-center items-center px-4" style={{ backgroundColor: '#06141B' }}>
@@ -28,27 +34,32 @@ export function DesktopStep4({ onNext, onPrevious, onBack }: DesktopStep4Props) 
                 <span className="text-lg font-semibold">40,500.00DH</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-lg">Monthly savings</span>
-                <span className="text-lg font-semibold">4,500DH/M</span>
+                <span className="text-lg">Annual Savings</span>
+                <span className="text-lg font-semibold">4,500DH/y</span>
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-lg">Payback period</span>
-                <span className="text-lg font-semibold">5 years</span>
+                <span className="text-lg font-semibold">9 years</span>
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-lg">Installation time</span>
-                <span className="text-lg font-semibold">30 Hour</span>
+                <span className="text-lg font-semibold">30Hour</span>
               </div>
             </div>
 
-            {/* Confirmation Status - Read Only for Client */}
+            {/* Agreement Checkbox */}
             <div className="flex items-center mb-6">
-              <div className="w-4 h-4 bg-white rounded-sm mr-3 flex items-center justify-center">
-                <div className="w-2 h-2 bg-[#06141B] rounded-sm"></div>
-              </div>
-              <span className="text-sm text-white">
-                Simulation results confirmed and approved
-              </span>
+              <input
+                type="checkbox"
+                id="agree"
+                checked={agreed}
+                onChange={() => setAgreed(!agreed)}
+                className="mr-2"
+                data-testid="checkbox-agree"
+              />
+              <label htmlFor="agree" className="text-sm text-gray-300 cursor-pointer">
+                I confirm these simulation results and wish to proceed.
+              </label>
             </div>
             
             {/* Buttons Row */}
@@ -62,9 +73,14 @@ export function DesktopStep4({ onNext, onPrevious, onBack }: DesktopStep4Props) 
               </button>
               
               <button 
-                onClick={onNext}
-                className="bg-transparent border-2 border-white rounded-full px-8 py-3 flex items-center gap-3 transition-all duration-300 group hover:bg-white hover:text-[#06141B] cursor-pointer"
+                onClick={handleConfirm}
+                className={`bg-transparent border-2 border-white rounded-full px-8 py-3 flex items-center gap-3 transition-all duration-300 group
+                  ${agreed 
+                    ? 'hover:bg-white hover:text-[#06141B] cursor-pointer' 
+                    : 'opacity-50 cursor-not-allowed'
+                  }`}
                 data-testid="button-confirm"
+                disabled={!agreed}
               >
                 <span className="font-medium">Confirm</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />

@@ -7,11 +7,25 @@ interface DesktopStep1Props {
 }
 
 export function DesktopStep1({ onNext, onBack }: DesktopStep1Props) {
-  // Pre-filled data for client display (read-only)
-  const displayData = {
-    propertyType: 'Residential',
-    humidityIndex: 'Moderate (30-60%)',
-    sunlightAmount: 'Full sun exposure - 6-8 hours daily'
+  const [formData, setFormData] = useState({
+    fullName: '',
+    phoneNumber: '',
+    homeAddress: ''
+  });
+
+  const handleInputChange = (field: string, value: string) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const allFieldsFilled = 
+    formData.fullName.trim() && 
+    formData.phoneNumber.trim() && 
+    formData.homeAddress.trim();
+
+  const handleNext = () => {
+    if (allFieldsFilled) {
+      onNext();
+    }
   };
 
   return (
@@ -26,24 +40,39 @@ export function DesktopStep1({ onNext, onBack }: DesktopStep1Props) {
           
           {/* Form Section */}
           <div className="mb-12">
-            <p className="text-lg mb-8">Enter your property information</p>
+            <p className="text-lg mb-8">Enter your personal information</p>
             
-            {/* Display Fields - Read Only for Client */}
+            {/* Form Fields */}
             <div className="space-y-6 mb-10">
-              {/* Property Type and Humidity Index Row */}
+              {/* Full Name and Phone Number Row */}
               <div className="flex gap-6">
-                <div className="flex-1 bg-transparent border-2 rounded-full px-6 py-4 text-left text-white border-white cursor-default" data-testid="display-property-type">
-                  {displayData.propertyType}
-                </div>
-                <div className="flex-1 bg-transparent border-2 rounded-full px-6 py-4 text-left text-white border-white cursor-default" data-testid="display-humidity-index">
-                  {displayData.humidityIndex}
-                </div>
+                <input
+                  type="text"
+                  placeholder="Full name"
+                  value={formData.fullName}
+                  onChange={(e) => handleInputChange('fullName', e.target.value)}
+                  className="flex-1 bg-transparent border-2 rounded-full px-6 py-4 text-left text-white placeholder-gray-400 focus:outline-none focus:ring-0 transition-colors duration-300 relative z-10 border-gray-600"
+                  data-testid="input-full-name"
+                />
+                <input
+                  type="tel"
+                  placeholder="Phone number"
+                  value={formData.phoneNumber}
+                  onChange={(e) => handleInputChange('phoneNumber', e.target.value)}
+                  className="flex-1 bg-transparent border-2 rounded-full px-6 py-4 text-left text-white placeholder-gray-400 focus:outline-none focus:ring-0 transition-colors duration-300 relative z-10 border-gray-600"
+                  data-testid="input-phone-number"
+                />
               </div>
               
-              {/* Sunlight Amount Full Width */}
-              <div className="w-full bg-transparent border-2 rounded-full px-6 py-4 text-left text-white border-white cursor-default" data-testid="display-sunlight-amount">
-                {displayData.sunlightAmount}
-              </div>
+              {/* Home Address Full Width */}
+              <input
+                type="text"
+                placeholder="Home address"
+                value={formData.homeAddress}
+                onChange={(e) => handleInputChange('homeAddress', e.target.value)}
+                className="w-full bg-transparent border-2 rounded-full px-6 py-4 text-left text-white placeholder-gray-400 focus:outline-none focus:ring-0 transition-colors duration-300 relative z-10 border-gray-600"
+                data-testid="input-home-address"
+              />
             </div>
             
             {/* Buttons Row */}
@@ -57,9 +86,14 @@ export function DesktopStep1({ onNext, onBack }: DesktopStep1Props) {
               </button>
               
               <button 
-                onClick={onNext}
-                className="bg-transparent border-2 border-white rounded-full px-10 py-4 flex items-center gap-3 transition-all duration-300 group relative z-10 hover:bg-white hover:text-[#06141B] cursor-pointer"
+                onClick={handleNext}
+                className={`bg-transparent border-2 border-white rounded-full px-10 py-4 flex items-center gap-3 transition-all duration-300 group relative z-10
+                  ${allFieldsFilled 
+                    ? 'hover:bg-white hover:text-[#06141B] cursor-pointer' 
+                    : 'opacity-50 cursor-not-allowed'
+                  }`}
                 data-testid="button-next"
+                disabled={!allFieldsFilled}
               >
                 <span className="font-medium">Next</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />

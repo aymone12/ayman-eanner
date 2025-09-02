@@ -8,11 +8,23 @@ interface DesktopStep3Props {
 }
 
 export function DesktopStep3({ onNext, onPrevious, onBack }: DesktopStep3Props) {
-  // Pre-filled data for client display (read-only)
-  const displayData = {
-    storageMode: 'Battery Storage',
-    maintenanceService: 'Premium Service Plan',
-    backupHours: '8 hours backup power'
+  const [formData, setFormData] = useState({
+    storageMode: '',
+    maintenanceService: '',
+    backupHours: ''
+  });
+
+  const handleFieldClick = (field: string) => {
+    setFormData(prev => ({ ...prev, [field]: 'selected' }));
+  };
+
+  const allFieldsFilled =
+    formData.storageMode && formData.maintenanceService && formData.backupHours;
+
+  const handleNext = () => {
+    if (allFieldsFilled) {
+      onNext();
+    }
   };
 
   return (
@@ -29,22 +41,46 @@ export function DesktopStep3({ onNext, onPrevious, onBack }: DesktopStep3Props) 
           <div className="mb-8">
             <p className="text-lg mb-6">Energy storage options</p>
             
-            {/* Display Fields - Read Only for Client */}
-            <div className="space-y-6 mb-6">
+            {/* Form Fields */}
+            <div className="space-y-4 mb-6">
               {/* Storage Mode and Maintenance Service Row */}
-              <div className="flex gap-6">
-                <div className="flex-1 bg-transparent border-2 rounded-full px-6 py-4 text-left text-white border-white cursor-default" data-testid="display-storage-mode">
-                  {displayData.storageMode}
-                </div>
-                <div className="flex-1 bg-transparent border-2 rounded-full px-6 py-4 text-left text-white border-white cursor-default" data-testid="display-maintenance-service">
-                  {displayData.maintenanceService}
-                </div>
+              <div className="flex gap-4">
+                <button
+                  onClick={() => handleFieldClick('storageMode')}
+                  className={`flex-1 bg-transparent border-2 rounded-full px-4 py-3 text-left transition-colors duration-300 cursor-pointer ${
+                    formData.storageMode 
+                      ? 'border-white text-white hover:bg-white hover:text-[#06141B]' 
+                      : 'border-gray-600 text-gray-400 hover:border-white hover:text-white'
+                  }`}
+                  data-testid="button-storage-mode"
+                >
+                  Storage mode
+                </button>
+                <button
+                  onClick={() => handleFieldClick('maintenanceService')}
+                  className={`flex-1 bg-transparent border-2 rounded-full px-4 py-3 text-left transition-colors duration-300 cursor-pointer ${
+                    formData.maintenanceService 
+                      ? 'border-white text-white hover:bg-white hover:text-[#06141B]' 
+                      : 'border-gray-600 text-gray-400 hover:border-white hover:text-white'
+                  }`}
+                  data-testid="button-maintenance-service"
+                >
+                  Maintenance service
+                </button>
               </div>
               
               {/* Backup Hours Question Full Width */}
-              <div className="w-full bg-transparent border-2 rounded-full px-6 py-4 text-left text-white border-white cursor-default" data-testid="display-backup-hours">
-                {displayData.backupHours}
-              </div>
+              <button
+                onClick={() => handleFieldClick('backupHours')}
+                className={`w-full bg-transparent border-2 rounded-full px-4 py-3 text-left transition-colors duration-300 cursor-pointer ${
+                  formData.backupHours 
+                    ? 'border-white text-white hover:bg-white hover:text-[#06141B]' 
+                    : 'border-gray-600 text-gray-400 hover:border-white hover:text-white'
+                }`}
+                data-testid="button-backup-hours"
+              >
+                How many hours of back up you want?
+              </button>
             </div>
             
             {/* Buttons Row */}
@@ -58,9 +94,14 @@ export function DesktopStep3({ onNext, onPrevious, onBack }: DesktopStep3Props) 
               </button>
               
               <button 
-                onClick={onNext}
-                className="bg-transparent border-2 border-white rounded-full px-8 py-3 flex items-center gap-3 transition-all duration-300 group hover:bg-white hover:text-[#06141B] cursor-pointer"
+                onClick={handleNext}
+                className={`bg-transparent border-2 border-white rounded-full px-8 py-3 flex items-center gap-3 transition-all duration-300 group
+                  ${allFieldsFilled 
+                    ? 'hover:bg-white hover:text-[#06141B] cursor-pointer' 
+                    : 'opacity-50 cursor-not-allowed'
+                  }`}
                 data-testid="button-next"
+                disabled={!allFieldsFilled}
               >
                 <span className="font-medium">Next</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />

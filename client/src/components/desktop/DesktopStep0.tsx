@@ -17,11 +17,9 @@ export function DesktopStep0({ onNext, onBack }: DesktopStep0Props) {
             You're Almost There...
           </h1>
           
-          <div className="mb-8 space-y-2">
+          <div className="mb-8">
             <p className="text-lg lg:text-xl leading-relaxed">
-              You've Seen What Solar Can Do For You
-            </p>
-            <p className="text-lg lg:text-xl leading-relaxed">
+              You've Seen What Solar Can Do For You<br />
               Now Let Us Take Care Of The Rest
             </p>
           </div>
