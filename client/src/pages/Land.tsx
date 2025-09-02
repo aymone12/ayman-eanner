@@ -38,9 +38,8 @@ export const Land = (): JSX.Element => {
       alert("Please enter a valid electric bill amount before calculating.");
       return;
     }
-    // Check if on desktop (md and up) or mobile
-    const isDesktop = window.innerWidth >= 768;
-    setCurrentStep(isDesktop ? "desktopWizard" : "wizard");
+    // Navigate to mobile landing page
+    setCurrentStep("initial");
   };
 
   // Mobile Hero Section Component
@@ -546,145 +545,8 @@ export const Land = (): JSX.Element => {
   // Render different components based on current step
   if (currentStep === "hero") return <MobileHeroPage />;
   if (currentStep === "steps") return <MobileStepsPage />;
-  if (currentStep === "wizard") return <MobileWizard onBack={() => setCurrentStep("calculator")} />;
+  if (currentStep === "wizard") return <MobileWizard onBack={() => setCurrentStep("initial")} />;
   if (currentStep === "desktopWizard") return <DesktopSolarInterface onNext={() => setCurrentStep("initial")} onBack={() => setCurrentStep("initial")} />;
-  if (currentStep === "calculator") return (
-    <div className="md:hidden w-full min-h-screen bg-gradient-to-b from-[#0a1f26] via-[#0a1f26] to-[#06141b] relative">
-      {/* 3D House Model Section */}
-      <div className="relative h-80 overflow-hidden">
-        <div className="flex items-center justify-center h-full pt-16">
-          {/* 3D House placeholder - using a simple house icon representation */}
-          <div className="relative">
-            <svg width="200" height="160" viewBox="0 0 200 160" fill="none" className="drop-shadow-2xl">
-              {/* House base */}
-              <rect x="40" y="80" width="120" height="70" fill="#d4d4d4" rx="4"/>
-              {/* Roof */}
-              <polygon points="30,80 100,30 170,80" fill="#a3a3a3"/>
-              {/* Door */}
-              <rect x="90" y="120" width="20" height="30" fill="#525252" rx="2"/>
-              {/* Windows */}
-              <rect x="60" y="100" width="15" height="15" fill="#1f2937" rx="2"/>
-              <rect x="125" y="100" width="15" height="15" fill="#1f2937" rx="2"/>
-              {/* Solar panels on roof */}
-              <rect x="70" y="45" width="60" height="25" fill="#1f2937" rx="2"/>
-              <rect x="75" y="50" width="50" height="15" fill="#374151" rx="1"/>
-              {/* Solar panel details */}
-              <rect x="80" y="52" width="8" height="11" fill="#111827"/>
-              <rect x="90" y="52" width="8" height="11" fill="#111827"/>
-              <rect x="100" y="52" width="8" height="11" fill="#111827"/>
-              <rect x="110" y="52" width="8" height="11" fill="#111827"/>
-            </svg>
-          </div>
-        </div>
-      </div>
-
-      {/* Calculator Card */}
-      <div className="px-4 pb-8">
-        <div className="bg-[#1a2b33]/90 backdrop-blur-sm rounded-3xl p-6 mx-auto max-w-sm border border-gray-700/30 shadow-2xl">
-          {/* Grid Type Section */}
-          <div className="mb-6">
-            <h3 className="text-white text-lg font-semibold mb-4">Grid Type</h3>
-            <div className="flex gap-3">
-              {gridTypeOptions.map((option) => (
-                <div
-                  key={option.id}
-                  className={`flex-1 p-4 rounded-2xl border-2 cursor-pointer transition-all ${
-                    selectedGridType === option.id
-                      ? "border-cyan-400 bg-cyan-400/10"
-                      : "border-gray-600 bg-gray-800/50 hover:border-gray-500"
-                  }`}
-                  onClick={() => setSelectedGridType(option.id)}
-                  data-testid={`grid-${option.id}`}
-                >
-                  <div className="flex items-center mb-2">
-                    <div className={`w-5 h-5 rounded-full border-2 mr-3 ${
-                      selectedGridType === option.id 
-                        ? "border-cyan-400 bg-cyan-400" 
-                        : "border-gray-400"
-                    }`}>
-                      {selectedGridType === option.id && (
-                        <div className="w-full h-full rounded-full bg-cyan-400 flex items-center justify-center">
-                          <div className="w-2 h-2 bg-white rounded-full"></div>
-                        </div>
-                      )}
-                    </div>
-                    <div className="text-white font-medium text-sm">{option.label}</div>
-                  </div>
-                  <div className="text-gray-400 text-xs leading-relaxed pl-8">
-                    {option.description}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Installation Type Section */}
-          <div className="mb-6">
-            <h3 className="text-white text-lg font-semibold mb-4">Installation Type</h3>
-            <div className="flex gap-3">
-              {installationTypeOptions.map((option) => (
-                <div
-                  key={option.id}
-                  className={`flex-1 p-3 rounded-2xl border-2 cursor-pointer transition-all ${
-                    selectedInstallationType === option.id
-                      ? "border-cyan-400 bg-cyan-400/10"
-                      : "border-gray-600 bg-gray-800/50 hover:border-gray-500"
-                  }`}
-                  onClick={() => setSelectedInstallationType(option.id)}
-                  data-testid={`installation-${option.id}`}
-                >
-                  <div className="flex items-center mb-2">
-                    <div className={`w-5 h-5 rounded-full border-2 mr-2 ${
-                      selectedInstallationType === option.id 
-                        ? "border-cyan-400 bg-cyan-400" 
-                        : "border-gray-400"
-                    }`}>
-                      {selectedInstallationType === option.id && (
-                        <div className="w-full h-full rounded-full bg-cyan-400 flex items-center justify-center">
-                          <div className="w-2 h-2 bg-white rounded-full"></div>
-                        </div>
-                      )}
-                    </div>
-                    <div className="text-white font-medium text-xs">{option.label}</div>
-                  </div>
-                  <div className="text-gray-400 text-xs leading-relaxed pl-7">
-                    {option.description}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Power Usage Section */}
-          <div className="mb-6">
-            <h3 className="text-white text-lg font-semibold mb-4">Power usage</h3>
-            <div className="relative">
-              <Input
-                type="number"
-                placeholder="0.00"
-                value={electricBill}
-                onChange={(e) => setElectricBill(e.target.value)}
-                className="w-full px-4 py-4 rounded-2xl border-2 border-gray-600 bg-gray-800/50 text-white placeholder:text-gray-500 text-base pr-16"
-                data-testid="input-electric-bill"
-              />
-              <div className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm">
-                Watts
-              </div>
-            </div>
-          </div>
-
-          {/* Calculate Button */}
-          <Button
-            onClick={handleCalculate}
-            className="w-full bg-white text-black py-4 rounded-2xl hover:bg-gray-100 font-semibold text-base"
-            data-testid="button-calculate"
-          >
-            Calculate
-          </Button>
-        </div>
-      </div>
-    </div>
-  );
   if (currentStep === "results") return <ResultsPage />;
   if (currentStep === "personal") return <PersonalInfoPage />;
   if (currentStep === "property") return <PropertyInfoPage />;
