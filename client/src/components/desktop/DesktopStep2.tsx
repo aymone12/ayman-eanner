@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
+import { Input } from '../ui/input';
 
 interface DesktopStep2Props {
   onNext: () => void;
@@ -45,42 +46,42 @@ export function DesktopStep2({ onNext, onPrevious, onBack }: DesktopStep2Props) 
             <div className="space-y-6 mb-10">
               {/* Property Type and Humidity Index Row */}
               <div className="flex gap-6">
-                <button
+                <input
                   onClick={() => handleFieldClick('propertyType')}
                   className={`flex-1 bg-transparent border-2 rounded-full px-6 py-4 text-left transition-colors duration-300 cursor-pointer relative z-10 ${
                     formData.propertyType 
                       ? 'border-white text-white hover:bg-white hover:text-[#06141B]' 
                       : 'border-gray-600 text-gray-400 hover:border-white hover:text-white'
                   }`}
-                  data-testid="button-property-type"
+                  data-testid="input-property-type"
                 >
                   Property type
-                </button>
-                <button
+                </input>
+                <input
                   onClick={() => handleFieldClick('humidityIndex')}
                   className={`flex-1 bg-transparent border-2 rounded-full px-6 py-4 text-left transition-colors duration-300 cursor-pointer relative z-10 ${
                     formData.humidityIndex 
                       ? 'border-white text-white hover:bg-white hover:text-[#06141B]' 
                       : 'border-gray-600 text-gray-400 hover:border-white hover:text-white'
                   }`}
-                  data-testid="button-humidity-index"
+                  data-testid="input-humidity-index"
                 >
                   Humidity index
-                </button>
+                </input>
               </div>
               
               {/* Sunlight Question Full Width */}
-              <button
+              <input
                 onClick={() => handleFieldClick('sunlightExposure')}
                 className={`w-full bg-transparent border-2 rounded-full px-6 py-4 text-left transition-colors duration-300 cursor-pointer relative z-10 ${
                   formData.sunlightExposure 
                     ? 'border-white text-white hover:bg-white hover:text-[#06141B]' 
                     : 'border-gray-600 text-gray-400 hover:border-white hover:text-white'
                 }`}
-                data-testid="button-sunlight-exposure"
+                data-testid="input-sunlight-exposure"
               >
                 How much sunlight does your roof get?
-              </button>
+              </input>
             </div>
             
             {/* Buttons Row */}
@@ -88,7 +89,7 @@ export function DesktopStep2({ onNext, onPrevious, onBack }: DesktopStep2Props) 
               <button 
                 onClick={onPrevious}
                 className="text-white underline hover:no-underline transition-all duration-300 relative z-10"
-                data-testid="button-previous"
+                data-testid="input-previous"
               >
                 Previous
               </button>

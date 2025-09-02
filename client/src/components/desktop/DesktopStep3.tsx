@@ -45,42 +45,42 @@ export function DesktopStep3({ onNext, onPrevious, onBack }: DesktopStep3Props) 
             <div className="space-y-4 mb-6">
               {/* Storage Mode and Maintenance Service Row */}
               <div className="flex gap-4">
-                <button
+                <input
                   onClick={() => handleFieldClick('storageMode')}
                   className={`flex-1 bg-transparent border-2 rounded-full px-4 py-3 text-left transition-colors duration-300 cursor-pointer ${
                     formData.storageMode 
                       ? 'border-white text-white hover:bg-white hover:text-[#06141B]' 
                       : 'border-gray-600 text-gray-400 hover:border-white hover:text-white'
                   }`}
-                  data-testid="button-storage-mode"
+                  data-testid="input-storage-mode"
                 >
                   Storage mode
-                </button>
-                <button
+                </input>
+                <input
                   onClick={() => handleFieldClick('maintenanceService')}
                   className={`flex-1 bg-transparent border-2 rounded-full px-4 py-3 text-left transition-colors duration-300 cursor-pointer ${
                     formData.maintenanceService 
                       ? 'border-white text-white hover:bg-white hover:text-[#06141B]' 
                       : 'border-gray-600 text-gray-400 hover:border-white hover:text-white'
                   }`}
-                  data-testid="button-maintenance-service"
+                  data-testid="input-maintenance-service"
                 >
                   Maintenance service
-                </button>
+                </input>
               </div>
               
               {/* Backup Hours Question Full Width */}
-              <button
+              <input
                 onClick={() => handleFieldClick('backupHours')}
                 className={`w-full bg-transparent border-2 rounded-full px-4 py-3 text-left transition-colors duration-300 cursor-pointer ${
                   formData.backupHours 
                     ? 'border-white text-white hover:bg-white hover:text-[#06141B]' 
                     : 'border-gray-600 text-gray-400 hover:border-white hover:text-white'
                 }`}
-                data-testid="button-backup-hours"
+                data-testid="input-backup-hours"
               >
                 How many hours of back up you want?
-              </button>
+              </input>
             </div>
             
             {/* Buttons Row */}

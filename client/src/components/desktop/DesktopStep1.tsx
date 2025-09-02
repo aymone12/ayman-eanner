@@ -39,8 +39,8 @@ export function DesktopStep1({ onNext, onBack }: DesktopStep1Props) {
           </h1>
           
           {/* Form Section */}
-          <div className="mb-12">
-            <p className="text-lg mb-8">Enter your personal information</p>
+          <div className="mb-8">
+            <p className="text-lg mb-6">Enter your personal information</p>
             
             {/* Form Fields */}
             <div className="space-y-6 mb-10">
