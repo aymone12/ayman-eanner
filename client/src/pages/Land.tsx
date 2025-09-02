@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { MobileWizard } from "@/components/mobile-wizard/MobileWizard";
+import { DesktopSolarInterface } from "@/components/DesktopSolarInterface";
 
 export const Land = (): JSX.Element => {
   const [selectedGridType, setSelectedGridType] = useState("three-phase");
@@ -36,7 +37,9 @@ export const Land = (): JSX.Element => {
       alert("Please enter a valid electric bill amount before calculating.");
       return;
     }
-    setCurrentStep("wizard");
+    // Check if on desktop (md and up) or mobile
+    const isDesktop = window.innerWidth >= 768;
+    setCurrentStep(isDesktop ? "desktopWizard" : "wizard");
   };
 
   // Mobile Hero Section Component
@@ -541,6 +544,7 @@ export const Land = (): JSX.Element => {
   if (currentStep === "hero") return <MobileHeroPage />;
   if (currentStep === "steps") return <MobileStepsPage />;
   if (currentStep === "wizard") return <MobileWizard onBack={() => setCurrentStep("calculator")} />;
+  if (currentStep === "desktopWizard") return <DesktopSolarInterface onNext={() => setCurrentStep("calculator")} onBack={() => setCurrentStep("calculator")} />;
   if (currentStep === "calculator") return (
     <div className="md:hidden w-full min-h-screen bg-gradient-to-b from-[#0a1f26] via-[#0a1f26] to-[#06141b] relative">
       {/* 3D House Model Section */}
