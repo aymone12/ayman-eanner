@@ -819,7 +819,14 @@ export const Land = (): JSX.Element => {
           <div className="max-w-md mx-auto">
             {/* Logo and Description */}
             <div className="text-center mb-8">
-              <span className="text-lg font-medium text-white">eaneer</span>
+              <div className="flex items-center justify-center mb-4">
+                <img
+                  src="/attached_assets/logo.png"
+                  alt="eaneer logo"
+                  className="w-6 h-6 mr-2"
+                />
+                <span className="text-lg font-medium text-white">eaneer</span>
+              </div>
               <p className="text-white text-sm font-medium mb-1">
                 Contact Eaneer for Innovative Energy Solutions.
               </p>
