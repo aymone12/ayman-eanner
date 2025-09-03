@@ -869,6 +869,114 @@ export const Land = (): JSX.Element => {
           </div>
         </section>
 
+        {/* Bottom Calculator Section - Mobile Only */}
+        <section className="px-4 py-12 bg-[#06141b]">
+          <div className="max-w-md mx-auto">
+            <Card className="bg-[#06141b] rounded-2xl border-0 shadow-[0px_0px_20px_5px_#2c4a52]">
+              <CardContent className="p-6">
+                {/* Grid Type */}
+                <div className="mb-6">
+                  <h3 className="text-white text-lg font-semibold mb-4 font-['Rubik']">Grid Type</h3>
+                  <div className="flex gap-3 h-[85px]">
+                    {gridTypeOptions.map((option) => (
+                      <div
+                        key={option.id}
+                        className={`flex-1 px-2 py-2 rounded-[15px] border-2 cursor-pointer transition-all duration-200 h-full flex flex-col ${
+                          selectedGridType === option.id
+                            ? "border-white bg-[#0a1b23]"
+                            : "border-gray-600 bg-[#0a1b23]"
+                        }`}
+                        onClick={() => setSelectedGridType(option.id)}
+                        data-testid={`grid-${option.id}-bottom`}
+                      >
+                        <div className="flex items-start mb-1">
+                          <div className={`w-[14px] h-[14px] rounded-full border-2 mr-1.5 mt-0.5 flex-shrink-0 ${
+                            selectedGridType === option.id ? "border-white bg-[#d9d9d9]" : "border-white"
+                          }`}>
+                            {selectedGridType === option.id && (
+                              <div className="w-full h-full rounded-full bg-[#d9d9d9] flex items-center justify-center">
+                                <div className="w-1 h-1 bg-black rounded-full"></div>
+                              </div>
+                            )}
+                          </div>
+                          <div className="text-white font-bold text-[11px] font-['Inter'] leading-tight">{option.label}</div>
+                        </div>
+                        <div className="text-white text-[9px] leading-tight font-['Inter'] ml-4 flex-1">
+                          {option.description}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Installation Type */}
+                <div className="mb-6">
+                  <h3 className="text-white text-lg font-semibold mb-4 font-['Rubik']">Installation Type</h3>
+                  <div className="grid grid-cols-3 gap-3 h-[85px]">
+                    {installationTypeOptions.map((option) => (
+                      <div
+                        key={option.id}
+                        className={`px-2 py-2 rounded-[15px] border-2 cursor-pointer transition-all duration-200 h-full flex flex-col ${
+                          selectedInstallationType === option.id
+                            ? "border-white bg-[#0a1b23]"
+                            : "border-gray-600 bg-[#0a1b23]"
+                        }`}
+                        onClick={() => setSelectedInstallationType(option.id)}
+                        data-testid={`installation-${option.id}-bottom`}
+                      >
+                        <div className="flex items-start mb-1">
+                          <div className={`w-[14px] h-[14px] rounded-full border-2 mr-1.5 mt-0.5 flex-shrink-0 ${
+                            selectedInstallationType === option.id ? "border-white bg-[#d9d9d9]" : "border-white"
+                          }`}>
+                            {selectedInstallationType === option.id && (
+                              <div className="w-full h-full rounded-full bg-[#d9d9d9] flex items-center justify-center">
+                                <div className="w-1 h-1 bg-black rounded-full"></div>
+                              </div>
+                            )}
+                          </div>
+                          <div className="text-white font-bold text-[11px] font-['Inter'] leading-tight">{option.label}</div>
+                        </div>
+                        <div className="text-white text-[9px] leading-tight font-['Inter'] ml-4 flex-1">
+                          {option.description}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Electric Bill Input */}
+                <div className="mb-6">
+                  <h3 className="text-white text-lg font-semibold mb-4 font-['Rubik']">Electric Bill</h3>
+                  <div className="flex gap-3 items-end">
+                    <div className="relative flex-1">
+                      <Input
+                        id="electricBillBottom"
+                        type="number"
+                        placeholder="50"
+                        value={electricBill}
+                        onChange={(e) => setElectricBill(e.target.value)}
+                        className="w-full px-4 py-3 rounded-[10px] border border-white bg-transparent text-white placeholder:text-[#ffffff40] text-sm"
+                        data-testid="input-electric-bill-bottom"
+                      />
+                      <div className="absolute right-3 top-1/2 transform -translate-y-1/2 text-white text-sm font-light font-['Rubik'] pointer-events-none">
+                        Dh
+                      </div>
+                    </div>
+                    
+                    <Button
+                      onClick={handleCalculate}
+                      className="bg-white text-black px-6 py-3 rounded-[10px] hover:bg-white/90 font-semibold text-sm font-['Rubik'] whitespace-nowrap"
+                      data-testid="button-calculate-bottom"
+                    >
+                      Calculate
+                    </Button>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
         {/* Mobile Footer */}
         <footer className="px-4 py-8 border-t border-[#2c4a52] mt-0">
           {/* Main Footer Content */}
