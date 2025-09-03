@@ -38,8 +38,8 @@ export const Land = (): JSX.Element => {
       alert("Please enter a valid electric bill amount before calculating.");
       return;
     }
-    // Navigate to mobile landing page
-    setCurrentStep("initial");
+    // Navigate to desktop calculator interface
+    setCurrentStep("desktopWizard");
   };
 
   // Mobile Hero Section Component
