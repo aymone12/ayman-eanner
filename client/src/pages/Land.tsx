@@ -1510,7 +1510,7 @@ export const Land = (): JSX.Element => {
                     className="w-14 h-12 ml-[-7px] mr-[-7px] pl-[0px] pr-[0px] object-contain"
                   />
                   <div>
-                    <div className="[font-family:'Inter',Helvetica] font-bold text-white text-2xl">
+                    <div className="[font-family:'Inter',Helvetica] font-bold text-white mt-[-9px] mb-[-9px] text-[35px]">
                       eaneer
                     </div>
                     <div className="[font-family:'Inter',Helvetica] font-normal text-[#69818d] text-xs mt-1">
