@@ -577,12 +577,68 @@ export const Land = (): JSX.Element => {
           </div>
           
           {/* Mobile Menu Button */}
-          <button className="text-white p-2">
+          <button 
+            className="text-white p-2"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            data-testid="mobile-menu-button"
+          >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={isMobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
             </svg>
           </button>
         </header>
+
+        {/* Mobile Menu Dropdown */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden bg-[#06141b] border-t border-[#2c4a52] px-4 py-4 shadow-lg">
+            <nav className="space-y-4">
+              <div className="space-y-3">
+                <button className="flex items-center justify-between w-full text-white text-sm font-medium hover:text-gray-300 transition-colors duration-200 py-2">
+                  Company
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                
+                <button className="flex items-center justify-between w-full text-white text-sm font-medium hover:text-gray-300 transition-colors duration-200 py-2">
+                  Industry
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                
+                <button className="flex items-center justify-between w-full text-white text-sm font-medium hover:text-gray-300 transition-colors duration-200 py-2">
+                  Services
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                
+                <button className="block w-full text-left text-white text-sm font-medium hover:text-gray-300 transition-colors duration-200 py-2">
+                  Career
+                </button>
+                
+                <button className="block w-full text-left text-white text-sm font-medium hover:text-gray-300 transition-colors duration-200 py-2">
+                  Finance
+                </button>
+                
+                <button className="block w-full text-left text-white text-sm font-medium hover:text-gray-300 transition-colors duration-200 py-2">
+                  Support
+                </button>
+              </div>
+              
+              {/* Login and Get Started buttons */}
+              <div className="border-t border-[#2c4a52] pt-4 space-y-3">
+                <button className="block w-full text-left text-white text-sm font-medium hover:text-gray-300 transition-colors duration-200 py-2">
+                  Login
+                </button>
+                <button className="w-full bg-white text-black py-2 px-4 text-sm font-medium rounded-md transition-all duration-200 hover:opacity-90">
+                  Get started
+                </button>
+              </div>
+            </nav>
+          </div>
+        )}
 
         {/* Hero Section */}
         <section className="px-4 py-8 text-center">
