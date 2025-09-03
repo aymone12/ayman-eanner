@@ -1074,7 +1074,7 @@ export const Land = (): JSX.Element => {
                   className="w-12 h-12 ml-[-3px] mr-[-3px]"
                 />
                 <div>
-                  <h1 className="font-bold text-white text-[35px]">
+                  <h1 className="font-bold text-white text-[35px] pt-[0px] pb-[0px] mt-[-12px] mb-[-12px] ml-[-5px] mr-[-5px] pl-[1px] pr-[1px]">
                     eaneer
                   </h1>
                   <div className="text-[8px] text-gray-400 mt-[-2px]">
