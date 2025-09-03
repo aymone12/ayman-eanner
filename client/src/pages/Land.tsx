@@ -1071,7 +1071,7 @@ export const Land = (): JSX.Element => {
                 <img 
                   src="/logo.png" 
                   alt="eaneer logo" 
-                  className="w-8 h-8 mr-3"
+                  className="w-8 h-8 ml-[-3px] mr-[-3px]"
                 />
                 <span className="text-xl font-medium text-white">
                   eaneer
