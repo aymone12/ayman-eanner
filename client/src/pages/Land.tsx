@@ -1085,7 +1085,7 @@ export const Land = (): JSX.Element => {
 
               {/* Center Navigation */}
               <nav className="flex items-center space-x-8">
-                <button className="flex items-center text-white text-sm font-medium hover:text-gray-300 transition-colors duration-200 focus:outline-none">
+                <button className="flex items-center text-white text-sm hover:text-gray-300 transition-colors duration-200 focus:outline-none font-bold">
                   Company
                   <svg className="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
