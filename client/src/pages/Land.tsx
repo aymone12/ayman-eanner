@@ -573,9 +573,16 @@ export const Land = (): JSX.Element => {
             <img 
               src="/logo.png" 
               alt="eaneer logo" 
-              className="w-6 h-6 ml-[-1px] mr-[-1px]"
+              className="w-8 h-8 ml-[-2px] mr-[-2px]"
             />
-            <span className="text-lg font-medium text-white">eaneer</span>
+            <div>
+              <h1 className="font-bold text-white text-lg pt-[0px] pb-[0px] mt-[-6px] mb-[-6px] ml-[-3px] mr-[-3px] pl-[1px] pr-[1px]">
+                eaneer
+              </h1>
+              <div className="text-[4px] text-gray-400 mt-[-1px]">
+                "Elevating A New Energy Era Responsibly"
+              </div>
+            </div>
           </div>
           
           {/* Mobile Menu Button */}
@@ -986,12 +993,19 @@ export const Land = (): JSX.Element => {
             {/* Logo and Description */}
             <div className="text-center mb-8">
               <div className="flex items-center justify-center mb-4">
-                <img
-                  src="/attached_assets/logo.png"
-                  alt="eaneer logo"
-                  className="w-6 h-6 ml-[-1px] mr-[-1px] mt-[5px] mb-[5px]"
+                <img 
+                  src="/logo.png" 
+                  alt="eaneer logo" 
+                  className="w-8 h-8 ml-[-2px] mr-[-2px]"
                 />
-                <span className="text-lg font-medium text-white">eaneer</span>
+                <div>
+                  <h1 className="font-bold text-white text-lg pt-[0px] pb-[0px] mt-[-6px] mb-[-6px] ml-[-3px] mr-[-3px] pl-[1px] pr-[1px]">
+                    eaneer
+                  </h1>
+                  <div className="text-[4px] text-gray-400 mt-[-1px]">
+                    "Elevating A New Energy Era Responsibly"
+                  </div>
+                </div>
               </div>
               <p className="text-white text-sm font-medium mb-1">
                 Contact Eaneer for Innovative Energy Solutions.
