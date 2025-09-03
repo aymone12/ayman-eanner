@@ -9,6 +9,8 @@ import { DesktopSolarInterface } from "@/components/DesktopSolarInterface";
 import { ContactFooterSection } from "@/components/mobile-wizard/ContactFooterSection";
 import { useIsMobile } from "@/hooks/use-mobile";
 
+import images_removebg_preview from "@assets/images-removebg-preview.png";
+
 export const Land = (): JSX.Element => {
   const [selectedGridType, setSelectedGridType] = useState("three-phase");
   const [selectedInstallationType, setSelectedInstallationType] =
@@ -1491,9 +1493,9 @@ export const Land = (): JSX.Element => {
                 {/* Logo */}
                 <div className="flex items-center mb-5">
                   <img
-                    src="/attached_assets/logo.png"
+                    src={images_removebg_preview}
                     alt="eaneer logo"
-                    className="w-10 h-10 mr-2.5"
+                    className="w-10 h-10 ml-[-7px] mr-[-7px] pl-[0px] pr-[0px]"
                   />
                   <div>
                     <div className="[font-family:'Inter',Helvetica] font-bold text-white text-2xl">
