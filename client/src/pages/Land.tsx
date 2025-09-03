@@ -819,16 +819,7 @@ export const Land = (): JSX.Element => {
           <div className="max-w-md mx-auto">
             {/* Logo and Description */}
             <div className="text-center mb-8">
-              <div className="flex items-center justify-center mb-4">
-                <div className="w-6 h-6 mr-2 flex items-center justify-center bg-white rounded">
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <polygon points="0,0 10,0 10,10 0,10" fill="black"/>
-                    <polygon points="10,0 20,0 20,10 15,10 15,15 10,15" fill="black"/>
-                    <polygon points="0,10 15,10 15,20 0,20" fill="black"/>
-                  </svg>
-                </div>
-                <span className="text-lg font-medium text-white">eaneer</span>
-              </div>
+              <span className="text-lg font-medium text-white">eaneer</span>
               <p className="text-white text-sm font-medium mb-1">
                 Contact Eaneer for Innovative Energy Solutions.
               </p>
