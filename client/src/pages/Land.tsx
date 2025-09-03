@@ -745,8 +745,8 @@ export const Land = (): JSX.Element => {
               {/* Electric Bill Input */}
               <div className="mb-6">
                 <h3 className="text-white text-lg font-semibold mb-4 font-['Rubik']">Electric Bill</h3>
-                <div className="flex gap-3 items-end">
-                  <div className="relative flex-1">
+                <div className="space-y-3">
+                  <div className="relative">
                     <Input
                       id="electricBill"
                       type="number"
@@ -763,7 +763,7 @@ export const Land = (): JSX.Element => {
                   
                   <Button
                     onClick={handleCalculate}
-                    className="bg-white text-black px-6 py-3 rounded-[10px] hover:bg-white/90 font-semibold text-sm font-['Rubik'] whitespace-nowrap"
+                    className="w-full bg-white text-black py-3 rounded-[10px] hover:bg-white/90 font-semibold text-sm font-['Rubik']"
                     data-testid="button-calculate"
                   >
                     Calculate
