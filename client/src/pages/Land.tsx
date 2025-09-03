@@ -7,6 +7,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { MobileWizard } from "@/components/mobile-wizard/MobileWizard";
 import { DesktopSolarInterface } from "@/components/DesktopSolarInterface";
 import { ContactFooterSection } from "@/components/mobile-wizard/ContactFooterSection";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 export const Land = (): JSX.Element => {
   const [selectedGridType, setSelectedGridType] = useState("three-phase");
@@ -16,6 +17,7 @@ export const Land = (): JSX.Element => {
   // Multi-step form state
   const [currentStep, setCurrentStep] = useState("initial"); // initial, hero, steps, calculator, results, personal, property, energy
   const [electricBill, setElectricBill] = useState("");
+  const isMobile = useIsMobile();
   
   // Mobile menu state
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -38,8 +40,12 @@ export const Land = (): JSX.Element => {
       alert("Please enter a valid electric bill amount before calculating.");
       return;
     }
-    // Navigate to desktop calculator interface
-    setCurrentStep("desktopWizard");
+    // Navigate to appropriate calculator based on device type
+    if (isMobile) {
+      setCurrentStep("wizard"); // Mobile wizard
+    } else {
+      setCurrentStep("desktopWizard"); // Desktop wizard
+    }
   };
 
   // Mobile Hero Section Component
