@@ -1,6 +1,9 @@
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+const dbConnection = require("./database/config/connection");
 
 const app = express();
 app.use(express.json());
@@ -37,6 +40,15 @@ app.use((req, res, next) => {
 });
 
 (async () => {
+  // Connect to MongoDB
+  try {
+    await dbConnection.connect();
+    log("Database connected successfully");
+  } catch (error) {
+    log(`Failed to connect to database: ${error}`);
+    // Continue without database connection for development
+  }
+
   const server = await registerRoutes(app);
 
   app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
