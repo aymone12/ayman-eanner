@@ -1495,7 +1495,7 @@ export const Land = (): JSX.Element => {
                   <img
                     src={images_removebg_preview}
                     alt="eaneer logo"
-                    className="w-10 h-10 ml-[-7px] mr-[-7px] pl-[0px] pr-[0px]"
+                    className="w-16 h-10 ml-[-7px] mr-[-7px] pl-[0px] pr-[0px]"
                   />
                   <div>
                     <div className="[font-family:'Inter',Helvetica] font-bold text-white text-2xl">
