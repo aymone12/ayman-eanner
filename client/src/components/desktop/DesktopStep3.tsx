@@ -18,12 +18,12 @@ export function DesktopStep3({
     backupHours: "",
   });
 
-  const handleFieldClick = (field: string) => {
-    setFormData((prev) => ({ ...prev, [field]: "selected" }));
+  const handleInputChange = (field: string, value: string) => {
+    setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
   const allFieldsFilled =
-    formData.storageMode && formData.maintenanceService && formData.backupHours;
+    formData.storageMode.trim() && formData.maintenanceService.trim() && formData.backupHours.trim();
 
   const handleNext = () => {
     if (allFieldsFilled) {
@@ -51,42 +51,33 @@ export function DesktopStep3({
             <div className="space-y-4 mb-6">
               {/* Storage Mode and Maintenance Service Row */}
               <div className="flex gap-4">
-                <button
-                  onClick={() => handleFieldClick("storageMode")}
-                  className={`flex-1 bg-transparent border-2 rounded-full px-4 py-3 text-left transition-colors duration-300 cursor-pointer ${
-                    formData.storageMode
-                      ? "border-white text-white hover:bg-white hover:text-[#06141B]"
-                      : "border-gray-600 text-gray-400 hover:border-white hover:text-white"
-                  }`}
+                <input
+                  type="text"
+                  placeholder="Storage mode"
+                  value={formData.storageMode}
+                  onChange={(e) => handleInputChange('storageMode', e.target.value)}
+                  className="flex-1 bg-transparent border-2 rounded-full px-4 py-3 text-left text-white placeholder-gray-400 focus:outline-none focus:ring-0 transition-colors duration-300 border-gray-600 focus:border-white"
                   data-testid="input-storage-mode"
-                >
-                  Storage mode
-                </button>
-                <button
-                  onClick={() => handleFieldClick("maintenanceService")}
-                  className={`flex-1 bg-transparent border-2 rounded-full px-4 py-3 text-left transition-colors duration-300 cursor-pointer ${
-                    formData.maintenanceService
-                      ? "border-white text-white hover:bg-white hover:text-[#06141B]"
-                      : "border-gray-600 text-gray-400 hover:border-white hover:text-white"
-                  }`}
+                />
+                <input
+                  type="text"
+                  placeholder="Maintenance service"
+                  value={formData.maintenanceService}
+                  onChange={(e) => handleInputChange('maintenanceService', e.target.value)}
+                  className="flex-1 bg-transparent border-2 rounded-full px-4 py-3 text-left text-white placeholder-gray-400 focus:outline-none focus:ring-0 transition-colors duration-300 border-gray-600 focus:border-white"
                   data-testid="input-maintenance-service"
-                >
-                  Maintenance service
-                </button>
+                />
               </div>
 
               {/* Backup Hours Question Full Width */}
-              <button
-                onClick={() => handleFieldClick("backupHours")}
-                className={`w-full bg-transparent border-2 rounded-full px-4 py-3 text-left transition-colors duration-300 cursor-pointer ${
-                  formData.backupHours
-                    ? "border-white text-white hover:bg-white hover:text-[#06141B]"
-                    : "border-gray-600 text-gray-400 hover:border-white hover:text-white"
-                }`}
+              <input
+                type="text"
+                placeholder="How many hours of back up you want?"
+                value={formData.backupHours}
+                onChange={(e) => handleInputChange('backupHours', e.target.value)}
+                className="w-full bg-transparent border-2 rounded-full px-4 py-3 text-left text-white placeholder-gray-400 focus:outline-none focus:ring-0 transition-colors duration-300 border-gray-600 focus:border-white"
                 data-testid="input-backup-hours"
-              >
-                How many hours of back up you want?
-              </button>
+              />
             </div>
 
             {/* Buttons Row */}

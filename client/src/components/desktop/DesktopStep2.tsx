@@ -19,14 +19,14 @@ export function DesktopStep2({
     sunlightExposure: "",
   });
 
-  const handleFieldClick = (field: string) => {
-    setFormData((prev) => ({ ...prev, [field]: "selected" }));
+  const handleInputChange = (field: string, value: string) => {
+    setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
   const allFieldsFilled =
-    formData.propertyType &&
-    formData.humidityIndex &&
-    formData.sunlightExposure;
+    formData.propertyType.trim() &&
+    formData.humidityIndex.trim() &&
+    formData.sunlightExposure.trim();
 
   const handleNext = () => {
     if (allFieldsFilled) {
@@ -54,42 +54,33 @@ export function DesktopStep2({
             <div className="space-y-6 mb-10">
               {/* Property Type and Humidity Index Row */}
               <div className="flex gap-6">
-                <button
-                  onClick={() => handleFieldClick("propertyType")}
-                  className={`flex-1 bg-transparent border-2 rounded-full px-6 py-4 text-left transition-colors duration-300 cursor-pointer relative z-10 ${
-                    formData.propertyType
-                      ? "border-white text-white hover:bg-white hover:text-[#06141B]"
-                      : "border-gray-600 text-gray-400 hover:border-white hover:text-white"
-                  }`}
+                <input
+                  type="text"
+                  placeholder="Property type"
+                  value={formData.propertyType}
+                  onChange={(e) => handleInputChange('propertyType', e.target.value)}
+                  className="flex-1 bg-transparent border-2 rounded-full px-6 py-4 text-left text-white placeholder-gray-400 focus:outline-none focus:ring-0 transition-colors duration-300 relative z-10 border-gray-600 focus:border-white"
                   data-testid="input-property-type"
-                >
-                  Property type
-                </button>
-                <button
-                  onClick={() => handleFieldClick("humidityIndex")}
-                  className={`flex-1 bg-transparent border-2 rounded-full px-6 py-4 text-left transition-colors duration-300 cursor-pointer relative z-10 ${
-                    formData.humidityIndex
-                      ? "border-white text-white hover:bg-white hover:text-[#06141B]"
-                      : "border-gray-600 text-gray-400 hover:border-white hover:text-white"
-                  }`}
+                />
+                <input
+                  type="text"
+                  placeholder="Humidity index"
+                  value={formData.humidityIndex}
+                  onChange={(e) => handleInputChange('humidityIndex', e.target.value)}
+                  className="flex-1 bg-transparent border-2 rounded-full px-6 py-4 text-left text-white placeholder-gray-400 focus:outline-none focus:ring-0 transition-colors duration-300 relative z-10 border-gray-600 focus:border-white"
                   data-testid="input-humidity-index"
-                >
-                  Humidity index
-                </button>
+                />
               </div>
 
               {/* Sunlight Question Full Width */}
-              <button
-                onClick={() => handleFieldClick("sunlightExposure")}
-                className={`w-full bg-transparent border-2 rounded-full px-6 py-4 text-left transition-colors duration-300 cursor-pointer relative z-10 ${
-                  formData.sunlightExposure
-                    ? "border-white text-white hover:bg-white hover:text-[#06141B]"
-                    : "border-gray-600 text-gray-400 hover:border-white hover:text-white"
-                }`}
+              <input
+                type="text"
+                placeholder="How much sunlight does your roof get?"
+                value={formData.sunlightExposure}
+                onChange={(e) => handleInputChange('sunlightExposure', e.target.value)}
+                className="w-full bg-transparent border-2 rounded-full px-6 py-4 text-left text-white placeholder-gray-400 focus:outline-none focus:ring-0 transition-colors duration-300 relative z-10 border-gray-600 focus:border-white"
                 data-testid="input-sunlight-exposure"
-              >
-                How much sunlight does your roof get?
-              </button>
+              />
             </div>
 
             {/* Buttons Row */}
