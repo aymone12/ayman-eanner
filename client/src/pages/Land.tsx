@@ -1077,7 +1077,7 @@ export const Land = (): JSX.Element => {
                   <h1 className="font-bold text-white text-[35px]">
                     eaneer
                   </h1>
-                  <div className="text-xs text-gray-400 mt-[-2px]">
+                  <div className="text-[8px] text-gray-400 mt-[-2px]">
                     "Elevating A New Energy Era Responsibly"
                   </div>
                 </div>
