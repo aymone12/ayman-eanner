@@ -56,7 +56,7 @@ export function DesktopStep3({
                   placeholder="Storage mode"
                   value={formData.storageMode}
                   onChange={(e) => handleInputChange('storageMode', e.target.value)}
-                  className="flex-1 bg-transparent border-2 rounded-full px-4 py-3 text-left text-white placeholder-gray-400 focus:outline-none focus:ring-0 transition-colors duration-300 border-gray-600 focus:border-white"
+                  className="flex-1 bg-transparent border-2 rounded-full px-4 py-3 text-left text-white placeholder-gray-400 focus:outline-none focus:ring-0 transition-colors duration-300 border-gray-600 focus:border-white pl-[24px] pr-[24px] pt-[16px] pb-[16px]"
                   data-testid="input-storage-mode"
                 />
                 <input
@@ -128,7 +128,6 @@ export function DesktopStep3({
           </div>
         </div>
       </div>
-
       {/* Bottom Link */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
         <button
