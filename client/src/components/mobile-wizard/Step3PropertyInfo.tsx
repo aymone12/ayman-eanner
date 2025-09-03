@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ProgressIndicator } from "./ProgressIndicator";
@@ -8,6 +9,22 @@ interface Step3PropertyInfoProps {
 }
 
 export function Step3PropertyInfo({ onNext, onBack }: Step3PropertyInfoProps) {
+  const [formData, setFormData] = useState({
+    propertyType: "",
+    humidityIndex: "",
+    roofSunlight: ""
+  });
+
+  const handleInputChange = (field: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData(prev => ({
+      ...prev,
+      [field]: e.target.value
+    }));
+  };
+
+  const isFormValid = formData.propertyType.trim() !== "" && 
+                     formData.humidityIndex.trim() !== "" && 
+                     formData.roofSunlight.trim() !== "";
   return (
     <div className="min-h-screen bg-[#06141b] text-white">
       <ProgressIndicator currentStep={3} totalSteps={6} />
@@ -44,6 +61,8 @@ export function Step3PropertyInfo({ onNext, onBack }: Step3PropertyInfoProps) {
             <Input
               type="text"
               placeholder="Property type"
+              value={formData.propertyType}
+              onChange={handleInputChange("propertyType")}
               className="w-full px-4 py-4 rounded-full border-2 border-white bg-transparent text-white placeholder:text-gray-400 focus:border-white focus:ring-0"
               data-testid="input-property-type"
             />
@@ -51,6 +70,8 @@ export function Step3PropertyInfo({ onNext, onBack }: Step3PropertyInfoProps) {
             <Input
               type="text"
               placeholder="Humidity index"
+              value={formData.humidityIndex}
+              onChange={handleInputChange("humidityIndex")}
               className="w-full px-4 py-4 rounded-full border-2 border-white bg-transparent text-white placeholder:text-gray-400 focus:border-white focus:ring-0"
               data-testid="input-humidity-index"
             />
@@ -58,6 +79,8 @@ export function Step3PropertyInfo({ onNext, onBack }: Step3PropertyInfoProps) {
             <Input
               type="text"
               placeholder="How much sunlight does your roof get?"
+              value={formData.roofSunlight}
+              onChange={handleInputChange("roofSunlight")}
               className="w-full px-4 py-4 rounded-full border-2 border-white bg-transparent text-white placeholder:text-gray-400 focus:border-white focus:ring-0"
               data-testid="input-roof-sunlight"
             />
@@ -77,7 +100,12 @@ export function Step3PropertyInfo({ onNext, onBack }: Step3PropertyInfoProps) {
         <div className="max-w-md mx-auto space-y-4">
           <Button
             onClick={onNext}
-            className="w-full bg-transparent border-2 border-white text-white py-3 rounded-full hover:bg-white/10 font-medium"
+            disabled={!isFormValid}
+            className={`w-full border-2 py-3 rounded-full font-medium transition-all duration-200 ${
+              isFormValid 
+                ? "bg-transparent border-white text-white hover:bg-white/10" 
+                : "bg-gray-600 border-gray-600 text-gray-400 cursor-not-allowed"
+            }`}
             data-testid="button-next"
           >
             Next

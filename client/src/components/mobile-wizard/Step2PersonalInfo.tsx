@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ProgressIndicator } from "./ProgressIndicator";
@@ -8,6 +9,22 @@ interface Step2PersonalInfoProps {
 }
 
 export function Step2PersonalInfo({ onNext, onBack }: Step2PersonalInfoProps) {
+  const [formData, setFormData] = useState({
+    fullName: "",
+    phoneNumber: "",
+    homeAddress: ""
+  });
+
+  const handleInputChange = (field: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData(prev => ({
+      ...prev,
+      [field]: e.target.value
+    }));
+  };
+
+  const isFormValid = formData.fullName.trim() !== "" && 
+                     formData.phoneNumber.trim() !== "" && 
+                     formData.homeAddress.trim() !== "";
   return (
     <div className="min-h-screen bg-[#06141b] text-white">
       <ProgressIndicator currentStep={2} totalSteps={6} />
@@ -44,6 +61,8 @@ export function Step2PersonalInfo({ onNext, onBack }: Step2PersonalInfoProps) {
             <Input
               type="text"
               placeholder="Full name"
+              value={formData.fullName}
+              onChange={handleInputChange("fullName")}
               className="w-full px-4 py-4 rounded-full border-2 border-white bg-transparent text-white placeholder:text-gray-400 focus:border-white focus:ring-0"
               data-testid="input-full-name"
             />
@@ -51,6 +70,8 @@ export function Step2PersonalInfo({ onNext, onBack }: Step2PersonalInfoProps) {
             <Input
               type="tel"
               placeholder="Phone number"
+              value={formData.phoneNumber}
+              onChange={handleInputChange("phoneNumber")}
               className="w-full px-4 py-4 rounded-full border-2 border-white bg-transparent text-white placeholder:text-gray-400 focus:border-white focus:ring-0"
               data-testid="input-phone-number"
             />
@@ -58,6 +79,8 @@ export function Step2PersonalInfo({ onNext, onBack }: Step2PersonalInfoProps) {
             <Input
               type="text"
               placeholder="Home address"
+              value={formData.homeAddress}
+              onChange={handleInputChange("homeAddress")}
               className="w-full px-4 py-4 rounded-full border-2 border-white bg-transparent text-white placeholder:text-gray-400 focus:border-white focus:ring-0"
               data-testid="input-home-address"
             />
@@ -77,7 +100,12 @@ export function Step2PersonalInfo({ onNext, onBack }: Step2PersonalInfoProps) {
         <div className="max-w-md mx-auto space-y-4">
           <Button
             onClick={onNext}
-            className="w-full bg-transparent border-2 border-white text-white py-3 rounded-full hover:bg-white/10 font-medium"
+            disabled={!isFormValid}
+            className={`w-full border-2 py-3 rounded-full font-medium transition-all duration-200 ${
+              isFormValid 
+                ? "bg-transparent border-white text-white hover:bg-white/10" 
+                : "bg-gray-600 border-gray-600 text-gray-400 cursor-not-allowed"
+            }`}
             data-testid="button-next"
           >
             Next
