@@ -112,7 +112,7 @@ export function DesktopStep2({
         </div>
 
         {/* Right Side - Recommendation Card */}
-        <div className="bg-transparent border-2 border-gray-600 rounded-2xl p-6 max-w-sm w-full">
+        <div className="bg-transparent border-2 border-gray-600 rounded-2xl p-6 max-w-sm w-full ml-[78px] mr-[78px]">
           <div className="bg-gray-700 text-white text-sm px-3 py-1 rounded-md inline-block mb-4">
             Recommended
           </div>
