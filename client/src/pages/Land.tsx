@@ -944,28 +944,28 @@ export const Land = (): JSX.Element => {
                   </div>
                 </div>
 
-                {/* Electric Bill Input */}
+                {/* Power Usage Input */}
                 <div className="mb-6">
-                  <h3 className="text-white text-lg font-semibold mb-4 font-['Rubik']">Electric Bill</h3>
-                  <div className="flex gap-3 items-end">
-                    <div className="relative flex-1">
+                  <h3 className="text-white text-lg font-semibold mb-4 font-['Rubik']">Power usage</h3>
+                  <div className="space-y-3">
+                    <div className="relative">
                       <Input
-                        id="electricBillBottom"
+                        id="powerUsageBottom"
                         type="number"
-                        placeholder="50"
+                        placeholder="0.00"
                         value={electricBill}
                         onChange={(e) => setElectricBill(e.target.value)}
                         className="w-full px-4 py-3 rounded-[10px] border border-white bg-transparent text-white placeholder:text-[#ffffff40] text-sm"
-                        data-testid="input-electric-bill-bottom"
+                        data-testid="input-power-usage-bottom"
                       />
                       <div className="absolute right-3 top-1/2 transform -translate-y-1/2 text-white text-sm font-light font-['Rubik'] pointer-events-none">
-                        Dh
+                        Watts
                       </div>
                     </div>
                     
                     <Button
                       onClick={handleCalculate}
-                      className="bg-white text-black px-6 py-3 rounded-[10px] hover:bg-white/90 font-semibold text-sm font-['Rubik'] whitespace-nowrap"
+                      className="w-full bg-white text-black py-3 rounded-[10px] hover:bg-white/90 font-semibold text-sm font-['Rubik']"
                       data-testid="button-calculate-bottom"
                     >
                       Calculate
