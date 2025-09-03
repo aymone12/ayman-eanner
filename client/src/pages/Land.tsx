@@ -1073,9 +1073,9 @@ export const Land = (): JSX.Element => {
                   alt="eaneer logo" 
                   className="w-12 h-12 ml-[-3px] mr-[-3px]"
                 />
-                <span className="text-xl font-medium text-white">
+                <h1 className="text-xl font-bold text-white">
                   eaneer
-                </span>
+                </h1>
               </div>
 
               {/* Center Navigation */}
@@ -1509,9 +1509,9 @@ export const Land = (): JSX.Element => {
                 
                 {/* Contact Info */}
                 <div className="mb-5">
-                  <h2 className="[font-family:'Inter',Helvetica] font-normal text-white text-base mb-2">
+                  <span className="[font-family:'Inter',Helvetica] font-normal text-white text-base mb-2">
                     Contact Eaneer for the Energy Future
-                  </h2>
+                  </span>
                   <p className="[font-family:'Inter',Helvetica] font-normal text-white text-sm mb-1">
                     Contact Eaneer for Innovative Energy Solutions.
                   </p>
