@@ -4,6 +4,23 @@
 
 A modern web application for calculating solar installation requirements and costs. The application provides an interactive interface for users to select grid types (single-phase vs three-phase), installation types (on-grid, off-grid, hybrid), and configure their solar energy system based on their specific needs and power usage requirements.
 
+## Recent Changes (September 8, 2025)
+
+### Complete Email Flow Integration
+- **Desktop Email Capture**: Enhanced landing page with email input form that carries email through to signup process
+- **Mobile Email Capture**: Added email capture functionality to mobile hero section with same integration
+- **Unified Authentication**: Both desktop and mobile versions now seamlessly pass email to signup form
+
+### Enhanced Form Validation
+- **Required Field Enforcement**: Users cannot proceed without completing all required fields
+- **Real-time Validation**: Forms validate as users type with clear error messaging
+- **Strong Validation**: Prevention of skipping required form steps
+
+### Mobile Experience Improvements
+- **Responsive Email Capture**: Mobile-optimized email capture forms respecting mobile UX patterns
+- **Contact Footer Integration**: ContactFooterSection now includes email capture functionality
+- **Consistent Navigation**: Mobile and desktop versions share same authentication flow
+
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.

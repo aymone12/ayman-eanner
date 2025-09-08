@@ -1,7 +1,20 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useLocation } from "wouter";
 
 export function ContactFooterSection() {
+  const [email, setEmail] = useState("");
+  const [, setLocation] = useLocation();
+
+  const handleGetStarted = () => {
+    if (email && email.includes('@')) {
+      setLocation(`/auth?mode=signup&email=${encodeURIComponent(email)}`);
+    } else {
+      alert('Please enter a valid email address');
+    }
+  };
+
   return (
     <>
       {/* Contact Section */}
@@ -21,10 +34,16 @@ export function ContactFooterSection() {
               <Input
                 type="email"
                 placeholder="Type your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-900 placeholder:text-gray-400 focus:border-[#06141b] focus:ring-1 focus:ring-[#06141b]"
                 data-testid="input-contact-email"
               />
-              <Button className="w-full bg-[#06141b] text-white py-3 rounded-xl hover:bg-[#06141b]/90 font-medium">
+              <Button 
+                onClick={handleGetStarted}
+                className="w-full bg-[#06141b] text-white py-3 rounded-xl hover:bg-[#06141b]/90 font-medium"
+                data-testid="button-contact-get-started"
+              >
                 Get started
               </Button>
             </div>

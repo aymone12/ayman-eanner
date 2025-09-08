@@ -61,28 +61,60 @@ export const Land = (): JSX.Element => {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0a1f26]/60 to-[#06141b]"></div>
       
       {/* Content */}
-      <div className="relative z-10 flex flex-col h-full justify-center items-center px-6 text-center">
-        <h1 className="text-white text-3xl font-bold mb-4 leading-tight">
-          Power Your Home,<br />Save Money
-        </h1>
-        <p className="text-gray-300 text-base mb-8 max-w-sm leading-relaxed">
-          Whether you goal is to invest in your home or to completely transform your energy consumption,<br />
-          eaneer can help make that happen.
-        </p>
+      <div className="relative z-10 flex flex-col h-full justify-between px-6 py-12">
+        {/* Top Content */}
+        <div className="flex-1 flex flex-col justify-center items-center text-center">
+          <h1 className="text-white text-3xl font-bold mb-4 leading-tight">
+            Power Your Home,<br />Save Money
+          </h1>
+          <p className="text-gray-300 text-base mb-8 max-w-sm leading-relaxed">
+            Whether you goal is to invest in your home or to completely transform your energy consumption,<br />
+            eaneer can help make that happen.
+          </p>
+        </div>
         
-        <Button
-          onClick={() => setCurrentStep("steps")}
-          className="bg-white text-black px-8 py-4 rounded-full hover:bg-gray-100 font-semibold text-base flex items-center gap-2"
-          data-testid="button-ready-to-save"
-        >
-          Ready To Save Energy?
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-black">
-            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="currentColor"/>
-          </svg>
-        </Button>
+        {/* Email Capture Form */}
+        <div className="bg-[#1a2b33]/90 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/30 mb-6">
+          <h2 className="text-white text-xl font-semibold mb-4 text-center">
+            Get Started Today
+          </h2>
+          <div className="space-y-3">
+            <Input
+              type="email"
+              placeholder="Enter your email"
+              value={userEmail}
+              onChange={(e) => setUserEmail(e.target.value)}
+              className="w-full px-4 py-4 rounded-xl border-2 border-gray-600 bg-transparent text-white placeholder:text-gray-400 focus:border-white focus:ring-0"
+              data-testid="input-mobile-email"
+            />
+            <Button
+              onClick={() => {
+                if (userEmail && userEmail.includes('@')) {
+                  setLocation(`/auth?mode=signup&email=${encodeURIComponent(userEmail)}`);
+                } else {
+                  alert('Please enter a valid email address');
+                }
+              }}
+              className="w-full bg-white text-black px-6 py-4 rounded-xl hover:bg-gray-100 font-semibold text-base"
+              data-testid="button-mobile-get-started"
+            >
+              Get Started
+            </Button>
+          </div>
+        </div>
+        
+        {/* Alternative action */}
+        <div className="text-center">
+          <Button
+            onClick={() => setCurrentStep("steps")}
+            variant="outline"
+            className="border-white text-white px-6 py-3 rounded-full hover:bg-white hover:text-black font-medium text-sm"
+            data-testid="button-learn-more"
+          >
+            Learn More First
+          </Button>
+        </div>
       </div>
-      
-      <ContactFooterSection />
     </div>
   );
 
