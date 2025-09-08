@@ -29,29 +29,29 @@ export function DesktopStep1({ onNext, onBack }: DesktopStep1Props) {
   };
 
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center px-4" style={{ backgroundColor: '#06141B' }}>
-      <div className="max-w-6xl w-full flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-24">
+    <div className="min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#06141B' }}>
+      <div className="max-w-7xl w-full flex flex-col lg:flex-row items-center justify-center gap-8 md:gap-12 lg:gap-16 xl:gap-24 2xl:gap-32">
         
         {/* Left Side Content */}
-        <div className="text-white max-w-md">
-          <h1 className="text-4xl lg:text-5xl font-bold mb-12 leading-tight">
+        <div className="text-white w-full max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold mb-8 md:mb-12 leading-tight">
             You're Almost There...
           </h1>
           
           {/* Form Section */}
           <div className="mb-8">
-            <p className="text-lg mb-6">Enter your personal information</p>
+            <p className="text-base sm:text-lg md:text-xl mb-6">Enter your personal information</p>
             
             {/* Form Fields */}
             <div className="space-y-6 mb-10">
               {/* Full Name and Phone Number Row */}
-              <div className="flex gap-6">
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
                 <input
                   type="text"
                   placeholder="Full name"
                   value={formData.fullName}
                   onChange={(e) => handleInputChange('fullName', e.target.value)}
-                  className="flex-1 bg-transparent border-2 rounded-full px-6 py-4 text-left text-white placeholder-gray-400 focus:outline-none focus:ring-0 transition-colors duration-300 relative z-10 border-gray-600"
+                  className="flex-1 bg-transparent border-2 rounded-full px-4 sm:px-6 py-3 sm:py-4 text-left text-white placeholder-gray-400 focus:outline-none focus:ring-0 transition-colors duration-300 relative z-10 border-gray-600 focus:border-white"
                   data-testid="input-full-name"
                 />
                 <input
@@ -59,7 +59,7 @@ export function DesktopStep1({ onNext, onBack }: DesktopStep1Props) {
                   placeholder="Phone number"
                   value={formData.phoneNumber}
                   onChange={(e) => handleInputChange('phoneNumber', e.target.value)}
-                  className="flex-1 bg-transparent border-2 rounded-full px-6 py-4 text-left text-white placeholder-gray-400 focus:outline-none focus:ring-0 transition-colors duration-300 relative z-10 border-gray-600 ml-[-16px] mr-[-16px]"
+                  className="flex-1 bg-transparent border-2 rounded-full px-4 sm:px-6 py-3 sm:py-4 text-left text-white placeholder-gray-400 focus:outline-none focus:ring-0 transition-colors duration-300 relative z-10 border-gray-600 focus:border-white"
                   data-testid="input-phone-number"
                 />
               </div>
@@ -70,7 +70,7 @@ export function DesktopStep1({ onNext, onBack }: DesktopStep1Props) {
                 placeholder="Home address"
                 value={formData.homeAddress}
                 onChange={(e) => handleInputChange('homeAddress', e.target.value)}
-                className="w-full bg-transparent border-2 rounded-full px-6 py-4 text-left text-white placeholder-gray-400 focus:outline-none focus:ring-0 transition-colors duration-300 relative z-10 border-gray-600"
+                className="w-full bg-transparent border-2 rounded-full px-4 sm:px-6 py-3 sm:py-4 text-left text-white placeholder-gray-400 focus:outline-none focus:ring-0 transition-colors duration-300 relative z-10 border-gray-600 focus:border-white"
                 data-testid="input-home-address"
               />
             </div>
@@ -103,18 +103,18 @@ export function DesktopStep1({ onNext, onBack }: DesktopStep1Props) {
         </div>
 
         {/* Right Side - Recommendation Card */}
-        <div className="bg-transparent border-2 border-gray-600 rounded-2xl p-6 max-w-sm w-full text-left ml-[65px] mr-[65px] pt-[26px] pb-[26px] mt-[0px] mb-[0px]">
+        <div className="bg-transparent border-2 border-gray-600 rounded-2xl p-4 sm:p-6 max-w-sm lg:max-w-md xl:max-w-lg w-full text-left">
           <div className="bg-gray-700 text-white text-sm px-3 py-1 rounded-md inline-block mb-4">
             Recommended
           </div>
-          <h2 className="text-white text-xl font-bold mb-6">
+          <h2 className="text-white text-lg sm:text-xl md:text-2xl font-bold mb-4 sm:mb-6">
             20.00kW Solar Power + 5kWh Storage
           </h2>
           <div className="space-y-2 mb-4">
-            <p className="text-white font-medium">
+            <p className="text-white font-medium text-sm sm:text-base">
               6% Offset + 1 Hours Avg Backup
             </p>
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-400 text-xs sm:text-sm">
               Estimated System Size Based On Your Reported<br />
               Electricity Use
             </p>

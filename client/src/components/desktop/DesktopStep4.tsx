@@ -17,12 +17,12 @@ export function DesktopStep4({ onNext, onPrevious, onBack }: DesktopStep4Props) 
   };
 
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center px-4" style={{ backgroundColor: '#06141B' }}>
-      <div className="max-w-6xl w-full flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-24">
+    <div className="min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#06141B' }}>
+      <div className="max-w-7xl w-full flex flex-col lg:flex-row items-center justify-center gap-8 md:gap-12 lg:gap-16 xl:gap-24 2xl:gap-32">
         
         {/* Left Side Content */}
-        <div className="text-white max-w-md">
-          <h1 className="text-4xl lg:text-5xl font-bold mb-8 leading-tight">
+        <div className="text-white w-full max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold mb-8 md:mb-12 leading-tight">
             This Is Your Simulation
           </h1>
           
@@ -30,20 +30,20 @@ export function DesktopStep4({ onNext, onPrevious, onBack }: DesktopStep4Props) 
           <div className="mb-8">
             <div className="space-y-4 mb-8">
               <div className="flex justify-between items-center">
-                <span className="text-lg">Estimated cost</span>
-                <span className="text-lg font-semibold">40,500.00DH</span>
+                <span className="text-base sm:text-lg">Estimated cost</span>
+                <span className="text-base sm:text-lg font-semibold">40,500.00DH</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-lg">Annual Savings</span>
-                <span className="text-lg font-semibold">4,500DH/y</span>
+                <span className="text-base sm:text-lg">Annual Savings</span>
+                <span className="text-base sm:text-lg font-semibold">4,500DH/y</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-lg">Payback period</span>
-                <span className="text-lg font-semibold">9 years</span>
+                <span className="text-base sm:text-lg">Payback period</span>
+                <span className="text-base sm:text-lg font-semibold">9 years</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-lg">Installation time</span>
-                <span className="text-lg font-semibold">30Hour</span>
+                <span className="text-base sm:text-lg">Installation time</span>
+                <span className="text-base sm:text-lg font-semibold">30Hour</span>
               </div>
             </div>
 
@@ -90,18 +90,18 @@ export function DesktopStep4({ onNext, onPrevious, onBack }: DesktopStep4Props) 
         </div>
 
         {/* Right Side - Recommendation Card */}
-        <div className="bg-transparent border-2 border-gray-600 rounded-2xl p-6 max-w-sm w-full">
+        <div className="bg-transparent border-2 border-gray-600 rounded-2xl p-4 sm:p-6 max-w-sm lg:max-w-md xl:max-w-lg w-full">
           <div className="bg-gray-700 text-white text-sm px-3 py-1 rounded-md inline-block mb-4">
             Recommended
           </div>
-          <h2 className="text-white text-xl font-bold mb-6">
+          <h2 className="text-white text-lg sm:text-xl md:text-2xl font-bold mb-4 sm:mb-6">
             20.00kW Solar Power + 5kWh Storage
           </h2>
           <div className="space-y-2 mb-4">
-            <p className="text-white font-medium">
+            <p className="text-white font-medium text-sm sm:text-base">
               6% Offset + 1 Hours Avg Backup
             </p>
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-400 text-xs sm:text-sm">
               Estimated System Size Based On Your Reported<br />
               Electricity Use
             </p>
