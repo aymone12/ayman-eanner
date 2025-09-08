@@ -53,21 +53,21 @@ export function LoginPage({ onToggleSignup }: LoginPageProps) {
   const isFormValid = form.watch("email") && form.watch("password") && form.formState.isValid;
 
   return (
-    <div className="min-h-screen bg-[#0f1419] flex items-center justify-center p-4">
-      <div className="w-full max-w-md">
-        <div className="text-center mb-8">
-          <h1 className="text-white text-2xl font-semibold mb-2">
+    <div className="min-h-screen bg-[#0f1419] flex items-center justify-center p-4 md:p-6">
+      <div className="w-full max-w-md mx-auto">
+        <div className="text-center mb-6 md:mb-8">
+          <h1 className="text-white text-xl md:text-2xl font-semibold mb-2">
             Welcome back
           </h1>
-          <p className="text-gray-400 text-sm">
+          <p className="text-gray-400 text-sm md:text-base">
             Welcome back! please enter your details
           </p>
         </div>
 
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 md:space-y-5">
             <div>
-              <label className="text-white text-sm font-medium mb-2 block">
+              <label className="text-white text-sm md:text-base font-medium mb-2 block">
                 Email
               </label>
               <FormField
@@ -80,7 +80,7 @@ export function LoginPage({ onToggleSignup }: LoginPageProps) {
                         {...field}
                         type="email"
                         placeholder="Enter your email"
-                        className="w-full bg-transparent border border-gray-600 rounded-lg px-4 py-3 text-white placeholder:text-gray-500 focus:border-white focus:ring-0"
+                        className="w-full bg-transparent border border-gray-600 rounded-lg px-4 py-3 md:py-4 text-white placeholder:text-gray-500 focus:border-white focus:ring-0 text-sm md:text-base"
                         data-testid="input-email"
                       />
                     </FormControl>
@@ -91,7 +91,7 @@ export function LoginPage({ onToggleSignup }: LoginPageProps) {
             </div>
 
             <div>
-              <label className="text-white text-sm font-medium mb-2 block">
+              <label className="text-white text-sm md:text-base font-medium mb-2 block">
                 Password
               </label>
               <FormField
@@ -105,7 +105,7 @@ export function LoginPage({ onToggleSignup }: LoginPageProps) {
                           {...field}
                           type={showPassword ? "text" : "password"}
                           placeholder="Enter your password"
-                          className="w-full bg-transparent border border-gray-600 rounded-lg px-4 py-3 text-white placeholder:text-gray-500 focus:border-white focus:ring-0"
+                          className="w-full bg-transparent border border-gray-600 rounded-lg px-4 py-3 md:py-4 text-white placeholder:text-gray-500 focus:border-white focus:ring-0 text-sm md:text-base"
                           data-testid="input-password"
                         />
                         <button
@@ -126,7 +126,7 @@ export function LoginPage({ onToggleSignup }: LoginPageProps) {
             <Button
               type="submit"
               disabled={!isFormValid || loginMutation.isPending}
-              className={`w-full py-3 rounded-lg font-medium transition-all ${
+              className={`w-full py-3 md:py-4 rounded-lg font-medium transition-all text-sm md:text-base ${
                 isFormValid && !loginMutation.isPending
                   ? "bg-white text-black hover:bg-gray-100"
                   : "bg-gray-600 text-gray-400 cursor-not-allowed"

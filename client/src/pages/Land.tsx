@@ -8,6 +8,7 @@ import { MobileWizard } from "@/components/mobile-wizard/MobileWizard";
 import { DesktopSolarInterface } from "@/components/DesktopSolarInterface";
 import { ContactFooterSection } from "@/components/mobile-wizard/ContactFooterSection";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useLocation } from "wouter";
 
 import images_removebg_preview from "@assets/images-removebg-preview.png";
 
@@ -20,6 +21,7 @@ export const Land = (): JSX.Element => {
   const [currentStep, setCurrentStep] = useState("initial"); // initial, hero, steps, calculator, results, personal, property, energy
   const [electricBill, setElectricBill] = useState("");
   const isMobile = useIsMobile();
+  const [location, setLocation] = useLocation();
   
   // Mobile menu state
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -638,10 +640,18 @@ export const Land = (): JSX.Element => {
               
               {/* Login and Get Started buttons */}
               <div className="border-t border-[#2c4a52] pt-4 space-y-3">
-                <button className="block w-full text-left text-white text-sm font-bold hover:text-gray-300 transition-colors duration-200 py-2">
+                <button 
+                  onClick={() => setLocation("/auth")}
+                  className="block w-full text-left text-white text-sm font-bold hover:text-gray-300 transition-colors duration-200 py-2"
+                  data-testid="button-mobile-login"
+                >
                   Login
                 </button>
-                <button className="w-full bg-white text-black py-2 px-4 text-sm font-bold rounded-md transition-all duration-200 hover:opacity-90">
+                <button 
+                  onClick={() => setLocation("/auth")}
+                  className="w-full bg-white text-black py-2 px-4 text-sm font-bold rounded-md transition-all duration-200 hover:opacity-90"
+                  data-testid="button-mobile-get-started"
+                >
                   Get started
                 </button>
               </div>
@@ -1137,10 +1147,18 @@ export const Land = (): JSX.Element => {
 
               {/* Right side - Login and Get started */}
               <div className="hidden md:flex items-center space-x-4">
-                <button className="text-white text-sm font-bold hover:text-gray-300 transition-colors duration-200">
+                <button 
+                  onClick={() => setLocation("/auth")}
+                  className="text-white text-sm font-bold hover:text-gray-300 transition-colors duration-200"
+                  data-testid="button-header-login"
+                >
                   Login
                 </button>
-                <button className="px-4 py-2 text-sm font-bold rounded-md transition-all duration-200 hover:opacity-90 bg-white text-black">
+                <button 
+                  onClick={() => setLocation("/auth")}
+                  className="px-4 py-2 text-sm font-bold rounded-md transition-all duration-200 hover:opacity-90 bg-white text-black"
+                  data-testid="button-header-get-started"
+                >
                   Get started
                 </button>
               </div>
