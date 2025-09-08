@@ -18,7 +18,14 @@ export function AuthContainer() {
     return mode === 'login' ? 'login' : 'signup';
   };
 
+  // Get email from URL if provided
+  const getInitialEmail = (): string => {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get('email') || '';
+  };
+
   const [currentStep, setCurrentStep] = useState<AuthStep>(getInitialStep());
+  const [initialEmail] = useState<string>(getInitialEmail());
 
   const handleToggleSignup = () => setCurrentStep("signup");
   const handleToggleLogin = () => setCurrentStep("login");
@@ -45,6 +52,7 @@ export function AuthContainer() {
         <SignupPage 
           onToggleLogin={handleToggleLogin}
           onNextStep={handleNextFromSignup}
+          initialEmail={initialEmail}
         />
       )}
       

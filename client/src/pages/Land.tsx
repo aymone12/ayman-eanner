@@ -20,6 +20,7 @@ export const Land = (): JSX.Element => {
   // Multi-step form state
   const [currentStep, setCurrentStep] = useState("initial"); // initial, hero, steps, calculator, results, personal, property, energy
   const [electricBill, setElectricBill] = useState("");
+  const [userEmail, setUserEmail] = useState(""); // Add email state
   const isMobile = useIsMobile();
   const [location, setLocation] = useLocation();
   
@@ -1503,18 +1504,29 @@ export const Land = (): JSX.Element => {
                 <input
                   type="email"
                   placeholder="Type your email"
+                  value={userEmail}
+                  onChange={(e) => setUserEmail(e.target.value)}
                   className="w-full px-6 py-5 text-base font-normal bg-white rounded-xl outline-none transition-all duration-200"
                   style={{
                     border: '2px solid #e5e7eb',
                     color: '#374151'
                   }}
+                  data-testid="input-landing-email"
                 />
                 <button
+                  onClick={() => {
+                    if (userEmail && userEmail.includes('@')) {
+                      setLocation(`/auth?mode=signup&email=${encodeURIComponent(userEmail)}`);
+                    } else {
+                      alert('Please enter a valid email address');
+                    }
+                  }}
                   className="w-full px-6 py-5 text-white text-base font-semibold rounded-xl cursor-pointer outline-none transition-all duration-200 hover:transform hover:-translate-y-px active:translate-y-0"
                   style={{
                     backgroundColor: '#374151',
                     border: 'none'
                   }}
+                  data-testid="button-get-started"
                 >
                   Get started
                 </button>
