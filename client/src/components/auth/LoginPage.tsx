@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
+import { useLocation } from "wouter";
 import { loginSchema, type LoginData } from "@shared/schema";
 import { apiRequest } from "@/lib/queryClient";
 
@@ -15,6 +16,7 @@ interface LoginPageProps {
 
 export function LoginPage({ onToggleSignup }: LoginPageProps) {
   const { toast } = useToast();
+  const [, setLocation] = useLocation();
   const [showPassword, setShowPassword] = useState(false);
 
   const form = useForm<LoginData>({
@@ -56,6 +58,15 @@ export function LoginPage({ onToggleSignup }: LoginPageProps) {
     <div className="min-h-screen bg-[#0f1419] flex items-center justify-center p-4 md:p-6">
       <div className="w-full max-w-md mx-auto">
         <div className="text-center mb-6 md:mb-8">
+          <div className="flex items-center justify-start mb-4">
+            <button
+              onClick={() => setLocation("/")}
+              className="text-gray-400 hover:text-white transition-colors flex items-center gap-1"
+              data-testid="button-back-to-home-login"
+            >
+              ← Back to Home
+            </button>
+          </div>
           <h1 className="text-white text-xl md:text-2xl font-semibold mb-2">
             Welcome back
           </h1>
