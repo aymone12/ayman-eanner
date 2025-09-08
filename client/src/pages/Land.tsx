@@ -641,14 +641,14 @@ export const Land = (): JSX.Element => {
               {/* Login and Get Started buttons */}
               <div className="border-t border-[#2c4a52] pt-4 space-y-3">
                 <button 
-                  onClick={() => setLocation("/auth")}
+                  onClick={() => setLocation("/auth?mode=login")}
                   className="block w-full text-left text-white text-sm font-bold hover:text-gray-300 transition-colors duration-200 py-2"
                   data-testid="button-mobile-login"
                 >
                   Login
                 </button>
                 <button 
-                  onClick={() => setLocation("/auth")}
+                  onClick={() => setLocation("/auth?mode=signup")}
                   className="w-full bg-white text-black py-2 px-4 text-sm font-bold rounded-md transition-all duration-200 hover:opacity-90"
                   data-testid="button-mobile-get-started"
                 >
@@ -1148,14 +1148,14 @@ export const Land = (): JSX.Element => {
               {/* Right side - Login and Get started */}
               <div className="hidden md:flex items-center space-x-4">
                 <button 
-                  onClick={() => setLocation("/auth")}
+                  onClick={() => setLocation("/auth?mode=login")}
                   className="text-white text-sm font-bold hover:text-gray-300 transition-colors duration-200"
                   data-testid="button-header-login"
                 >
                   Login
                 </button>
                 <button 
-                  onClick={() => setLocation("/auth")}
+                  onClick={() => setLocation("/auth?mode=signup")}
                   className="px-4 py-2 text-sm font-bold rounded-md transition-all duration-200 hover:opacity-90 bg-white text-black"
                   data-testid="button-header-get-started"
                 >

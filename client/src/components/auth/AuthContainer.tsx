@@ -1,13 +1,24 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { LoginPage } from "./LoginPage";
 import { SignupPage } from "./SignupPage";
 import { UserDetailsPage1 } from "./UserDetailsPage1";
 import { UserDetailsPage2 } from "./UserDetailsPage2";
+import { useLocation } from "wouter";
 
 type AuthStep = "login" | "signup" | "details1" | "details2";
 
 export function AuthContainer() {
-  const [currentStep, setCurrentStep] = useState<AuthStep>("login");
+  const [location] = useLocation();
+  
+  // Start with signup if coming from "Get started", otherwise show login
+  const getInitialStep = (): AuthStep => {
+    // Check if we came from a "Get started" button or if there's a preference
+    const urlParams = new URLSearchParams(window.location.search);
+    const mode = urlParams.get('mode');
+    return mode === 'login' ? 'login' : 'signup';
+  };
+
+  const [currentStep, setCurrentStep] = useState<AuthStep>(getInitialStep());
 
   const handleToggleSignup = () => setCurrentStep("signup");
   const handleToggleLogin = () => setCurrentStep("login");
@@ -21,7 +32,7 @@ export function AuthContainer() {
 
   const handleComplete = () => {
     // Redirect to dashboard or home page
-    window.location.href = "/dashboard";
+    window.location.href = "/";
   };
 
   return (
