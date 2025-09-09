@@ -1,7 +1,10 @@
 import mongoose from 'mongoose';
 
-// MongoDB connection string
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/eaneer_db';
+// MongoDB connection string - use environment variable or fallback to local for development
+const MONGODB_URI = process.env.MONGODB_URI || 
+  (process.env.NODE_ENV === 'production' 
+    ? 'mongodb+srv://cluster0.mongodb.net/eaneer_db' // Placeholder - set MONGODB_URI in Vercel
+    : 'mongodb://localhost:27017/eaneer_db');
 
 // Connection options
 const mongooseOptions = {
@@ -11,10 +14,11 @@ const mongooseOptions = {
 };
 
 // Connect to MongoDB
-export const connectToMongoDB = async (): Promise<void> => {
+export const connectToMongoDB = async () => {
   try {
     if (mongoose.connection.readyState === 0) {
       console.log('Connecting to MongoDB...');
+      console.log('Using MongoDB URI:', MONGODB_URI.replace(/\/\/([^:]+):([^@]+)@/, '//$1:***@')); // Log URI without password
       await mongoose.connect(MONGODB_URI, mongooseOptions);
       console.log('Successfully connected to MongoDB');
     } else {
@@ -22,7 +26,8 @@ export const connectToMongoDB = async (): Promise<void> => {
     }
   } catch (error) {
     console.error('Error connecting to MongoDB:', error);
-    process.exit(1);
+    console.error('MongoDB URI format:', MONGODB_URI.replace(/\/\/([^:]+):([^@]+)@/, '//$1:***@'));
+    throw error; // Don't exit in serverless environment
   }
 };
 
