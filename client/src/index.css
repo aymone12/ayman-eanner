@@ -1,4 +1,3 @@
-
 @layer components {
   .all-\[unset\] {
     all: unset;
@@ -192,7 +191,8 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+    margin: 0;
+    padding: 0;
     -webkit-text-size-adjust: 100%; /* iOS Safari */
     -ms-text-size-adjust: 100%; /* IE/Edge */
     text-size-adjust: 100%; /* Standard */
@@ -201,78 +201,90 @@
   html {
     box-sizing: border-box;
     scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
   }
 
-  *, *:before, *:after {
-    box-sizing: inherit;
+  /* Neutralized rem scaling (use zoom-based approach instead). Keep var for future fine-tuning. */
+  :root {
+    --landing-scale: 1.00;
   }
 
-  /* Desktop container responsive scaling - Compatible with all browsers */
+  /* Desktop container - Fluid width, centered content */
   .desktop-container {
-    position: relative;
-    width: 100vw;
-    height: auto;
-    min-height: 100vh;
-    overflow: hidden;
+    width: 100%;
+    min-height: 100dvh;
     background: #06141b;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    overflow-x: hidden;
   }
 
-  /* Desktop inner wrapper that contains the 1920px design */
+  /* Desktop inner wrapper - max 1920px, fluid below */
   .desktop-inner {
-    width: 1920px;
-    height: 6326px;
+    width: 100%;
+    max-width: 1920px;
+    min-height: 100%;
     position: relative;
-    transform-origin: center top;
+    background: #06141b;
+    margin: 0 auto;
   }
 
-  /* Responsive scaling for desktop - Ensures proper proportions */
-  @media screen and (min-width: 768px) and (max-width: 1199px) {
-    .desktop-inner {
-      transform: scale(calc(min(100vw / 1920, 100vh / 6326) * 1.2)); /* Smart scaling with aspect ratio */
-      max-width: calc(100vw / 1.2);
+  /* Optional: prevent horizontal scroll on large screens */
+  @media screen and (min-width: 1900px) {
+    .desktop-container {
+      overflow-x: hidden;
     }
   }
 
-  @media screen and (min-width: 1200px) and (max-width: 1365px) {
-    .desktop-inner {
-      transform: scale(calc(100vw / 1920 * 0.9)); /* 90% of viewport width scaling */
+  /* Mobile breakpoint - hide desktop layout */
+  @media screen and (max-width: 767px) {
+    .desktop-container {
+      display: none !important;
     }
   }
 
-  @media screen and (min-width: 1366px) and (max-width: 1599px) {
-    .desktop-inner {
-      transform: scale(calc(100vw / 1920 * 0.95)); /* 95% of viewport width scaling */
-    }
-  }
-
-  @media screen and (min-width: 1600px) and (max-width: 1919px) {
-    .desktop-inner {
-      transform: scale(calc(100vw / 1920)); /* Full viewport width scaling */
-    }
-  }
-
-  @media screen and (min-width: 1920px) {
-    .desktop-inner {
-      transform: scale(1); /* Full size for 1920px and above */
-    }
-  }
-
-  /* Ensure proper height scaling - Auto height based on scaled content */
+  /* Desktop breakpoint - hide mobile layout */
   @media screen and (min-width: 768px) {
-    .desktop-container {
-      height: auto;
-      min-height: 100vh;
+    .md\:hidden {
+      display: none !important;
     }
   }
 
-  /* Prevent content overflow on smaller screens */
-  @media screen and (max-width: 1199px) {
-    .desktop-container {
-      overflow-y: auto;
-      height: 100vh;
-    }
+  /* Centered responsive scaling wrapper for the React app */
+  #root { min-height: 100vh; }
+  .scale-desktop-auto {
+    position: relative;
+    margin: 0 auto;            /* center horizontally */
+    transform-origin: top center;
+    width: 100%;               /* default full width */
+    min-height: 100vh;         /* ensure background coverage */
+  }
+
+  /* ≥1600px: native size */
+  @media (min-width: 1600px) {
+    .scale-desktop-auto { transform: none; width: 100%; min-height: 100vh; }
+  }
+
+  /* 1440–1599px: 90% */
+  @media (min-width: 1440px) and (max-width: 1599.98px) {
+    .scale-desktop-auto { transform: scale(0.9); width: calc(100% / 0.9); min-height: calc(100vh / 0.9); }
+  }
+
+  /* 1280–1439px: 80% */
+  @media (min-width: 1280px) and (max-width: 1439.98px) {
+    .scale-desktop-auto { transform: scale(0.8); width: calc(100% / 0.8); min-height: calc(100vh / 0.8); }
+  }
+
+  /* 1024–1279px: 72% */
+  @media (min-width: 1024px) and (max-width: 1279.98px) {
+    .scale-desktop-auto { transform: scale(0.72); width: calc(100% / 0.72); min-height: calc(100vh / 0.72); }
+  }
+
+  /* 900–1023px: 67% */
+  @media (min-width: 900px) and (max-width: 1023.98px) {
+    .scale-desktop-auto { transform: scale(0.67); width: calc(100% / 0.67); min-height: calc(100vh / 0.67); }
   }
 }
