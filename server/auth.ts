@@ -1,8 +1,12 @@
 import type { Express, RequestHandler } from "express";
 import session from "express-session";
 import { storage } from "./storage";
+import { connectToMongoDB } from "./mongodb";
 
-export function setupSession(app: Express) {
+export async function setupSession(app: Express) {
+  // Connect to MongoDB before setting up sessions
+  await connectToMongoDB();
+  
   app.set("trust proxy", 1);
   
   // Use memory store for development (in production, should use database store)
@@ -19,16 +23,18 @@ export function setupSession(app: Express) {
 }
 
 export const isAuthenticated: RequestHandler = async (req: any, res, next) => {
-  if (!req.session.userId) {
+  const userId = (req.session as any).userId;
+  if (!userId) {
     return res.status(401).json({ message: "Unauthorized" });
   }
 
-  const user = await storage.getUser(req.session.userId);
+  const user = await storage.getUser(userId);
   if (!user) {
     return res.status(401).json({ message: "Unauthorized" });
   }
 
-  req.user = user;
+  // Convert MongoDB document to plain object for compatibility
+  req.user = user.toObject ? user.toObject() : user;
   next();
 };
 

@@ -1,171 +1,106 @@
-import {
-  users,
-  sessions,
-  type User,
-  type UpsertUser,
-  type LoginData,
-  type SignupData,
-} from "@shared/schema";
-import { db } from "./db";
-import { eq } from "drizzle-orm";
+import { User, IUser, type LoginData, type SignupData, type CreateUserData } from "./models/index";
 import bcrypt from "bcryptjs";
 
 // Interface for storage operations
 export interface IStorage {
   // User operations
-  getUser(id: string): Promise<User | undefined>;
-  getUserByEmail(email: string): Promise<User | undefined>;
-  createUser(userData: SignupData & Partial<UpsertUser>): Promise<User>;
-  upsertUser(user: UpsertUser): Promise<User>;
-  validateUser(email: string, password: string): Promise<User | null>;
+  getUser(id: string): Promise<IUser | null>;
+  getUserByEmail(email: string): Promise<IUser | null>;
+  createUser(userData: CreateUserData): Promise<IUser>;
+  updateUser(id: string, userData: Partial<IUser>): Promise<IUser | null>;
+  validateUser(email: string, password: string): Promise<IUser | null>;
 }
 
 export class DatabaseStorage implements IStorage {
-  async getUser(id: string): Promise<User | undefined> {
-    const [user] = await db.select().from(users).where(eq(users.id, id));
-    return user;
+  async getUser(id: string): Promise<IUser | null> {
+    try {
+      return await User.findById(id).select('-password').lean().exec();
+    } catch (error) {
+      console.error('Error getting user:', error);
+      return null;
+    }
   }
 
-  async getUserByEmail(email: string): Promise<User | undefined> {
-    const [user] = await db.select().from(users).where(eq(users.email, email));
-    return user;
+  async getUserByEmail(email: string): Promise<IUser | null> {
+    try {
+      return await User.findOne({ email }).exec();
+    } catch (error) {
+      console.error('Error getting user by email:', error);
+      return null;
+    }
   }
 
-  async createUser(userData: SignupData & Partial<UpsertUser>): Promise<User> {
-    // Hash password
-    const hashedPassword = await bcrypt.hash(userData.password, 12);
-    
-    const [user] = await db
-      .insert(users)
-      .values({
-        email: userData.email,
-        firstName: userData.firstName,
+  async createUser(userData: CreateUserData): Promise<IUser> {
+    try {
+      // Hash password
+      const hashedPassword = await bcrypt.hash(userData.password, 12);
+      
+      const user = new User({
+        ...userData,
         password: hashedPassword,
-        company: userData.company,
-        role: userData.role,
-        division: userData.division,
-        phoneNumber: userData.phoneNumber,
-        city: userData.city,
-        language: userData.language,
-      })
-      .returning();
-    
-    return user;
+      });
+      
+      await user.save();
+      
+      // Return user without password
+      const userObj = user.toObject();
+      delete userObj.password;
+      return userObj;
+    } catch (error) {
+      console.error('Error creating user:', error);
+      throw error;
+    }
   }
 
-  async upsertUser(userData: UpsertUser): Promise<User> {
-    const [user] = await db
-      .insert(users)
-      .values(userData)
-      .onConflictDoUpdate({
-        target: users.id,
-        set: {
-          ...userData,
-          updatedAt: new Date(),
-        },
-      })
-      .returning();
-    return user;
+  async updateUser(id: string, userData: Partial<IUser>): Promise<IUser | null> {
+    try {
+      // If updating password, hash it
+      if (userData.password) {
+        userData.password = await bcrypt.hash(userData.password, 12);
+      }
+      
+      const updatedUser = await User.findByIdAndUpdate(
+        id,
+        { $set: userData },
+        { new: true }
+      ).select('-password').lean().exec();
+      
+      return updatedUser;
+    } catch (error) {
+      console.error('Error updating user:', error);
+      return null;
+    }
   }
 
-  async validateUser(email: string, password: string): Promise<User | null> {
-    const user = await this.getUserByEmail(email);
-    if (!user || !user.password) {
+  async validateUser(email: string, password: string): Promise<IUser | null> {
+    try {
+      const user = await User.findOne({ email }).select('+password').exec();
+      
+      if (!user) {
+        return null;
+      }
+      
+      // Ensure password exists before comparing
+      if (!user.password) {
+        return null;
+      }
+      
+      const isPasswordValid = await bcrypt.compare(password, user.password);
+      
+      if (!isPasswordValid) {
+        return null;
+      }
+      
+      // Return user without password
+      const userObj = user.toObject();
+      delete userObj.password;
+      return userObj;
+    } catch (error) {
+      console.error('Error validating user:', error);
       return null;
     }
-
-    const isValidPassword = await bcrypt.compare(password, user.password);
-    if (!isValidPassword) {
-      return null;
-    }
-
-    return user;
   }
 }
 
-export class MemStorage implements IStorage {
-  private users: User[] = [];
-  private nextId = 1;
-
-  async getUser(id: string): Promise<User | undefined> {
-    return this.users.find(user => user.id === id);
-  }
-
-  async getUserByEmail(email: string): Promise<User | undefined> {
-    return this.users.find(user => user.email === email);
-  }
-
-  async createUser(userData: SignupData & Partial<UpsertUser>): Promise<User> {
-    const hashedPassword = await bcrypt.hash(userData.password, 12);
-    
-    const user: User = {
-      id: this.nextId.toString(),
-      email: userData.email,
-      firstName: userData.firstName,
-      lastName: null,
-      password: hashedPassword,
-      profileImageUrl: null,
-      company: userData.company || null,
-      role: userData.role || null,
-      division: userData.division || null,
-      phoneNumber: userData.phoneNumber || null,
-      city: userData.city || null,
-      language: userData.language || null,
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    };
-
-    this.users.push(user);
-    this.nextId++;
-    return user;
-  }
-
-  async upsertUser(userData: UpsertUser): Promise<User> {
-    const existingUser = await this.getUserByEmail(userData.email!);
-    
-    if (existingUser) {
-      // Update existing user
-      Object.assign(existingUser, userData, { updatedAt: new Date() });
-      return existingUser;
-    } else {
-      // Create new user
-      const user: User = {
-        id: this.nextId.toString(),
-        email: userData.email!,
-        firstName: userData.firstName || null,
-        lastName: userData.lastName || null,
-        password: userData.password || null,
-        profileImageUrl: userData.profileImageUrl || null,
-        company: userData.company || null,
-        role: userData.role || null,
-        division: userData.division || null,
-        phoneNumber: userData.phoneNumber || null,
-        city: userData.city || null,
-        language: userData.language || null,
-        createdAt: new Date(),
-        updatedAt: new Date(),
-      };
-
-      this.users.push(user);
-      this.nextId++;
-      return user;
-    }
-  }
-
-  async validateUser(email: string, password: string): Promise<User | null> {
-    const user = await this.getUserByEmail(email);
-    if (!user || !user.password) {
-      return null;
-    }
-
-    const isValidPassword = await bcrypt.compare(password, user.password);
-    if (!isValidPassword) {
-      return null;
-    }
-
-    return user;
-  }
-}
-
-// Use MemStorage by default, can be switched to DatabaseStorage when database is available
-export const storage = new MemStorage();
+// Create a singleton instance
+export const storage = new DatabaseStorage();
