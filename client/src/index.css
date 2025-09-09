@@ -1,5 +1,23 @@
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Base styles */
+html, body, #root {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Container styles */
+.container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
 
 @layer components {
   .all-\[unset\] {
@@ -195,4 +213,19 @@
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
+}
+
+/* Add this to your index.css */
+button {
+  transition: all 0.2s ease;
+}
+
+/* Ensure buttons are visible against background */
+.bg-primary {
+  background-color: hsl(221.2 83.2% 53.3%);
+  color: white;
+}
+
+.bg-primary:hover {
+  background-color: hsl(221.2 83.2% 43.3%);
 }
