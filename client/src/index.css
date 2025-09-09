@@ -194,5 +194,51 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    -webkit-text-size-adjust: 100%; /* iOS Safari */
+    -ms-text-size-adjust: 100%; /* IE/Edge */
+    text-size-adjust: 100%; /* Standard */
+  }
+
+  html {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+  /* Desktop container responsive scaling - Compatible with all browsers */
+  .desktop-container {
+    position: relative;
+    width: 100vw;
+    height: auto;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: #06141b;
+  }
+
+  /* Desktop inner wrapper that contains the 1920px design */
+  .desktop-inner {
+    width: 1920px;
+    height: 6326px;
+    position: relative;
+    margin: 0 auto;
+    transform-origin: center top;
+  }
+
+  /* Responsive scaling for all desktop browsers - Dynamic scaling that fills width */
+  @media screen and (min-width: 768px) {
+    .desktop-inner {
+      transform: scale(calc(100vw / 1920));
+    }
+  }
+
+  /* Override for very small screens to maintain minimum readability */
+  @media screen and (max-width: 1200px) and (min-width: 768px) {
+    .desktop-inner {
+      transform: scale(calc(max(0.625, 100vw / 1920)));
+    }
   }
 }

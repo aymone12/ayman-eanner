@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Test</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background: #06141b;
+            font-family: Arial, sans-serif;
+        }
+        
+        /* Desktop container responsive scaling - Compatible with all browsers */
+        .desktop-container {
+            position: relative;
+            width: 100vw;
+            height: auto;
+            min-height: 100vh;
+            overflow-x: hidden;
+            background: #06141b;
+        }
+
+        /* Desktop inner wrapper that contains the 1920px design */
+        .desktop-inner {
+            width: 1920px;
+            height: 400px; /* Reduced for test */
+            position: relative;
+            margin: 0 auto;
+            transform-origin: center top;
+            background: linear-gradient(45deg, #1e3a8a, #059669);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 48px;
+            font-weight: bold;
+        }
+
+        /* Responsive scaling for all desktop browsers - Dynamic scaling that fills width */
+        @media screen and (min-width: 768px) {
+            .desktop-inner {
+                transform: scale(calc(100vw / 1920));
+            }
+        }
+
+        /* Override for very small screens to maintain minimum readability */
+        @media screen and (max-width: 1200px) and (min-width: 768px) {
+            .desktop-inner {
+                transform: scale(calc(max(0.625, 100vw / 1920)));
+            }
+        }
+        
+        .info {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="info">
+        Screen Width: <span id="width"></span>px<br>
+        Scale Factor: <span id="scale"></span>
+    </div>
+    
+    <div class="desktop-container">
+        <div class="desktop-inner">
+            EANEER - RESPONSIVE TEST
+        </div>
+    </div>
+
+    <script>
+        function updateInfo() {
+            const width = window.innerWidth;
+            const scale = Math.max(0.625, width / 1920);
+            document.getElementById('width').textContent = width;
+            document.getElementById('scale').textContent = scale.toFixed(3);
+        }
+        
+        updateInfo();
+        window.addEventListener('resize', updateInfo);
+    </script>
+</body>
+</html>

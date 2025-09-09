@@ -1118,8 +1118,9 @@ export const Land = (): JSX.Element => {
         </footer>
       </div>
       {/* Desktop Layout - Hidden on mobile */}
-      <div className="hidden md:block bg-[#06141b] w-[1920px] h-[6326px] relative">
-        <header className="w-[1920px] h-[86px] top-0 left-0 absolute z-10">
+      <div className="hidden md:block desktop-container">
+        <div className="desktop-inner">
+          <header className="w-[1920px] h-[86px] top-0 left-0 absolute z-10">
           <div className="w-full h-full bg-[#06141b] shadow-[0px_0px_25px_#07151c]">
             <div className="w-full h-full flex items-center px-16">
             <div className="flex items-center justify-between w-full">
@@ -1727,7 +1728,7 @@ export const Land = (): JSX.Element => {
             </div>
           </div>
         </footer>
-
+        </div>
       </div>
     </div>
   );
