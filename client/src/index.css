@@ -213,8 +213,11 @@
     width: 100vw;
     height: auto;
     min-height: 100vh;
-    overflow-x: hidden;
+    overflow: hidden;
     background: #06141b;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
   }
 
   /* Desktop inner wrapper that contains the 1920px design */
@@ -222,21 +225,54 @@
     width: 1920px;
     height: 6326px;
     position: relative;
-    margin: 0 auto;
     transform-origin: center top;
   }
 
-  /* Responsive scaling for all desktop browsers - Dynamic scaling that fills width */
-  @media screen and (min-width: 768px) {
+  /* Responsive scaling for desktop - Ensures proper proportions */
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
     .desktop-inner {
-      transform: scale(calc(100vw / 1920));
+      transform: scale(calc(min(100vw / 1920, 100vh / 6326) * 1.2)); /* Smart scaling with aspect ratio */
+      max-width: calc(100vw / 1.2);
     }
   }
 
-  /* Override for very small screens to maintain minimum readability */
-  @media screen and (max-width: 1200px) and (min-width: 768px) {
+  @media screen and (min-width: 1200px) and (max-width: 1365px) {
     .desktop-inner {
-      transform: scale(calc(max(0.625, 100vw / 1920)));
+      transform: scale(calc(100vw / 1920 * 0.9)); /* 90% of viewport width scaling */
+    }
+  }
+
+  @media screen and (min-width: 1366px) and (max-width: 1599px) {
+    .desktop-inner {
+      transform: scale(calc(100vw / 1920 * 0.95)); /* 95% of viewport width scaling */
+    }
+  }
+
+  @media screen and (min-width: 1600px) and (max-width: 1919px) {
+    .desktop-inner {
+      transform: scale(calc(100vw / 1920)); /* Full viewport width scaling */
+    }
+  }
+
+  @media screen and (min-width: 1920px) {
+    .desktop-inner {
+      transform: scale(1); /* Full size for 1920px and above */
+    }
+  }
+
+  /* Ensure proper height scaling - Auto height based on scaled content */
+  @media screen and (min-width: 768px) {
+    .desktop-container {
+      height: auto;
+      min-height: 100vh;
+    }
+  }
+
+  /* Prevent content overflow on smaller screens */
+  @media screen and (max-width: 1199px) {
+    .desktop-container {
+      overflow-y: auto;
+      height: 100vh;
     }
   }
 }
