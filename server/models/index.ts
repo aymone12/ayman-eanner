@@ -139,5 +139,5 @@ export type SignupData = z.infer<typeof signupSchema>;
 export type UserDetailsData = z.infer<typeof userDetailsSchema>;
 
 // Helper type for creating users (without auto-generated fields)
-export type CreateUserData = SignupData & Partial<UserDetailsData>;
+export type CreateUserData = Omit<SignupData, 'confirmPassword'> & Partial<UserDetailsData>;
 export type UpdateUserData = Partial<Omit<IUser, '_id' | 'createdAt' | 'updatedAt'>>;
