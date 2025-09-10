@@ -1235,10 +1235,10 @@ export const Land = (): JSX.Element => {
           </Button>
         </div>
 
-        <section className="absolute w-[1361px] h-[527px] top-[461px] left-[217px]">
-          <div className="absolute w-[1251px] h-[527px] top-0 left-[110px]">
-            <div className="relative w-[1918px] h-[546px] top-[5px] left-[-327px] bg-[#06141b] shadow-[0px_0px_25px_#2c4a52]">
-              <Card className="relative w-[582px] h-[491px] top-[31px] left-[1014px] bg-[#06141b] rounded-[20px] shadow-[0px_0px_20px_5px_#2c4a52] border-0">
+        <section className="absolute w-full max-w-7xl h-auto top-[461px] left-1/2 transform -translate-x-1/2 px-4">
+          <div className="relative w-full h-auto flex justify-center">
+            <div className="relative w-full max-w-6xl h-auto bg-[#06141b] shadow-[0px_0px_25px_#2c4a52] rounded-lg">
+              <Card className="relative w-full max-w-[582px] h-auto ml-auto mt-8 mb-8 mr-8 bg-[#06141b] rounded-[20px] shadow-[0px_0px_20px_5px_#2c4a52] border-0">
                 <CardContent className="absolute w-[529px] h-[339px] top-[17px] left-9 p-0">
                   <div className="relative w-[535px] h-[339px]">
                     <div className="absolute w-[125px] top-0 left-0 [font-family:'Rubik',Helvetica] font-semibold text-white text-xl tracking-[0] leading-[normal] whitespace-nowrap">
@@ -1367,7 +1367,7 @@ export const Land = (): JSX.Element => {
           </div>
 
           <img
-            className="absolute w-[792px] h-[445px] top-12 left-0 object-cover"
+            className="absolute w-full max-w-[792px] h-auto top-12 left-4 object-cover"
             alt="Element"
             src="/figmaAssets/1-1--1.png"
           />
@@ -1380,17 +1380,17 @@ export const Land = (): JSX.Element => {
         />
 
         <section className="absolute w-full h-auto min-h-[600px] top-[1185px] left-0 bg-[url(/figmaAssets/image-8-bit-style.png)] bg-cover bg-center">
-          <div className="relative w-[738px] h-[249px] top-[336px] left-[592px]">
-            <div className="absolute w-[734px] top-[85px] left-0 [font-family:'Inter',Helvetica] font-medium text-white text-xl text-center tracking-[0] leading-[normal]">
+          <div className="relative w-full max-w-4xl mx-auto px-4 pt-[336px] pb-[60px] text-center">
+            <div className="[font-family:'Inter',Helvetica] font-medium text-white text-xl text-center tracking-[0] leading-[normal] mb-6">
               Whether your goal is to reduce your electric bill or eliminate it
               completely, eaneer can help make that happen.
             </div>
 
-            <div className="absolute top-0 left-[156px] [font-family:'Inter',Helvetica] font-bold text-white text-[28px] text-center tracking-[0] leading-[normal]">
+            <div className="[font-family:'Inter',Helvetica] font-bold text-white text-[28px] text-center tracking-[0] leading-[normal] mb-6">
               Power Your Home, Save Money
             </div>
 
-            <Button className="absolute w-[327px] h-[61px] top-[188px] left-[200px] rounded-[30px] border-2 border-solid border-white bg-transparent hover:bg-white/10 h-auto flex items-center justify-between px-[18px]">
+            <Button className="w-[327px] h-[61px] mx-auto mt-6 rounded-[30px] border-2 border-solid border-white bg-transparent hover:bg-white/10 h-auto flex items-center justify-between px-[18px]">
               <span className="[font-family:'Inter',Helvetica] font-bold text-white text-xl tracking-[0] leading-[normal] whitespace-nowrap">
                 Ready To Save Energy?
               </span>
@@ -1404,15 +1404,16 @@ export const Land = (): JSX.Element => {
         </section>
 
         <section className="absolute w-full h-auto min-h-[600px] top-[2191px] left-0 bg-[#f8f8f8]">
-          <div className="absolute top-[117px] left-[738px] [font-family:'Inter',Helvetica] font-bold text-black text-[28px] text-center tracking-[0] leading-[normal]">
-            Take Control of Your Energy Bills
-          </div>
+          <div className="w-full text-center pt-[117px] px-4">
+            <div className="[font-family:'Inter',Helvetica] font-bold text-black text-[28px] text-center tracking-[0] leading-[normal] mb-6">
+              Take Control of Your Energy Bills
+            </div>
 
-          <div className="absolute w-[820px] top-[189px] left-[550px] [font-family:'Inter',Helvetica] font-semibold text-black text-base text-center tracking-[0] leading-[normal]">
-            Take control of your energy bills by switching to solar power; reduce reliance on expensive electricity, lock in lower rates, and enjoy long term savings
-          </div>
+            <div className="max-w-4xl mx-auto [font-family:'Inter',Helvetica] font-semibold text-black text-base text-center tracking-[0] leading-[normal] mb-6">
+              Take control of your energy bills by switching to solar power; reduce reliance on expensive electricity, lock in lower rates, and enjoy long term savings
+            </div>
 
-          <Button className="top-[265px] left-[797px] absolute w-[327px] h-[61px] rounded-[30px] border-2 border-solid border-[#06141b] bg-transparent hover:bg-[#06141b]/10 h-auto flex items-center justify-between px-[18px]">
+            <Button className="w-[327px] h-[61px] mx-auto mt-6 rounded-[30px] border-2 border-solid border-[#06141b] bg-transparent hover:bg-[#06141b]/10 h-auto flex items-center justify-between px-[18px]">
             <span className="[font-family:'Inter',Helvetica] font-bold text-[#06141b] text-xl tracking-[0] leading-[normal] whitespace-nowrap">
               Ready To Save Energy?
             </span>
@@ -1423,14 +1424,15 @@ export const Land = (): JSX.Element => {
             />
           </Button>
 
-          <img
-            className="w-[723px] h-[482px] top-[381px] left-[589px] absolute object-cover"
-            alt="Image"
-            src="/figmaAssets/image-10.png"
-          />
+            <img
+              className="w-full max-w-[723px] h-auto mx-auto mt-12 object-cover"
+              alt="Image"
+              src="/figmaAssets/image-10.png"
+            />
 
-          <div className="absolute top-[917px] left-[717px] [font-family:'Inter',Helvetica] font-semibold text-black text-xl text-center tracking-[0] leading-[normal] whitespace-nowrap">
-            It takes just a few steps to make your family happy
+            <div className="[font-family:'Inter',Helvetica] font-semibold text-black text-xl text-center tracking-[0] leading-[normal] whitespace-nowrap mt-12 mb-8">
+              It takes just a few steps to make your family happy
+            </div>
           </div>
         </section>
 
