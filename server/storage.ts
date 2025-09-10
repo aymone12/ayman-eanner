@@ -27,7 +27,7 @@ export class MemoryStorage implements IStorage {
   }
 
   async getUserByEmail(email: string): Promise<IUser | null> {
-    for (const [_, user] of this.users.entries()) {
+    for (const user of Array.from(this.users.values())) {
       if (user.email === email.toLowerCase()) {
         return user;
       }
