@@ -34,6 +34,13 @@ export async function setupVite(app: Express, server: Server) {
       middlewareMode: true,
       hmr: { server },
       host: "0.0.0.0",
+      allowedHosts: [
+        "0eba1035-5b7d-4b7b-94fa-3611e17b3540-00-22x6qhqee6rcu.picard.replit.dev",
+        ".replit.dev",
+        ".picard.replit.dev",
+        "localhost",
+        "127.0.0.1"
+      ],
     },
     appType: "custom",
   });

@@ -31,8 +31,14 @@ export default defineConfig({
   server: {
     host: "0.0.0.0",
     port: 5000,
-    strictPort: true,
-    allowedHosts: true,
+    strictPort: false,
+    allowedHosts: [
+      "0eba1035-5b7d-4b7b-94fa-3611e17b3540-00-22x6qhqee6rcu.picard.replit.dev",
+      ".replit.dev",
+      ".picard.replit.dev",
+      "localhost",
+      "127.0.0.1"
+    ],
     hmr: {
       port: 5000,
       host: "0.0.0.0",
