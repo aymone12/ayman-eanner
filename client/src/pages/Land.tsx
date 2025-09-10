@@ -1436,18 +1436,20 @@ export const Land = (): JSX.Element => {
           </div>
         </section>
 
-        <div className="absolute top-[3439px] left-[853px] [font-family:'Inter',Helvetica] font-semibold text-white text-xl text-center tracking-[0] leading-[normal] whitespace-nowrap">
-          How Do I Get Started?
+        <div className="absolute top-[3439px] w-full text-center px-4">
+          <div className="[font-family:'Inter',Helvetica] font-semibold text-white text-xl text-center tracking-[0] leading-[normal] whitespace-nowrap mb-4">
+            How Do I Get Started?
+          </div>
+
+          <div className="[font-family:'Inter',Helvetica] font-bold text-transparent text-[28px] text-center tracking-[0] leading-[normal] max-w-4xl mx-auto">
+            <span className="text-white">Explore </span>
+            <span className="text-[#69818d]">eaneer</span>
+            <span className="text-[#69818d]"> energetics</span>
+            <span className="text-white">: Solar Energy installations</span>
+          </div>
         </div>
 
-        <div className="absolute top-[3484px] left-[599px] [font-family:'Inter',Helvetica] font-bold text-transparent text-[28px] text-center tracking-[0] leading-[normal]">
-          <span className="text-white">Explore </span>
-          <span className="text-[#69818d]">eaneer</span>
-          <span className="text-[#69818d]"> energetics</span>
-          <span className="text-white">: Solar Energy installations</span>
-        </div>
-
-        <section className="absolute w-[918px] h-[247px] top-[3608px] left-[502px]">
+        <section className="absolute w-full max-w-6xl top-[3608px] left-1/2 transform -translate-x-1/2 px-4 h-auto">
           <div className="flex gap-[17px]">
             {processSteps.map((step, index) => (
               <Card
@@ -1467,27 +1469,31 @@ export const Land = (): JSX.Element => {
           </div>
         </section>
 
-        <Button className="top-[3944px] left-[815px] absolute w-[327px] h-[61px] rounded-[30px] border-2 border-solid border-white bg-transparent hover:bg-white/10 h-auto flex items-center justify-between px-[18px]">
-          <span className="[font-family:'Inter',Helvetica] font-bold text-white text-xl tracking-[0] leading-[normal] whitespace-nowrap">
-            Ready To Save Energy?
-          </span>
-          <img
-            className="w-[43px] h-[43px]"
-            alt="Component"
-            src="/figmaAssets/component-1.svg"
-          />
-        </Button>
+        <div className="absolute top-[3944px] w-full text-center">
+          <Button className="w-[327px] h-[61px] mx-auto rounded-[30px] border-2 border-solid border-white bg-transparent hover:bg-white/10 h-auto flex items-center justify-between px-[18px]">
+            <span className="[font-family:'Inter',Helvetica] font-bold text-white text-xl tracking-[0] leading-[normal] whitespace-nowrap">
+              Ready To Save Energy?
+            </span>
+            <img
+              className="w-[43px] h-[43px]"
+              alt="Component"
+              src="/figmaAssets/component-1.svg"
+            />
+          </Button>
+        </div>
 
-        <Button className="top-[5097px] left-[796px] absolute w-[327px] h-[61px] rounded-[30px] border-2 border-solid border-white bg-transparent hover:bg-white/10 h-auto flex items-center justify-between px-[18px]">
-          <span className="[font-family:'Inter',Helvetica] font-bold text-white text-xl tracking-[0] leading-[normal] whitespace-nowrap">
-            Ready To Save Energy?
-          </span>
-          <img
-            className="w-[43px] h-[43px]"
-            alt="Component"
-            src="/figmaAssets/component-1.svg"
-          />
-        </Button>
+        <div className="absolute top-[5097px] w-full text-center">
+          <Button className="w-[327px] h-[61px] mx-auto rounded-[30px] border-2 border-solid border-white bg-transparent hover:bg-white/10 h-auto flex items-center justify-between px-[18px]">
+            <span className="[font-family:'Inter',Helvetica] font-bold text-white text-xl tracking-[0] leading-[normal] whitespace-nowrap">
+              Ready To Save Energy?
+            </span>
+            <img
+              className="w-[43px] h-[43px]"
+              alt="Component"
+              src="/figmaAssets/component-1.svg"
+            />
+          </Button>
+        </div>
 
 
         <img
@@ -1496,7 +1502,7 @@ export const Land = (): JSX.Element => {
           src="/figmaAssets/image-13.png"
         />
 
-        <div className="absolute w-[1040px] top-[4358px] left-[440px] [font-family:'Inter',Helvetica] font-semibold text-transparent text-[51px] text-justify tracking-[0] leading-[normal]">
+        <div className="absolute w-full max-w-5xl top-[4358px] left-1/2 transform -translate-x-1/2 px-4 [font-family:'Inter',Helvetica] font-semibold text-transparent text-[51px] text-justify tracking-[0] leading-[normal]"
           <span className="text-white">With </span>
           <span className="text-[#69818d]">eaneer energetics</span>
           <span className="text-white">
@@ -1507,11 +1513,11 @@ export const Land = (): JSX.Element => {
           </span>
         </div>
 
-        <div className="absolute top-[4872px] left-[440px] bg-[linear-gradient(90deg,rgba(255,255,255,1)_0%,rgba(44,74,82,1)_50%,rgba(255,255,255,1)_75%,rgba(105,129,141,1)_100%)] [-webkit-background-clip:text] bg-clip-text [-webkit-text-fill-color:transparent] [text-fill-color:transparent] [font-family:'Inter',Helvetica] font-semibold text-transparent text-5xl tracking-[0] leading-[normal]">
+        <div className="absolute top-[4872px] w-full text-center px-4 bg-[linear-gradient(90deg,rgba(255,255,255,1)_0%,rgba(44,74,82,1)_50%,rgba(255,255,255,1)_75%,rgba(105,129,141,1)_100%)] [-webkit-background-clip:text] bg-clip-text [-webkit-text-fill-color:transparent] [text-fill-color:transparent] [font-family:'Inter',Helvetica] font-semibold text-transparent text-5xl tracking-[0] leading-[normal]">
           Together, We Rise Under One Sun.
         </div>
 
-        <div className="w-[1280px] h-[309px] top-[5362px] left-80 absolute">
+        <div className="w-full max-w-7xl h-auto top-[5362px] left-1/2 transform -translate-x-1/2 absolute px-4">
           <div className="min-h-full flex justify-center items-center p-5 bg-[#06141b]" style={{ backgroundColor: '#06141b' }}>
             <div 
               className="bg-white rounded-3xl max-w-6xl w-full flex justify-between items-center shadow-sm"
