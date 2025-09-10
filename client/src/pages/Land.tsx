@@ -1502,7 +1502,7 @@ export const Land = (): JSX.Element => {
           src="/figmaAssets/image-13.png"
         />
 
-        <div className="absolute w-full max-w-5xl top-[4358px] left-1/2 transform -translate-x-1/2 px-4 [font-family:'Inter',Helvetica] font-semibold text-transparent text-[51px] text-justify tracking-[0] leading-[normal]"
+        <div className="absolute w-full max-w-5xl top-[4358px] left-1/2 transform -translate-x-1/2 px-4 [font-family:'Inter',Helvetica] font-semibold text-transparent text-[51px] text-justify tracking-[0] leading-[normal]">
           <span className="text-white">With </span>
           <span className="text-[#69818d]">eaneer energetics</span>
           <span className="text-white">
