@@ -1120,9 +1120,9 @@ export const Land = (): JSX.Element => {
       {/* Desktop Layout - Hidden on mobile */}
       <div className="hidden md:block desktop-container">
         <div className="desktop-inner">
-          <header className="w-[1920px] h-[86px] top-0 left-0 absolute z-10">
+          <header className="w-full h-[86px] top-0 left-0 absolute z-10">
           <div className="w-full h-full bg-[#06141b] shadow-[0px_0px_25px_#07151c]">
-            <div className="w-full h-full flex items-center px-16">
+            <div className="w-full h-full flex items-center px-4 sm:px-8 lg:px-16 xl:px-20 2xl:px-24">
             <div className="flex items-center justify-between w-full">
               {/* Logo */}
               <div className="flex items-center">
@@ -1201,35 +1201,39 @@ export const Land = (): JSX.Element => {
           </div>
         </header>
 
-        <section className="absolute w-[882px] h-[129px] top-[168px] left-[522px]">
-          <div className="absolute top-0 left-[287px] [font-family:'Source_Code_Pro',Helvetica] font-semibold text-white text-lg tracking-[0] leading-[normal]">
-            <span className="[font-family:'Source_Code_Pro',Helvetica] font-semibold text-white text-lg tracking-[0]">
-              eaneer
-            </span>
-            <span className="[font-family:'Source_Code_Pro',Helvetica] font-semibold text-white text-lg tracking-[0]">
-              {" "}
-              energetics summer 20%
-            </span>
-          </div>
-          <div className="absolute top-12 left-[167px] [font-family:'Inter',Helvetica] font-semibold text-white text-[28px] tracking-[0] leading-[normal]">
-            Start Saving Up to 80% /mo On average
-          </div>
-          <div className="absolute top-[107px] left-0 [font-family:'Inter',Helvetica] font-medium text-white text-lg tracking-[0] leading-[normal]">
-            Enter Your Solar Installation Details And Average Electricity Bill
-            To Get A Quote And View Your savings
+        <section className="absolute w-full h-auto top-[168px] left-0 px-4 lg:px-8 xl:px-16">
+          <div className="text-center space-y-6 max-w-4xl mx-auto">
+            <div className="[font-family:'Source_Code_Pro',Helvetica] font-semibold text-white text-lg tracking-[0] leading-[normal]">
+              <span className="[font-family:'Source_Code_Pro',Helvetica] font-semibold text-white text-lg tracking-[0]">
+                eaneer
+              </span>
+              <span className="[font-family:'Source_Code_Pro',Helvetica] font-semibold text-white text-lg tracking-[0]">
+                {" "}
+                energetics summer 20%
+              </span>
+            </div>
+            <div className="[font-family:'Inter',Helvetica] font-semibold text-white text-[28px] tracking-[0] leading-[normal]">
+              Start Saving Up to 80% /mo On average
+            </div>
+            <div className="[font-family:'Inter',Helvetica] font-medium text-white text-lg tracking-[0] leading-[normal]">
+              Enter Your Solar Installation Details And Average Electricity Bill
+              To Get A Quote And View Your savings
+            </div>
           </div>
         </section>
 
-        <Button className="top-[351px] left-[797px] absolute w-[327px] h-[61px] rounded-[30px] border-2 border-solid border-white bg-transparent hover:bg-white/10 h-auto flex items-center justify-between px-[18px]">
-          <span className="[font-family:'Inter',Helvetica] font-bold text-white text-xl tracking-[0] leading-[normal] whitespace-nowrap">
-            Ready To Save Energy?
-          </span>
-          <img
-            className="w-[43px] h-[43px]"
-            alt="Component"
-            src="/figmaAssets/component-1.svg"
-          />
-        </Button>
+        <div className="absolute top-[351px] left-1/2 transform -translate-x-1/2 w-auto">
+          <Button className="w-[327px] h-[61px] rounded-[30px] border-2 border-solid border-white bg-transparent hover:bg-white/10 h-auto flex items-center justify-between px-[18px]">
+            <span className="[font-family:'Inter',Helvetica] font-bold text-white text-xl tracking-[0] leading-[normal] whitespace-nowrap">
+              Ready To Save Energy?
+            </span>
+            <img
+              className="w-[43px] h-[43px]"
+              alt="Component"
+              src="/figmaAssets/component-1.svg"
+            />
+          </Button>
+        </div>
 
         <section className="absolute w-[1361px] h-[527px] top-[461px] left-[217px]">
           <div className="absolute w-[1251px] h-[527px] top-0 left-[110px]">
@@ -1375,7 +1379,7 @@ export const Land = (): JSX.Element => {
           src="/figmaAssets/image-13.png"
         />
 
-        <section className="absolute w-[1918px] h-[922px] top-[1185px] left-px bg-[url(/figmaAssets/image-8-bit-style.png)] bg-[100%_100%]">
+        <section className="absolute w-full h-auto min-h-[600px] top-[1185px] left-0 bg-[url(/figmaAssets/image-8-bit-style.png)] bg-cover bg-center">
           <div className="relative w-[738px] h-[249px] top-[336px] left-[592px]">
             <div className="absolute w-[734px] top-[85px] left-0 [font-family:'Inter',Helvetica] font-medium text-white text-xl text-center tracking-[0] leading-[normal]">
               Whether your goal is to reduce your electric bill or eliminate it
@@ -1399,7 +1403,7 @@ export const Land = (): JSX.Element => {
           </div>
         </section>
 
-        <section className="absolute w-[1919px] h-[986px] top-[2191px] left-0 bg-[#f8f8f8]">
+        <section className="absolute w-full h-auto min-h-[600px] top-[2191px] left-0 bg-[#f8f8f8]">
           <div className="absolute top-[117px] left-[738px] [font-family:'Inter',Helvetica] font-bold text-black text-[28px] text-center tracking-[0] leading-[normal]">
             Take Control of Your Energy Bills
           </div>
@@ -1574,7 +1578,7 @@ export const Land = (): JSX.Element => {
           src="/figmaAssets/image-13.png"
         />
 
-        <footer className="w-[1920px] h-[329px] top-[5997px] left-0 absolute bg-[#06141b] border-t border-[#2c4a52]">
+        <footer className="w-full h-auto min-h-[329px] top-[5997px] left-0 absolute bg-[#06141b] border-t border-[#2c4a52]">
           <div className="max-w-7xl mx-auto px-5 py-5">
             <div className="flex justify-between items-start">
               {/* Left section - Logo and Description */}

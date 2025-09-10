@@ -212,31 +212,22 @@
     --landing-scale: 1.00;
   }
 
-  /* Desktop container - Fluid width, centered content */
+  /* Desktop container - Full width, fluid responsive */
   .desktop-container {
-    width: 100%;
-    min-height: 100dvh;
+    width: 100vw;
+    min-height: 100vh;
     background: #06141b;
-    display: flex;
-    justify-content: center;
+    display: block;
     overflow-x: hidden;
+    overflow-y: auto;
   }
 
-  /* Desktop inner wrapper - max 1920px, fluid below */
+  /* Desktop inner wrapper - Full width responsive */
   .desktop-inner {
     width: 100%;
-    max-width: 1920px;
-    min-height: 100%;
+    min-height: 100vh;
     position: relative;
     background: #06141b;
-    margin: 0 auto;
-  }
-
-  /* Optional: prevent horizontal scroll on large screens */
-  @media screen and (min-width: 1900px) {
-    .desktop-container {
-      overflow-x: hidden;
-    }
   }
 
   /* Mobile breakpoint - hide desktop layout */
@@ -253,38 +244,20 @@
     }
   }
 
-  /* Centered responsive scaling wrapper for the React app */
-  #root { min-height: 100vh; }
+  /* Full responsive layout for React app */
+  #root { 
+    min-height: 100vh; 
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Responsive wrapper - no scaling, just fluid */
   .scale-desktop-auto {
     position: relative;
-    margin: 0 auto;            /* center horizontally */
-    transform-origin: top center;
-    width: 100%;               /* default full width */
-    min-height: 100vh;         /* ensure background coverage */
-  }
-
-  /* ≥1600px: native size */
-  @media (min-width: 1600px) {
-    .scale-desktop-auto { transform: none; width: 100%; min-height: 100vh; }
-  }
-
-  /* 1440–1599px: 90% */
-  @media (min-width: 1440px) and (max-width: 1599.98px) {
-    .scale-desktop-auto { transform: scale(0.9); width: calc(100% / 0.9); min-height: calc(100vh / 0.9); }
-  }
-
-  /* 1280–1439px: 80% */
-  @media (min-width: 1280px) and (max-width: 1439.98px) {
-    .scale-desktop-auto { transform: scale(0.8); width: calc(100% / 0.8); min-height: calc(100vh / 0.8); }
-  }
-
-  /* 1024–1279px: 72% */
-  @media (min-width: 1024px) and (max-width: 1279.98px) {
-    .scale-desktop-auto { transform: scale(0.72); width: calc(100% / 0.72); min-height: calc(100vh / 0.72); }
-  }
-
-  /* 900–1023px: 67% */
-  @media (min-width: 900px) and (max-width: 1023.98px) {
-    .scale-desktop-auto { transform: scale(0.67); width: calc(100% / 0.67); min-height: calc(100vh / 0.67); }
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
   }
 }
