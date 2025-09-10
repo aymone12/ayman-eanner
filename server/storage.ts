@@ -27,7 +27,7 @@ export class MemoryStorage implements IStorage {
   }
 
   async getUserByEmail(email: string): Promise<IUser | null> {
-    for (const user of this.users.values()) {
+    for (const [_, user] of this.users.entries()) {
       if (user.email === email.toLowerCase()) {
         return user;
       }
@@ -49,13 +49,11 @@ export class MemoryStorage implements IStorage {
     const id = this.userIdCounter.toString();
     this.userIdCounter++;
     
-    const user: IUser = {
+    const user: Partial<IUser> = {
       _id: id,
       email: userData.email.toLowerCase(),
       firstName: userData.firstName,
-      lastName: userData.lastName || '',
       password: hashedPassword,
-      profileImageUrl: userData.profileImageUrl || '',
       company: userData.company || '',
       role: userData.role || '',
       division: userData.division || '',
@@ -64,9 +62,9 @@ export class MemoryStorage implements IStorage {
       language: userData.language || '',
       createdAt: new Date(),
       updatedAt: new Date(),
-    } as IUser;
+    };
     
-    this.users.set(id, user);
+    this.users.set(id, user as IUser);
     
     // Return user without password
     const { password, ...userWithoutPassword } = user;
@@ -89,7 +87,7 @@ export class MemoryStorage implements IStorage {
       ...user,
       ...userData,
       updatedAt: new Date(),
-    };
+    } as IUser;
 
     this.users.set(id, updatedUser);
 

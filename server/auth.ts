@@ -1,11 +1,9 @@
 import type { Express, RequestHandler } from "express";
 import session from "express-session";
 import { storage } from "./storage";
-import { connectToMongoDB } from "./mongodb";
 
 export async function setupSession(app: Express) {
-  // Connect to MongoDB before setting up sessions
-  await connectToMongoDB();
+  // Using memory storage for development - no database connection needed
   
   app.set("trust proxy", 1);
   
