@@ -1120,26 +1120,25 @@ export const Land = (): JSX.Element => {
       {/* Desktop Layout - Hidden on mobile */}
       <div className="hidden md:block desktop-container">
         <div className="desktop-inner">
-          <header className="w-full h-[86px] top-0 left-0 absolute z-10">
-          <div className="w-full h-full bg-[#06141b] shadow-[0px_0px_25px_#07151c]">
+          <header className="w-full h-[86px] relative z-10 bg-[#06141b] shadow-[0px_0px_25px_#07151c]">
             <div className="w-full h-full flex items-center px-4 sm:px-8 lg:px-16 xl:px-20 2xl:px-24">
-            <div className="flex items-center justify-between w-full">
-              {/* Logo */}
-              <div className="flex items-center">
-                <img 
-                  src="/logo.png" 
-                  alt="eaneer logo" 
-                  className="w-12 h-12 ml-[-3px] mr-[-3px]"
-                />
-                <div>
-                  <h1 className="font-bold text-white text-[35px] pt-[0px] pb-[0px] mt-[-12px] mb-[-12px] ml-[-5px] mr-[-5px] pl-[1px] pr-[1px]">
-                    eaneer
-                  </h1>
-                  <div className="text-[6px] text-gray-400 mt-[-2px]">
-                    "Elevating A New Energy Era Responsibly"
+              <div className="flex items-center justify-between w-full">
+                {/* Logo */}
+                <div className="flex items-center">
+                  <img 
+                    src="/logo.png" 
+                    alt="eaneer logo" 
+                    className="w-12 h-12 ml-[-3px] mr-[-3px]"
+                  />
+                  <div>
+                    <h1 className="font-bold text-white text-[35px] pt-[0px] pb-[0px] mt-[-12px] mb-[-12px] ml-[-5px] mr-[-5px] pl-[1px] pr-[1px]">
+                      eaneer
+                    </h1>
+                    <div className="text-[6px] text-gray-400 mt-[-2px]">
+                      "Elevating A New Energy Era Responsibly"
+                    </div>
                   </div>
                 </div>
-              </div>
 
               {/* Center Navigation */}
               <nav className="hidden md:flex items-center space-x-8">
@@ -1179,29 +1178,29 @@ export const Land = (): JSX.Element => {
                 </svg>
               </button>
 
-              {/* Right side - Login and Get started */}
-              <div className="hidden md:flex items-center space-x-4">
-                <button 
-                  onClick={() => setLocation("/auth?mode=login")}
-                  className="text-white text-sm font-bold hover:text-gray-300 transition-colors duration-200"
-                  data-testid="button-header-login"
-                >
-                  Login
-                </button>
-                <button 
-                  onClick={() => setLocation("/auth?mode=signup")}
-                  className="px-4 py-2 text-sm font-bold rounded-md transition-all duration-200 hover:opacity-90 bg-white text-black"
-                  data-testid="button-header-get-started"
-                >
-                  Get started
-                </button>
+                {/* Right side - Login and Get started */}
+                <div className="hidden md:flex items-center space-x-4">
+                  <button 
+                    onClick={() => setLocation("/auth?mode=login")}
+                    className="text-white text-sm font-bold hover:text-gray-300 transition-colors duration-200"
+                    data-testid="button-header-login"
+                  >
+                    Login
+                  </button>
+                  <button 
+                    onClick={() => setLocation("/auth?mode=signup")}
+                    className="px-4 py-2 text-sm font-bold rounded-md transition-all duration-200 hover:opacity-90 bg-white text-black"
+                    data-testid="button-header-get-started"
+                  >
+                    Get started
+                  </button>
+                </div>
               </div>
             </div>
-            </div>
-          </div>
-        </header>
+          </header>
 
-        <section className="absolute w-full h-auto top-[168px] left-0 px-4 lg:px-8 xl:px-16">
+        {/* Hero Section */}
+        <section className="w-full py-16 px-4 lg:px-8 xl:px-16">
           <div className="text-center space-y-6 max-w-4xl mx-auto">
             <div className="[font-family:'Source_Code_Pro',Helvetica] font-semibold text-white text-lg tracking-[0] leading-[normal]">
               <span className="[font-family:'Source_Code_Pro',Helvetica] font-semibold text-white text-lg tracking-[0]">
@@ -1219,21 +1218,22 @@ export const Land = (): JSX.Element => {
               Enter Your Solar Installation Details And Average Electricity Bill
               To Get A Quote And View Your savings
             </div>
+            
+            {/* CTA Button */}
+            <div className="pt-6">
+              <Button className="w-[327px] h-[61px] rounded-[30px] border-2 border-solid border-white bg-transparent hover:bg-white/10 h-auto flex items-center justify-between px-[18px]">
+                <span className="[font-family:'Inter',Helvetica] font-bold text-white text-xl tracking-[0] leading-[normal] whitespace-nowrap">
+                  Ready To Save Energy?
+                </span>
+                <img
+                  className="w-[43px] h-[43px]"
+                  alt="Component"
+                  src="/figmaAssets/component-1.svg"
+                />
+              </Button>
+            </div>
           </div>
         </section>
-
-        <div className="absolute top-[351px] left-1/2 transform -translate-x-1/2 w-auto">
-          <Button className="w-[327px] h-[61px] rounded-[30px] border-2 border-solid border-white bg-transparent hover:bg-white/10 h-auto flex items-center justify-between px-[18px]">
-            <span className="[font-family:'Inter',Helvetica] font-bold text-white text-xl tracking-[0] leading-[normal] whitespace-nowrap">
-              Ready To Save Energy?
-            </span>
-            <img
-              className="w-[43px] h-[43px]"
-              alt="Component"
-              src="/figmaAssets/component-1.svg"
-            />
-          </Button>
-        </div>
 
         <section className="absolute w-full max-w-7xl h-auto top-[461px] left-1/2 transform -translate-x-1/2 px-4">
           <div className="relative w-full h-auto flex justify-center">
