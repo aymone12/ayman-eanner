@@ -1235,39 +1235,42 @@ export const Land = (): JSX.Element => {
           </div>
         </section>
 
-        {/* Calculator Section */}
-        <section className="w-full py-8 px-4">
+        {/* Calculator Section - Matching Reference Design */}
+        <section className="w-full py-16 px-4">
           <div className="max-w-7xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-8 items-start">
-              <Card className="w-full bg-[#06141b] rounded-[20px] shadow-[0px_0px_20px_5px_#2c4a52] border-0">
-                <CardContent className="p-8 space-y-6">
-                  <div className="space-y-6">
+            <div className="grid lg:grid-cols-2 gap-16 items-start">
+              {/* Left side - Calculator Form */}
+              <div className="w-full">
+                <Card className="w-full bg-[#0a1b23] rounded-[20px] shadow-[0px_0px_20px_5px_#2c4a52] border-0 p-8">
+                  <CardContent className="p-0 space-y-8">
+                    {/* Grid Type Section */}
                     <div>
-                      <h3 className="[font-family:'Rubik',Helvetica] font-semibold text-white text-xl tracking-[0] leading-[normal] mb-4">
+                      <h3 className="[font-family:'Rubik',Helvetica] font-semibold text-white text-xl tracking-[0] leading-[normal] mb-6">
                         Grid Type
                       </h3>
                       <RadioGroup
                         value={selectedGridType}
                         onValueChange={setSelectedGridType}
-                        className="grid grid-cols-1 md:grid-cols-2 gap-4"
+                        className="grid grid-cols-2 gap-4"
                       >
-                        {gridTypeOptions.map((option, index) => (
+                        {gridTypeOptions.map((option) => (
                           <div
                             key={option.id}
                             className="w-full"
                           >
                             <div
-                              className={`w-full h-[123px] rounded-[15px] border-2 ${
+                              className={`w-full h-[120px] rounded-[15px] border-2 ${
                                 selectedGridType === option.id
-                                  ? "border-white bg-[#0a1b23]"
-                                  : "border-gray-600 bg-[#0a1b23]"
-                              } p-4`}
+                                  ? "border-white bg-[#132e35]"
+                                  : "border-gray-600 bg-[#132e35]"
+                              } p-4 cursor-pointer hover:border-gray-400 transition-colors`}
+                              onClick={() => setSelectedGridType(option.id)}
                             >
                               <div className="flex items-start gap-3 h-full">
                                 <RadioGroupItem
                                   value={option.id}
                                   id={option.id}
-                                  className="mt-1 h-[18px] w-[18px] rounded-[9.1px] border-white data-[state=checked]:bg-[#d9d9d9] data-[state=checked]:border-white"
+                                  className="mt-1 h-[18px] w-[18px] rounded-full border-white data-[state=checked]:bg-white data-[state=checked]:border-white flex-shrink-0"
                                 />
                                 <div className="flex-1">
                                   <Label
@@ -1276,7 +1279,7 @@ export const Land = (): JSX.Element => {
                                   >
                                     {option.label}
                                   </Label>
-                                  <div className="[font-family:'Inter',Helvetica] font-normal text-white text-base tracking-[0] leading-[normal]">
+                                  <div className="[font-family:'Inter',Helvetica] font-normal text-gray-300 text-sm tracking-[0] leading-[normal]">
                                     {option.description}
                                   </div>
                                 </div>
@@ -1287,132 +1290,96 @@ export const Land = (): JSX.Element => {
                       </RadioGroup>
                     </div>
 
+                    {/* Installation Type Section */}
                     <div>
-                      <h3 className="[font-family:'Rubik',Helvetica] font-semibold text-white text-xl tracking-[0] leading-[normal] mb-4">
+                      <h3 className="[font-family:'Rubik',Helvetica] font-semibold text-white text-xl tracking-[0] leading-[normal] mb-6">
                         Installation Type
                       </h3>
-                      <div className="space-y-4">
-                        <RadioGroup
-                          value={selectedInstallationType}
-                          onValueChange={setSelectedInstallationType}
-                          className="absolute w-[529px] h-[122px] top-[182px] left-0 flex flex-row gap-[13px]"
-                        >
-                          {installationTypeOptions.map((option, index) => (
+                      <RadioGroup
+                        value={selectedInstallationType}
+                        onValueChange={setSelectedInstallationType}
+                        className="grid grid-cols-3 gap-3"
+                      >
+                        {installationTypeOptions.map((option) => (
+                          <div
+                            key={option.id}
+                            className="w-full"
+                          >
                             <div
-                              key={option.id}
-                              className="w-[168px] h-[122px]"
+                              className={`w-full h-[120px] rounded-[15px] border-2 ${
+                                selectedInstallationType === option.id
+                                  ? "border-white bg-[#132e35]"
+                                  : "border-gray-600 bg-[#132e35]"
+                              } p-4 cursor-pointer hover:border-gray-400 transition-colors`}
+                              onClick={() => setSelectedInstallationType(option.id)}
                             >
-                              <div
-                                className={`w-[169px] h-[123px] rounded-[15px] border-2 ${
-                                  selectedInstallationType === option.id
-                                    ? "border-white bg-[#0a1b23]"
-                                    : "border-gray-600 bg-[#0a1b23]"
-                                }`}
-                              >
-                                <div className="relative w-[137px] h-[82px] top-[17px] left-[13px]">
-                                  <div className="top-[3px] left-0 absolute w-[18px] h-[18px]">
-                                    <RadioGroupItem
-                                      value={option.id}
-                                      id={option.id}
-                                      className="relative h-[18px] w-[18px] rounded-[9.1px] border-white data-[state=checked]:bg-[#d9d9d9] data-[state=checked]:border-white"
-                                    />
-                                  </div>
-                                  <Label
-                                    htmlFor={option.id}
-                                    className="absolute w-[66px] top-0 left-7 [font-family:'Inter',Helvetica] font-bold text-white text-lg tracking-[0] leading-[normal] cursor-pointer"
-                                  >
-                                    {option.label}
-                                  </Label>
-                                  <div className="absolute w-[110px] top-[33px] left-[23px] [font-family:'Inter',Helvetica] font-normal text-white text-[15px] tracking-[0] leading-[normal]">
-                                    {option.description}
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          ))}
-                        </RadioGroup>
-
-                        <RadioGroup
-                          value={selectedGridType}
-                          onValueChange={setSelectedGridType}
-                          className="absolute w-[528px] h-[122px] top-0 left-0 flex flex-row gap-2"
-                        >
-                          {gridTypeOptions.map((option, index) => (
-                            <div
-                              key={option.id}
-                              className="w-[262px] h-[122px]"
-                            >
-                              <div
-                                className={`relative w-[259px] h-[123px] rounded-[15px] border-2 ${
-                                  selectedGridType === option.id
-                                    ? "border-white bg-[#0a1b23]"
-                                    : "border-gray-600 bg-[#0a1b23]"
-                                }`}
-                              >
-                                <div className="top-5 left-[19px] absolute w-[18px] h-[18px]">
+                              <div className="flex flex-col items-start gap-2 h-full">
+                                <div className="flex items-center gap-2">
                                   <RadioGroupItem
                                     value={option.id}
                                     id={option.id}
-                                    className="relative h-[18px] w-[18px] rounded-[9.1px] border-white data-[state=checked]:bg-[#d9d9d9] data-[state=checked]:border-white"
+                                    className="h-[18px] w-[18px] rounded-full border-white data-[state=checked]:bg-white data-[state=checked]:border-white"
                                   />
+                                  <Label
+                                    htmlFor={option.id}
+                                    className="[font-family:'Inter',Helvetica] font-bold text-white text-lg tracking-[0] leading-[normal] cursor-pointer"
+                                  >
+                                    {option.label}
+                                  </Label>
                                 </div>
-                                <Label
-                                  htmlFor={option.id}
-                                  className="absolute w-[150px] top-[17px] left-[47px] [font-family:'Inter',Helvetica] font-bold text-white text-lg tracking-[0] leading-[normal] cursor-pointer whitespace-nowrap"
-                                >
-                                  {option.label}
-                                </Label>
-                                <div className="absolute w-[184px] top-[48px] left-[46px] [font-family:'Inter',Helvetica] font-normal text-white text-base tracking-[0] leading-[normal]">
+                                <div className="[font-family:'Inter',Helvetica] font-normal text-gray-300 text-sm tracking-[0] leading-[normal] flex-1">
                                   {option.description}
                                 </div>
                               </div>
                             </div>
-                          ))}
-                        </RadioGroup>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-
-                <div className="absolute w-[532px] h-[78px] top-[380px] left-9">
-                  <div className="absolute w-[530px] h-[43px] top-[35px] left-0">
-                    <div className="absolute w-[253px] h-[42px] top-0 left-0">
-                      <Input
-                        className="relative w-[249px] h-[42px] rounded-[10px] border border-solid border-white bg-transparent text-white placeholder:text-[#ffffff40]"
-                        placeholder="0.00"
-                        value={electricBill}
-                        onChange={(e) => setElectricBill(e.target.value)}
-                        type="number"
-                      />
-                      <div className="absolute w-[23px] top-2.5 left-[205px] [font-family:'Rubik',Helvetica] font-light text-white text-base tracking-[0] leading-[normal] pointer-events-none">
-                        Dh
-                      </div>
+                          </div>
+                        ))}
+                      </RadioGroup>
                     </div>
 
-                    <Button 
-                      className="absolute w-[251px] h-[42px] top-px left-[281px] bg-white rounded-[10px] border border-solid hover:bg-white/90 h-auto flex items-center justify-center"
-                      onClick={handleCalculate}
-                    >
-                      <span className="[font-family:'Rubik',Helvetica] font-semibold text-black text-lg tracking-[0] leading-[normal] whitespace-nowrap">
-                        Calculate
-                      </span>
-                    </Button>
-                  </div>
+                    {/* Electric Bill Section */}
+                    <div>
+                      <h3 className="[font-family:'Rubik',Helvetica] font-semibold text-white text-xl tracking-[0] leading-[normal] mb-6">
+                        Electric Bill
+                      </h3>
+                      <div className="grid grid-cols-2 gap-4">
+                        <div className="relative">
+                          <Input
+                            className="w-full h-[50px] rounded-[10px] border border-solid border-white bg-transparent text-white placeholder:text-[#ffffff40] pr-12"
+                            placeholder="0.00"
+                            value={electricBill}
+                            onChange={(e) => setElectricBill(e.target.value)}
+                            type="number"
+                            data-testid="input-electric-bill"
+                          />
+                          <div className="absolute top-1/2 right-4 transform -translate-y-1/2 [font-family:'Rubik',Helvetica] font-light text-white text-base tracking-[0] leading-[normal] pointer-events-none">
+                            Dh
+                          </div>
+                        </div>
+                        <Button 
+                          className="w-full h-[50px] bg-white rounded-[10px] border border-solid hover:bg-white/90 transition-colors"
+                          onClick={handleCalculate}
+                          data-testid="button-calculate"
+                        >
+                          <span className="[font-family:'Rubik',Helvetica] font-semibold text-black text-lg tracking-[0] leading-[normal]">
+                            Calculate
+                          </span>
+                        </Button>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
 
-                  <div className="absolute w-[147px] top-0 left-0 [font-family:'Rubik',Helvetica] font-semibold text-white text-xl tracking-[0] leading-[normal]">
-                    Electric Bill
-                  </div>
-                </div>
-              </Card>
+              {/* Right side - 3D House Image */}
+              <div className="w-full flex justify-center">
+                <img
+                  className="w-full max-w-[600px] h-auto object-contain"
+                  alt="3D Solar House Model"
+                  src="/figmaAssets/1-1--1.png"
+                />
+              </div>
             </div>
-          </div>
-
-          <div className="relative mt-8 ml-4">
-            <img
-              className="w-full max-w-[792px] h-auto object-cover"
-              alt="Element"
-              src="/figmaAssets/1-1--1.png"
-            />
           </div>
         </section>
 
