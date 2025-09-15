@@ -1235,22 +1235,63 @@ export const Land = (): JSX.Element => {
           </div>
         </section>
 
-        <section className="absolute w-full max-w-7xl h-auto top-[461px] left-1/2 transform -translate-x-1/2 px-4">
-          <div className="relative w-full h-auto flex justify-center">
-            <div className="relative w-full max-w-6xl h-auto bg-[#06141b] shadow-[0px_0px_25px_#2c4a52] rounded-lg">
-              <Card className="relative w-full max-w-[582px] h-auto ml-auto mt-8 mb-8 mr-8 bg-[#06141b] rounded-[20px] shadow-[0px_0px_20px_5px_#2c4a52] border-0">
-                <CardContent className="absolute w-[529px] h-[339px] top-[17px] left-9 p-0">
-                  <div className="relative w-[535px] h-[339px]">
-                    <div className="absolute w-[125px] top-0 left-0 [font-family:'Rubik',Helvetica] font-semibold text-white text-xl tracking-[0] leading-[normal] whitespace-nowrap">
-                      Grid Type
+        {/* Calculator Section */}
+        <section className="w-full py-8 px-4">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-8 items-start">
+              <Card className="w-full bg-[#06141b] rounded-[20px] shadow-[0px_0px_20px_5px_#2c4a52] border-0">
+                <CardContent className="p-8 space-y-6">
+                  <div className="space-y-6">
+                    <div>
+                      <h3 className="[font-family:'Rubik',Helvetica] font-semibold text-white text-xl tracking-[0] leading-[normal] mb-4">
+                        Grid Type
+                      </h3>
+                      <RadioGroup
+                        value={selectedGridType}
+                        onValueChange={setSelectedGridType}
+                        className="grid grid-cols-1 md:grid-cols-2 gap-4"
+                      >
+                        {gridTypeOptions.map((option, index) => (
+                          <div
+                            key={option.id}
+                            className="w-full"
+                          >
+                            <div
+                              className={`w-full h-[123px] rounded-[15px] border-2 ${
+                                selectedGridType === option.id
+                                  ? "border-white bg-[#0a1b23]"
+                                  : "border-gray-600 bg-[#0a1b23]"
+                              } p-4`}
+                            >
+                              <div className="flex items-start gap-3 h-full">
+                                <RadioGroupItem
+                                  value={option.id}
+                                  id={option.id}
+                                  className="mt-1 h-[18px] w-[18px] rounded-[9.1px] border-white data-[state=checked]:bg-[#d9d9d9] data-[state=checked]:border-white"
+                                />
+                                <div className="flex-1">
+                                  <Label
+                                    htmlFor={option.id}
+                                    className="[font-family:'Inter',Helvetica] font-bold text-white text-lg tracking-[0] leading-[normal] cursor-pointer block mb-2"
+                                  >
+                                    {option.label}
+                                  </Label>
+                                  <div className="[font-family:'Inter',Helvetica] font-normal text-white text-base tracking-[0] leading-[normal]">
+                                    {option.description}
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </RadioGroup>
                     </div>
 
-                    <div className="absolute w-[529px] h-[304px] top-9 left-0">
-                      <div className="absolute w-[207px] top-[147px] left-0 [font-family:'Rubik',Helvetica] font-semibold text-white text-xl tracking-[0] leading-[normal] whitespace-nowrap">
+                    <div>
+                      <h3 className="[font-family:'Rubik',Helvetica] font-semibold text-white text-xl tracking-[0] leading-[normal] mb-4">
                         Installation Type
-                      </div>
-
-                      <div className="absolute w-[529px] h-[304px] top-0 left-0">
+                      </h3>
+                      <div className="space-y-4">
                         <RadioGroup
                           value={selectedInstallationType}
                           onValueChange={setSelectedInstallationType}
@@ -1366,11 +1407,13 @@ export const Land = (): JSX.Element => {
             </div>
           </div>
 
-          <img
-            className="absolute w-full max-w-[792px] h-auto top-12 left-4 object-cover"
-            alt="Element"
-            src="/figmaAssets/1-1--1.png"
-          />
+          <div className="relative mt-8 ml-4">
+            <img
+              className="w-full max-w-[792px] h-auto object-cover"
+              alt="Element"
+              src="/figmaAssets/1-1--1.png"
+            />
+          </div>
         </section>
 
         <img
